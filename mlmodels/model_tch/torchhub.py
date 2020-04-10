@@ -7,6 +7,12 @@ https://colab.research.google.com/github/pytorch/pytorch.github.io/blob/master/a
 https://github.com/pytorch/pytorch/blob/98362d11ffe81ca48748f6b0e1e417cb81ba5998/torch/hub.py#L330
 
 
+        the following models only: alexnet, densenet121, densenet169, densenet201,\
+        densenet161, inception_v3, resnet18, resnet34, resnet50, resnet101, resnet152,\
+        resnext50_32x4d, resnext101_32x8d, wide_resnet50_2, wide_resnet101_2, squeezenet1_0,\
+        squeezenet1_1, vgg11, vgg13, vgg16, vgg19, vgg11_bn, vgg13_bn, vgg16_bn, vgg19_bn,\
+        googlenet, shufflenet_v2_x0_5, shufflenet_v2_x1_0, mobilenet_v2"
+
 
 
 """
@@ -21,6 +27,7 @@ from torchvision import datasets, transforms
 from torch import hub 
 
 # import mlmodels.models as M
+
 
 from mlmodels.util import os_package_root_path, log, path_norm, get_model_uri, path_norm_dict
 MODEL_URI = get_model_uri(__file__)
@@ -156,6 +163,7 @@ def get_params(param_pars=None, **kw):
     choice      = pp['choice']
     config_mode = pp['config_mode']
     data_path   = pp['data_path']
+
     if choice == "json":
         data_path = path_norm(data_path)
         cf = json.load(open(data_path, mode='r'))
@@ -169,8 +177,6 @@ def get_params(param_pars=None, **kw):
 
     else:
         raise Exception(f"Not support choice {choice} yet")
-
-
 
 
 
@@ -235,27 +241,45 @@ def fit(model, data_pars=None, compute_pars=None, out_pars=None, **kwargs):
     return model, None
 
 
-def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=None):
+def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=None, imax = 1, return_ytrue=1):
     # get a batch of data
-    model0 = model.model
-    _, valid_iter = get_dataset(data_pars=data_pars)
+    import numpy as np
+    from metrics import metrics_eval
     device = _get_device()
-    x_test = next(iter(valid_iter))[0].to(device)
-    ypred  = model0(x_test).detach().cpu().numpy()
-    return ypred
+    model = model.model
+    _, test_iter = get_dataset(data_pars=data_pars)
+
+    # test_iter = get_dataset(data_pars, out_pars)
+    y_pred = []
+    y_true = []
+    for i,batch in enumerate(test_iter):
+        if i >= imax: break
+        image, target = batch[0], batch[1]
+        image = image.to(device)
+        logit = model(image)
+        predictions = torch.max(logit,1)[1].cpu().numpy()
+        y_pred.append(predictions)
+        y_true.append(target)
+    y_pred = np.vstack(y_pred)[0]
+    y_true = np.vstack(y_true)[0]
+
+    if return_ytrue:
+        return y_pred, y_true
+    else:
+        return y_pred
 
 def fit_metrics(model, data_pars=None, compute_pars=None, out_pars=None):
     pass
 
 
-def save(model, session, save_pars):
+def save(model, session=None, save_pars=None):
     from mlmodels.util import save_tch
-    save_tch(model, save_pars)
+    save_tch(model=model, save_pars=save_pars)
 
 
 def load(load_pars):
     from mlmodels.util import load_tch
-    load_tch(model, load_pars)
+    return load_tch(load_pars)
 
 
 
@@ -292,11 +316,10 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
 
 
     log("#### Save/Load   ###################################################")
-    save_pars = { "path": out_pars +"/model/"  }
-    save(model, session, save_pars)
+    save_pars = { "path": out_pars["path"]  }
+    save(model=model, save_pars=save_pars)
     model2 = load( save_pars )
-    #     ypred = predict(model2, data_pars, compute_pars, out_pars)
-    #     metrics_val = metrics(model2, ypred, data_pars, compute_pars, out_pars)
+    ypred = predict(model2, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
     print(model2)
 
 

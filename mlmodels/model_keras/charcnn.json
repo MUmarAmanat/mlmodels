@@ -28,7 +28,7 @@
       "batch_size": 128
     },
     "out_pars": {
-      "path": "ztest/ml_keras/charcnn/",
+      "path": "ztest/ml_keras/charcnn/charcnn.h5",
       "data_type": "pandas",
       "size": [0, 0, 6],
       "output_size": [0, 6]

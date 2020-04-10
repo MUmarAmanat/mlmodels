@@ -1,37 +1,4 @@
-
-
-###### Using Generic API : Common to all models
-```python
-
-from mlmodels.models import module_load, create_model, fit, predict, stats
-from mlmodels.models import load #Load model weights
-
-module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  model_create(module, model_pars, data_pars, compute_pars)     # Create Model instance
-model, sess   =  fit(model, data_pars, compute_pars, out_pars)                 # fit the model
-metrics_val   =  fit_metrics( model, sess, data_pars, compute_pars, out_pars)  # get stats
-
-save(save_pars)
-
-
-
-#### Inference
-load_pars = { "path" : "ztest_1lstm/model/" }
-
-module      = module_load( model_uri= model_uri )     # Load file definition
-model,sess  = load(folder, model_type="model_tf")      # Create Model instance
-ypred       = predict(model, module, sess,  data_pars, compute_pars, out_pars)     
-
-
-
-
-
-
-
-```
-
-
-## CLI tools: package provide below tools 
+# CLI tools: package provide below tools 
 ```bash
 - ml_models
 - ml_optim    
@@ -41,7 +8,7 @@ ypred       = predict(model, module, sess,  data_pars, compute_pars, out_pars)
 ```
 
 
-### How to use tools
+### How to use Command Line
 ```bash
 ml_models --do  
     model_list  :  list all models in the repo                            
@@ -114,10 +81,45 @@ ml_test
 ```
 
 
-#### Distributed training on Pytorch Horovod
+# Distributed training on Pytorch Horovod
 ```
 #### Distributed Pytorch on CPU (using Horovod and MPI on Linux, 4 processes)  in model_tch/mlp.py
     mlmodels/distri_torch_mpirun.sh   4    model_tch.mlp    mymodel.json
 
 
 ```
+
+
+
+
+# Using Generic API : Common to all models
+```python
+
+from mlmodels.models import module_load, create_model, fit, predict, stats
+from mlmodels.models import load #Load model weights
+
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+model         =  model_create(module, model_pars, data_pars, compute_pars)     # Create Model instance
+model, sess   =  fit(model, data_pars, compute_pars, out_pars)                 # fit the model
+metrics_val   =  fit_metrics( model, sess, data_pars, compute_pars, out_pars)  # get stats
+
+save(save_pars)
+
+
+
+#### Inference
+load_pars = { "path" : "ztest_1lstm/model/" }
+
+module      = module_load( model_uri= model_uri )     # Load file definition
+model,sess  = load(folder, model_type="model_tf")      # Create Model instance
+ypred       = predict(model, module, sess,  data_pars, compute_pars, out_pars)     
+
+
+
+
+
+
+
+```
+
+

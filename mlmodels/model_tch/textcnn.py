@@ -1,14 +1,25 @@
-import torch
-import torch.optim as optim
-import torch.nn as nn
-import torch.nn.functional as F
+# coding: utf-8
+"""
+https://github.com/leohsuofnthu/Pytorch-TextCNN/blob/master/textCNN_IMDB.ipynb
 
-import mlmodels.models as M
 
+
+"""
+
+import os
+import json
+import shutil
+from pathlib import Path
+from time import sleep
 import re
 
 import pandas as pd
 from numpy.random import RandomState
+
+import torch
+import torch.optim as optim
+import torch.nn as nn
+import torch.nn.functional as F
 
 import torchtext
 from torchtext.data import Field
@@ -18,14 +29,14 @@ from torchtext.data import Iterator, BucketIterator
 import torchtext.datasets
 
 import spacy
-import os
-import json
-import shutil
-from pathlib import Path
-from time import sleep
 
 
-from mlmodels.util import os_package_root_path, log, path_norm, get_model_uri
+####################################################################################################
+import mlmodels.models as M
+
+from mlmodels.util import  os_package_root_path, log, path_norm, get_model_uri
+
+VERBOSE = False
 MODEL_URI = get_model_uri(__file__)
 
 
@@ -84,6 +95,8 @@ def _valid(m, device, test_itr):
 def _get_device():
     # use GPU if it is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # return device
+    return "cpu"
 
 
 def get_config_file():
@@ -177,23 +190,12 @@ def create_tabular_dataset(path_train, path_valid,
     return tabular_train, tabular_valid, TEXT.vocab
 
 
-def create_data_iterator(tr_batch_size, val_batch_size, tabular_train,
-                         tabular_valid, d):
+def create_data_iterator(tr_batch_size, val_batch_size, tabular_train, tabular_valid, d):
     # Create the Iterator for datasets (Iterator works like dataloader)
 
-    train_iter = Iterator(
-        tabular_train,
-        batch_size=tr_batch_size,
-        device=d,
-        sort_within_batch=False,
-        repeat=False)
+    train_iter = Iterator(tabular_train, batch_size=tr_batch_size, device=d, sort_within_batch=False, repeat=False)
+    valid_iter = Iterator(tabular_valid, batch_size=val_batch_size, device=d, sort_within_batch=False, repeat=False) 
 
-    valid_iter = Iterator(
-        tabular_valid,
-        batch_size=val_batch_size,
-        device=d,
-        sort_within_batch=False,
-        repeat=False)
     return train_iter, valid_iter
 
 
@@ -202,13 +204,17 @@ def create_data_iterator(tr_batch_size, val_batch_size, tabular_train,
 ###########################################################################################################
 class TextCNN(nn.Module):
 
-    def __init__(self, model_pars=None, **kwargs):
+    def __init__(self, model_pars=None, data_pars=None, compute_pars=None, **kwargs):
         print(model_pars)
         kernel_wins = [int(x) for x in model_pars["kernel_height"]]
         super(TextCNN, self).__init__()
+        
         # load pretrained embedding in embedding layer.
-        emb_dim = 300
-        self.embed = nn.Embedding(20000, emb_dim)
+        emb_dim  = model_pars.get("emb_dim", 300) 
+        self.emb_size = model_pars.get("emb_size", 20000)
+
+        # emb_dim = 300
+        #self.embed = nn.Embedding(20000, emb_dim)
         # self.embed.weight.data.copy_(vocab_built.vectors)
 
         # Convolutional Layers with different window size kernels
@@ -220,12 +226,13 @@ class TextCNN(nn.Module):
 
         # FC layer
         self.fc = nn.Linear(
-            len(kernel_wins) * model_pars["dim_channel"],
-            model_pars["num_class"])
+            len(kernel_wins) * model_pars["dim_channel"], model_pars["num_class"])
+
 
     def rebuild_embed(self, vocab_built):
         self.embed = nn.Embedding(*vocab_built.vectors.shape)
         self.embed.weight.data.copy_(vocab_built.vectors)
+
 
     def forward(self, x):
         emb_x = self.embed(x)
@@ -243,11 +250,117 @@ class TextCNN(nn.Module):
         logit = self.fc(fc_x)
         return logit
 
-Model = TextCNN
- 
-#############
-# functions #
-#############
+
+
+#Model = TextCNN
+class Model:
+    def __init__(self, model_pars=None, data_pars=None, compute_pars=None ):
+        ### Model Structure        ################################
+        if model_pars is None :
+            self.model = None
+            return None
+
+        self.model = TextCNN(model_pars, data_pars, compute_pars, )
+
+
+
+def fit_metrics(model, session=None, data_pars=None, compute_pars=None, out_pars=None, **kwargs):
+    # return metrics on full dataset
+    device = _get_device()
+    data_pars = data_pars.copy()
+    data_pars.update(frac=1)
+    test_iter, _, vocab = get_dataset(data_pars, out_pars)
+    model.model.rebuild_embed(vocab)
+
+    return _valid(model.model, device, test_iter)
+
+
+
+def fit(model, sess=None, data_pars=None, compute_pars=None, out_pars=None, **kwargs):
+
+    model0        = model.model
+    lr            = compute_pars['learning_rate']
+    epochs        = compute_pars["epochs"]
+    device        = _get_device()
+    train_loss    = []
+    train_acc     = []
+    test_loss     = []
+    test_acc      = []
+    best_test_acc = -1
+    optimizer     = optim.Adam(model0.parameters(), lr=lr)
+    train_iter, valid_iter, vocab = get_dataset(data_pars, out_pars)
+    # load word embeddings to model
+    model0.rebuild_embed(vocab)
+
+    for epoch in range(1, epochs + 1):
+
+        tr_loss, tr_acc = _train(model0, device, train_iter, optimizer, epoch, epochs)
+        print( f'Train Epoch: {epoch} \t Loss: {tr_loss} \t Accuracy: {tr_acc}')
+
+        ts_loss, ts_acc = _valid(model0, device, valid_iter)
+        print( f'Train Epoch: {epoch} \t Loss: {ts_loss} \t Accuracy: {ts_acc}')
+
+
+        if ts_acc > best_test_acc:
+            best_test_acc = ts_acc
+            #save paras(snapshot)
+            log( f"model saves at {best_test_acc}% accuracy")
+            os.makedirs(out_pars["checkpointdir"], exist_ok=True)
+            torch.save(model0.state_dict(),  os.path.join(out_pars["checkpointdir"], "best_accuracy"))
+
+
+        train_loss.append(tr_loss)
+        train_acc.append(tr_acc)
+        test_loss.append(ts_loss)
+        test_acc.append(ts_acc)
+
+    model.model = model0    
+    return model, None
+
+
+
+def get_dataset(data_pars=None, out_pars=None, **kwargs):
+    device         = _get_device()
+    path           = path_norm( data_pars['data_path'])
+    frac           = data_pars['frac']
+    lang           = data_pars['lang']
+    pretrained_emb = data_pars['pretrained_emb']
+    train_exists   = os.path.isfile(data_pars['train_path'])
+    valid_exists   = os.path.isfile(data_pars['valid_path'])
+
+    if not (train_exists and valid_exists) or data_pars['split_if_exists']:
+        split_train_valid( path, data_pars['train_path'], data_pars['valid_path'], frac )
+
+    trainset, validset, vocab = create_tabular_dataset( data_pars['train_path'], data_pars['valid_path'], lang, pretrained_emb)
+    train_iter, valid_iter = create_data_iterator( data_pars['batch_size'], data_pars['val_batch_size'],
+        trainset, validset, device
+    )
+    return train_iter, valid_iter, vocab
+
+
+
+def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=None):
+    data_pars = data_pars.copy()
+    data_pars.update(frac=1)
+    print(data_pars)
+    test_iter, _, vocab = get_dataset(data_pars, out_pars)
+    # get a batch of data
+    x_test = next(iter(test_iter)).text
+    model0 = model.model
+    ypred = model0(x_test).detach().numpy()
+    return ypred
+
+
+def save(model, session=None, save_pars=None):
+    from mlmodels.util import save_tch
+    save_tch(model, save_pars= save_pars )
+    # return torch.save(model, path)
+
+
+def load(load_pars= None ):
+    from mlmodels.util import load_tch
+    return load_tch(load_pars), None
+    # return torch.load(path)
 
 
 
@@ -273,33 +386,26 @@ def get_params(param_pars=None, **kw):
         model_path = os.path.join(out_path , "model")
 
         data_pars= {
-			"data_path": "dataset/recommender/IMDB_sample.txt",
+            "data_path":   path_norm("dataset/recommender/IMDB_sample.txt"),
+            "train_path":  path_norm("dataset/recommender/IMDB_train.csv"),
+            "valid_path":  path_norm("dataset/recommender/IMDB_valid.csv"),
+
+ 
             "split_if_exists": True,
-			"frac": 0.9,
+            "frac": 0.99,
             "lang": "en",
             "pretrained_emb": "glove.6B.300d",
             "batch_size": 64,
-            "val_batch_size": 64
-		}
-
-
-        model_pars= {
-            "dim_channel": 100,
-            "kernel_height": [3,4,5],
-            "dropout_rate": 0.5,
-            "num_class": 2
-		}
-
-
-        compute_pars= {
-            "learning_rate": 0.001,
-            "epochs": 1,
-            "checkpointdir": out_path + "/checkpoint/"
+            "val_batch_size": 64,
         }
 
+
+        model_pars= {"dim_channel": 100, "kernel_height": [3,4,5], "dropout_rate": 0.5, "num_class": 2 }
+
+        compute_pars= {"learning_rate": 0.001, "epochs": 1, "checkpointdir": out_path + "/checkpoint/"}
+
         out_pars= {
-            "train_path":  path_norm("dataset/recommender/IMDB_train.csv"),
-            "valid_path": path_norm("dataset/recommender/IMDB_valid.csv"),
+            "path" : model_path,
             "checkpointdir": out_path + "/checkpoint/"
         }
 
@@ -307,129 +413,59 @@ def get_params(param_pars=None, **kw):
 
 
 
-def metric(model, data_pars=None, out_pars=None, **kwargs):
-    # return metrics on full dataset
-    device = _get_device()
-    data_pars = data_pars.copy()
-    data_pars.update(frac=1)
-    test_iter, _, vocab = get_dataset(data_pars, out_pars)
-    model.rebuild_embed(vocab)
-    return _valid(model, device, test_iter)
 
 
-
-def fit(model, sess=None, data_pars=None, compute_pars=None,
-        out_pars=None, **kwargs):
-    lr = compute_pars['learning_rate']
-    epochs = compute_pars["epochs"]
-    device = _get_device()
-    train_loss = []
-    train_acc = []
-    test_loss = []
-    test_acc = []
-    best_test_acc = -1
-    optimizer = optim.Adam(model.parameters(), lr=lr)
-    train_iter, valid_iter, vocab = get_dataset(data_pars, out_pars)
-    # load word embeddings to model
-    model.rebuild_embed(vocab)
-    for epoch in range(1, epochs + 1):
-        #train loss
-        tr_loss, tr_acc = _train(model, device, train_iter, optimizer, epoch, epochs)
-        print('Train Epoch: {} \t Loss: {} \t Accuracy: {}%'.format(epoch, tr_loss, tr_acc))
-
-        ts_loss, ts_acc = _valid(model, device, valid_iter)
-        print('Valid Epoch: {} \t Loss: {} \t Accuracy: {}%'.format(epoch, ts_loss, ts_acc))
-
-        if ts_acc > best_test_acc:
-            best_test_acc = ts_acc
-            #save paras(snapshot)
-            print("model saves at {}% accuracy".format(best_test_acc))
-
-            os.makedirs(out_pars["checkpointdir"], exist_ok=True)
-            torch.save(model.state_dict(),
-                       os.path.join(out_pars["checkpointdir"],
-                                    "best_accuracy"))
-
-        train_loss.append(tr_loss)
-        train_acc.append(tr_acc)
-        test_loss.append(ts_loss)
-        test_acc.append(ts_acc)
-    return model, None
-
-
-
-def get_dataset(data_pars=None, out_pars=None, **kwargs):
-    device = _get_device()
-    path = path_norm( data_pars['data_path'])
-
-    frac = data_pars['frac']
-    lang = data_pars['lang']
-    pretrained_emb = data_pars['pretrained_emb']
-    train_exists = os.path.isfile(out_pars['train_path'])
-    valid_exists = os.path.isfile(out_pars['valid_path'])
-    if not (train_exists and valid_exists) or data_pars['split_if_exists']:
-        split_train_valid(
-            path, out_pars['train_path'], out_pars['valid_path'], frac
-        )
-    trainset, validset, vocab = create_tabular_dataset(
-        out_pars['train_path'], out_pars['valid_path'], lang, pretrained_emb)
-    train_iter, valid_iter = create_data_iterator(
-        data_pars['batch_size'], data_pars['val_batch_size'],
-        trainset, validset, device
-    )
-    return train_iter, valid_iter, vocab
-
-
-
-def predict(model, data_pars=None, compute_pars=None, out_pars=None):
-    data_pars = data_pars.copy()
-    data_pars.update(frac=1)
-    print(data_pars)
-    test_iter, _, vocab = get_dataset(data_pars, out_pars)
-    # get a batch of data
-    x_test = next(iter(test_iter)).text
-    return model(x_test).detach().numpy()
-
-
-def save(model, path):
-    return torch.save(model, path)
-
-def load(path):
-    return torch.load(path)
 
 
 ###########################################################################################################
 ###########################################################################################################
-def test():
-    print("\n####### Getting params... ####################\n")
-    param_pars = { "choice" : "test01", "data_path" : "model_tch/textcnn.json", "config_mode" : "test" }
-    model_pars, data_pars, compute_pars, out_pars = get_params( param_pars )
-    
+def test(data_path="dataset/", pars_choice="json", config_mode="test"):
+    ### Local test
+    from mlmodels.util import path_norm
+    data_path = path_norm(data_path)
 
-    print("\n####### Creating model... ####################\n")
-    module, model = M.module_load_full(
-        "model_tch.textcnn.py", model_pars=model_pars, data_pars=data_pars,
-        compute_pars=compute_pars, out_pars=out_pars)
-    
+    log("#### Loading params   ##############################################")
+    param_pars = {"choice": pars_choice, "data_path": data_path, "config_mode": config_mode}
+    model_pars, data_pars, compute_pars, out_pars = get_params(param_pars)
+    print(out_pars)
+ 
 
-    print("\n####### Fitting model... ####################\n")
-    M.fit(module, model, None, data_pars, compute_pars, out_pars)
-    
+    log("#### Loading dataset   #############################################")
+    Xtuple = get_dataset(data_pars)
+    print(len(Xtuple))
 
-    print("\n####### Computing model metrics... ##########")
-    test_loss, accuracy = metric(model, data_pars, out_pars)
-    
-    print(f"\nTest loss: {test_loss}, accuracy: {accuracy}")
-    
 
-    print("\n####### Test predict... #####################")
-    print(predict(model, data_pars, compute_pars, out_pars))
+    log("#### Model init, fit   #############################################")
+    session = None
+    model   = Model(model_pars, data_pars, compute_pars)
+    model, session = fit(model, session, data_pars, compute_pars, out_pars)
+
+
+
+    log("#### Save/Load   ###################################################")
+    save_pars = {"path": out_pars['path'] + "/model.pkl"}
+    save(model, session, save_pars=save_pars)
+    model2, session2 = load(save_pars)
+    ypred = predict(model2, session2, data_pars, compute_pars, out_pars)
+
+
+
+    log("#### Predict   #####################################################")
+    data_pars["train"] = 0
+    ypred = predict(model, session, data_pars, compute_pars, out_pars)
+
+
+    log("#### metrics   #####################################################")
+    metrics_val = fit_metrics(model, session, data_pars, compute_pars, out_pars)
+    print(metrics_val)
+
+    log("#### Plot   ########################################################")
 
 
 
 
 if __name__ == '__main__':
-    test()
+    test( data_path="model_tch/textcnn.json", pars_choice = "test01" )
 
 
 

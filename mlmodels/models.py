@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Lightweight Functional interface to wrap access to Deep Learning, RLearning models.
-Logic follows Scikit Learn API and simple for easy extentions logic.
-Goal to facilitate Jupyter to Prod. models.
-
-
 Models are stored in model_XX/  or in folder XXXXX
     module :  folder/mymodel.py, contains the methods, operations.
     model  :  Class in mymodel.py containing the model definition, compilation
@@ -20,31 +15,7 @@ models.py   #### Generic Interface
    load(load_pars)
  
 
-
-
- 
-
-######### Code sample  #############################################################################
-https://github.com/arita37/mlmodels/blob/dev/README_model_list.md
-
-
-
 ######### Command line sample  #####################################################################
-#### generate config file
-python mlmodels/models.py  --do generate_config  --model_uri model_tf.1_lstm.py  --save_folder "c:\myconfig\" 
-
-#### Cusomt Directory Models
-python mlmodels/models.py --do test  --model_uri "D:\_devs\Python01\gitdev\mlmodels\mlmodels\model_tf\1_lstm.py"
-
-
-### RL model
-python  models.py  --model_uri model_tf.rl.4_policygradient  --do test
-
-### TF DNN model
-python  models.py  --model_uri model_tf.1_lstm.py  --do test
-
-## PyTorch models
-python  models.py  --model_uri model_tch.mlp.py  --do test
 
 
 """
@@ -69,7 +40,7 @@ simplefilter(action='ignore', category=DeprecationWarning)
 
 
 ####################################################################################################
-def module_env_build(model_uri="", verbose=0, env_build=0):
+def module_env_build(model_uri="", verbose=0, do_env_build=0):
     """
       Load the file which contains the model description
       model_uri:  model_tf.1_lstm.py  or ABSOLUTE PATH
@@ -81,7 +52,7 @@ def module_env_build(model_uri="", verbose=0, env_build=0):
         print(model_uri)
 
     #### Dynamic ENV Build based on requirements.txt
-    if env_build:
+    if do_env_build:
         env_pars = {"python_version": '3.6.5'}
         env_build(model_uri, env_pars)
 
@@ -151,8 +122,8 @@ def fit(module, model, sess=None, data_pars=None, compute_pars=None, out_pars=No
     :type model: object
     """
 
-    #module, model = module_load_full(model_uri, model_pars, data_pars, compute_pars)
-    #sess=None
+    # module, model = module_load_full(model_uri, model_pars, data_pars, compute_pars)
+    # sess=None
     return module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars, **kwarg)
 
 
@@ -241,40 +212,35 @@ def test_api(model_uri="model_xxxx/yyyy.py", param_pars=None):
     from mlmodels.models import predict as predict_global
     from mlmodels.models import save as save_global, load as load_global
 
-
     log("#### Module init   ############################################")
     from mlmodels.models import module_load
     module = module_load(model_uri)
     log(module)
 
-
     log("#### Loading params   ##############################################")
     model_pars, data_pars, compute_pars, out_pars = get_params(module, param_pars)
 
-
     log("#### Model init   ############################################")
     session = None
-    from mlmodels.models import model_create
-    model = model_create(module, model_pars, data_pars, compute_pars)
+    # model_sklearn change model_pars => could not init model in sequence or need get_params before
+    # from mlmodels.models import model_create
+    # model = model_create(module, model_pars, data_pars, compute_pars)
 
     module, model = module_load_full(model_uri, model_pars, data_pars, compute_pars)
 
-
     log("############ Model fit   ##########################################")
-    model, sess = fit_global(module, model, sess=None, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+    model, sess = fit_global(module, model, sess=None, data_pars=data_pars, compute_pars=compute_pars,
+                             out_pars=out_pars)
     print("fit success", sess)
-
 
     log("############ Prediction############################################")
     ### Load model, and predict 
-    preds = predict_global(module, model, session, data_pars=data_pars,  compute_pars=compute_pars, out_pars=out_pars)
+    preds = predict_global(module, model, session, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
     print(preds)
-
 
     log("############ Save/ Load ############################################")
     # save_global( save_pars, model, sess)
     # load_global(save_pars)
-
 
 
 def test_module(model_uri="model_xxxx/yyyy.py", param_pars=None):
@@ -286,9 +252,8 @@ def test_module(model_uri="model_xxxx/yyyy.py", param_pars=None):
     log(module)
 
     log("#### Loading params   ##############################################")
-    #param_pars = {"choice":pars_choice,  "data_path":data_path,  "config_mode": config_mode}
+    # param_pars = {"choice":pars_choice,  "data_path":data_path,  "config_mode": config_mode}
     model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars)
-
 
     log("#### Model init   ############################################")
     model = module.Model(model_pars, data_pars, compute_pars)
@@ -309,12 +274,11 @@ def test_module(model_uri="model_xxxx/yyyy.py", param_pars=None):
     # load_pars = {}
     # module.save( save_pars,  model, sess)
 
-    log("#### Load   ########################################################")    
+    log("#### Load   ########################################################")
     # model2, sess2 = module.load(load_pars)
     #     ypred = predict(model2, data_pars, compute_pars, out_pars)
     #     metrics_val = metrics(model2, ypred, data_pars, compute_pars, out_pars)
     # print(model2)
-
 
 
 ####################################################################################################
@@ -363,13 +327,12 @@ def config_generate_json(modelname, to_path="ztest/new_model/"):
     print(fname)
 
 
-
 def os_folder_copy(src, dst):
     """Copy a directory structure overwriting existing files"""
     import shutil
     for root, dirs, files in os.walk(src):
         if not os.path.isdir(root):
-            os.makedirs(root)
+            os.makedirs(root, exist_ok=True)
 
         for file in files:
             rel_path = root.replace(src, '').lstrip(os.sep)
@@ -378,11 +341,10 @@ def os_folder_copy(src, dst):
             if not os.path.isdir(dest_path):
                 os.makedirs(dest_path, exist_ok=True)
 
-            try :
-              shutil.copyfile(os.path.join(root, file), os.path.join(dest_path, file))
-            except Exception as e :
+            try:
+                shutil.copyfile(os.path.join(root, file), os.path.join(dest_path, file))
+            except Exception as e:
                 print(e)
-
 
 
 def config_init(to_path="."):
@@ -393,40 +355,30 @@ def config_init(to_path="."):
     import shutil
     os_root = os_package_root_path()
 
-    to_path = os_root + "/ztest/current/"  if to_path == "."  else to_path
+    to_path = os_root + "/ztest/current/" if to_path == "." else to_path
     log("Working Folder", to_path)
     # os.makedirs(to_path, exist_ok=True)
 
     os_folder_copy(os_root + "/template/", to_path + "/template/")
     os_folder_copy(os_root + "/dataset/", to_path + "/dataset/")
     os_folder_copy(os_root + "/example/", to_path + "/example/")
-    
+
     os.makedirs(to_path + "model_trained", exist_ok=True)
     os.makedirs(to_path + "model_code", exist_ok=True)
-     
 
     #### Config files
     path_user = os.path.expanduser('~')
-    path_config =  path_user + "/.mlmodels/config.json"
-    #print("config file", path_config)
+    path_config = path_user + "/.mlmodels/config.json"
+    # print("config file", path_config)
 
-    os.makedirs(path_user + "/.mlmodels/" , exist_ok=True)
-    ddict = { "model_trained" : to_path + "/model_trained/",   
-              "dataset"       : to_path + "/dataset/",     }
+    os.makedirs(path_user + "/.mlmodels/", exist_ok=True)
+    ddict = {"model_trained": to_path + "/model_trained/",
+             "dataset": to_path + "/dataset/", }
     log("Config values", ddict)
-    json.dump( ddict, open(path_config, mode="w") )
-
+    json.dump(ddict, open(path_config, mode="w"))
 
     from mlmodels.util import config_path_pretrained, config_path_dataset
-    log("Config path",  get_pretrained_path() )
-
-
-
-
-
-
-
-
+    log("Config path", get_pretrained_path())
 
 
 def config_model_list(folder=None):
@@ -440,8 +392,6 @@ def config_model_list(folder=None):
         print(mlist[-1])
 
     return mlist
-
-
 
 
 ####################################################################################################
@@ -466,7 +416,6 @@ def cli_load_arguments(config_file=None):
     add("--do", default="test", help="do ")
     add("--folder", default=None, help="folder ")
 
-
     add("--init", default="", help=".")
 
     ##### model pars
@@ -490,26 +439,21 @@ def main():
     arg = cli_load_arguments()
     print(arg.do)
 
-
-    if len(arg.init) > 0 :
-        config_init( to_path=  arg.init )
+    if len(arg.init) > 0:
+        config_init(to_path=arg.init)
         return 0
-
 
     if arg.do == "generate_config":
         log(arg.save_folder)
         config_generate_json(arg.model_uri, to_path=arg.save_folder)
 
-
     ###################################################################
     if arg.do == "model_list":  # list all models in the repo
         l = config_model_list(arg.folder)
 
-
     if arg.do == "testall":
         # test_all() # tot test all te modules inside model_tf
         test_all(folder=None)
-
 
     if arg.do == "test":
         param_pars = {"choice": "test01", "data_path": "", "config_mode": "test"}
@@ -518,7 +462,6 @@ def main():
         test(arg.model_uri)  # '1_lstm'
         # test_api(arg.model_uri)  # '1_lstm'
         test_global(arg.model_uri)  # '1_lstm'
-
 
     if arg.do == "fit":
         model_p, data_p, compute_p, out_p = config_get_pars(arg.config_file, arg.config_mode)
@@ -543,13 +486,5 @@ def main():
         module.predict(model, session, data_pars=data_p, compute_pars=compute_p, out_pars=out_p)
 
 
-
-
-
-
-
 if __name__ == "__main__":
     main()
-
-
-

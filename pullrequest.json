@@ -1,0 +1,7 @@
+{
+  "test_list": [{ "name": "test_list", "args": {} }],
+
+  "model_list": [
+    "benchmark.py"
+  ]
+}

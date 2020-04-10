@@ -28,17 +28,16 @@ from keras.optimizers import Adam
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 
-VERBOSE = False
-MODEL_URI = Path(os.path.abspath(__file__)).parent.name + "." + os.path.basename(__file__).replace(".py", "")
+
+
 
 ####################################################################################################
-######## Logs, root path
-from mlmodels.util import log, path_norm
+from mlmodels.util import  os_package_root_path, log, path_norm, get_model_uri
 
-"""
-def os_package_root_path(filepath, sublevel=0, path_add=""):
+VERBOSE = False
+MODEL_URI = get_model_uri(__file__)
 
-"""
+
 
 
 ####################################################################################################
@@ -169,7 +168,8 @@ class Model:
 
             loss_layer = CustomVariationalLayer()([x, x_decoded_mean])
             self.model = KModel(x, [loss_layer])
-            opt = Adam(lr=0.01)  # SGD(lr=1e-2, decay=1e-6, momentum=0.9, nesterov=True)
+            
+            #opt = Adam(lr=0.01)  # SGD(lr=1e-2, decay=1e-6, momentum=0.9, nesterov=True)
             self.model.compile(optimizer=model_pars['optimizer'], loss=[zero_loss])
             self.model.summary()
 

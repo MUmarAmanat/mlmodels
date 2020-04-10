@@ -211,7 +211,7 @@ def import_data_dask(**kw):
     elif extension in [".pkl"]: 
        df = dd.read_pickle(kw["data_path"])
     elif extension in [".npz"]: 
-       df = dd.read_pickle(m["data_path"])
+       df = dd.read_pickle(kw["data_path"])
     else: raise Exception(f"Not support extension {extension}")
   return df
 

@@ -1,22 +1,11 @@
 # coding: utf-8
 """
-Generic template for new model.
-Check parameters template in models_config.json
-
-"model_pars":   { "learning_rate": 0.001, "num_layers": 1, "size": 6, "size_layer": 128, "output_size": 6, "timestep": 4, "epoch": 2 },
-"data_pars":    { "data_path": "dataset/GOOG-year.csv", "data_type": "pandas", "size": [0, 0, 6], "output_size": [0, 6] },
-"compute_pars": { "distributed": "mpi", "epoch": 10 },
-"out_pars":     { "out_path": "dataset/", "data_type": "pandas", "size": [0, 0, 6], "output_size": [0, 6] }
-
 
 
 """
 import os
+import numpy as np
 from keras.callbacks import EarlyStopping
-from mlmodels.util import os_package_root_path, log, path_norm
-
-
-
 
 
 #### Import EXISTING model and re-map to mlmodels
@@ -24,16 +13,15 @@ from mlmodels.model_keras.raw.char_cnn.data_utils import Data
 from mlmodels.model_keras.raw.char_cnn.models.char_cnn_kim import CharCNNKim
 
 
-from mlmodels.util import path_norm
-print( path_norm("dataset") )
 
 
 ####################################################################################################
+from mlmodels.util import os_package_root_path, log, path_norm, get_model_uri
 
 VERBOSE = False
+MODEL_URI = get_model_uri(__file__)
+# print( path_norm("dataset") )
 
-MODEL_URI = os.path.dirname(os.path.abspath(__file__)).split("\\")[-1] + "." + os.path.basename(__file__).replace(".py",
-                                                                                                                  "")
 
 
 ####################################################################################################
@@ -43,9 +31,9 @@ class Model:
         ### Model Structure        ################################
         if model_pars is None :
             self.model = None
+            return None
 
-        else :
-            self.model = CharCNNKim(input_size=data_pars["input_size"],
+        self.model = CharCNNKim(input_size=data_pars["input_size"],
                                 alphabet_size          = data_pars["alphabet_size"],
                                 embedding_size         = model_pars["embedding_size"],
                                 conv_layers            = model_pars["conv_layers"],
@@ -54,6 +42,8 @@ class Model:
                                 dropout_p              = model_pars["dropout_p"],
                                 optimizer              = model_pars["optimizer"],
                                 loss                   = model_pars["loss"]).model
+
+
 
 
 def fit(model, data_pars=None, compute_pars=None, out_pars=None, **kw):
@@ -80,12 +70,22 @@ def fit_metrics(model, data_pars=None, compute_pars=None, out_pars=None, **kw):
     """
        Return metrics ofw the model when fitted.
     """
+    from sklearn.metrics import accuracy_score
+    _,Xval,_, yval = get_dataset(data_pars)
+    ypred = model.model.predict(Xval)
+    metric_score_name = compute_pars.get('metric_score') 
+    if metric_score_name is None :
+        return {}
     ddict = {}
-
+    if metric_score_name == "accuracy_score":
+        ypred = ypred.argmax(axis=1)
+        yval = np.argmax(yval, axis=1)
+        score = accuracy_score(yval, ypred)
+        ddict[metric_score_name] = score
     return ddict
 
 
-def predict(model, sess=None, data_pars=None, out_pars=None, compute_pars=None, **kw):
+def predict(model, session=None, data_pars=None, out_pars=None, compute_pars=None, **kw):
     ##### Get Data ###############################################
     data_pars['train'] = False
     Xpred, ypred = get_dataset(data_pars)
@@ -104,19 +104,18 @@ def reset_model():
     pass
 
 
-def save(model=None, session=None, save_pars={}):
+def save(model=None,  save_pars=None, session=None):
     from mlmodels.util import save_keras
     print(save_pars)
     save_keras(model, session, save_pars=save_pars)
 
 
-def load(load_pars={}):
+def load(load_pars=None):
     from mlmodels.util import load_keras
-    print(load_pars)
     model0 = load_keras(load_pars)
 
     model = Model()
-    model.model = model0
+    model.model = model0.model
     session = None
     return model, session
 
@@ -137,17 +136,19 @@ def get_dataset(data_pars=None, **kw):
                              alphabet       = data_pars["alphabet"],
                              input_size     = data_pars["input_size"],
                              num_of_classes = data_pars["num_of_classes"])
-        train_data.load_data()
-        train_inputs, train_labels = train_data.get_all_data()
+        if data_pars['type'] == "npz":
+            train_inputs,train_labels, val_inputs, val_labels = train_data.get_all_data_npz()
+        else: 
+            train_data.load_data()
+            train_inputs, train_labels = train_data.get_all_data()
 
-
-        # Load val data
-        val_data = Data(data_source = path_norm( data_pars["val_data_source"]) ,
-                               alphabet=data_pars["alphabet"],
-                               input_size=data_pars["input_size"],
-                               num_of_classes=data_pars["num_of_classes"])
-        val_data.load_data()
-        val_inputs, val_labels = val_data.get_all_data()
+            # Load val data
+            val_data = Data(data_source = path_norm( data_pars["val_data_source"]) ,
+                                   alphabet=data_pars["alphabet"],
+                                   input_size=data_pars["input_size"],
+                                   num_of_classes=data_pars["num_of_classes"])
+            val_data.load_data()
+            val_inputs, val_labels = val_data.get_all_data()
 
         return train_inputs, val_inputs, train_labels, val_labels
 
@@ -217,15 +218,8 @@ def get_params(param_pars={}, **kw):
         out_pars = {
             "path":  path_norm( "ztest/ml_keras/charcnn/charcnn.h5"),
             "data_type": "pandas",
-            "size": [
-                0,
-                0,
-                6
-            ],
-            "output_size": [
-                0,
-                6
-            ]
+            "size": [0, 0, 6],
+            "output_size": [0, 6]
         }
 
         return model_pars, data_pars, compute_pars, out_pars
@@ -235,7 +229,7 @@ def get_params(param_pars={}, **kw):
 
 
 ################################################################################################
-########## Tests are  ##########################################################################
+########## Tests ###############################################################################
 def test(data_path="dataset/", pars_choice="json", config_mode="test"):
     ### Local test
     from mlmodels.util import path_norm
@@ -245,8 +239,9 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
     param_pars = {"choice": pars_choice, "data_path": data_path, "config_mode": config_mode}
     model_pars, data_pars, compute_pars, out_pars = get_params(param_pars)
 
-    log("#### Loading daaset   #############################################")
+    log("#### Loading dataset   #############################################")
     Xtuple = get_dataset(data_pars)
+    print(len(Xtuple))
 
     log("#### Model init, fit   #############################################")
     session = None
@@ -259,31 +254,35 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
     ypred = predict(model, session, data_pars, compute_pars, out_pars)
 
     log("#### metrics   #####################################################")
-    metrics_val = fit_metrics(model, data_pars, compute_pars, out_pars)
+    metrics_val = fit_metrics(model, session, data_pars, compute_pars, out_pars)
     print(metrics_val)
 
     log("#### Plot   ########################################################")
 
+
     log("#### Save/Load   ###################################################")
-    save(model, session, save_pars=out_pars)
-    model2 = load(out_pars)
-    #     ypred = predict(model2, data_pars, compute_pars, out_pars)
-    #     metrics_val = metrics(model2, ypred, data_pars, compute_pars, out_pars)
-    print(model2)
+    save_pars = {"path": out_pars['path']}
+    save(model, session, save_pars=save_pars)
+    model2, session2 = load(save_pars)
+
+    log("#### Save/Load - Predict   #########################################")
+    print(model2, session2)
+    ypred = predict(model2, session2, data_pars, compute_pars, out_pars)
 
 
 
 if __name__ == '__main__':
     VERBOSE = True
     test_path = os.getcwd() + "/mytest/"
-    root_path = os_package_root_path(__file__,1)
+    root_path = os_package_root_path()
 
     ### Local fixed params
     test(pars_choice="test01")
 
-    # ### Local json file
-    # test(pars_choice="json", data_path= f"{root_path}/model_keras/charcnn.json")
-    #
+    #### Local json file
+    test(pars_choice="json", data_path= f"model_keras/charcnn.json")
+
+
     # ####    test_module(model_uri="model_xxxx/yyyy.py", param_pars=None)
     # from mlmodels.models import test_module
     #

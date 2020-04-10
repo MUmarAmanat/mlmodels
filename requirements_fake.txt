@@ -21,6 +21,7 @@ sentence-transformers==0.2.4
 tensorboardX
 
 
+
 ############################
 mxnet==1.6.0
 gluonts==0.4.2
@@ -54,6 +55,7 @@ torchtext
 nltk
 spacy
 gensim 
+matchzoo-py==1.1.1   #  pytorch-transformers >= 1.1.0, pytorch > 1.2.0
 
 
 #### Distributed training

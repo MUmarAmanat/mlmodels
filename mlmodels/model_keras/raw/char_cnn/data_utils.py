@@ -1,7 +1,8 @@
+import keras
 import numpy as np
 import re
 import csv
-
+from keras.preprocessing.text import Tokenizer
 
 class Data(object):
     """
@@ -65,7 +66,37 @@ class Data(object):
             batch_indices.append(self.str_to_indexes(s))
             c = int(c) - 1
             classes.append(one_hot[c])
+        
         return np.asarray(batch_indices, dtype='int64'), np.asarray(classes)
+    def get_all_data_npz(self):
+        with np.load(self.data_source, allow_pickle=True) as f:
+            xs, labels = f['x'], f['y']
+        length = xs.size
+        size_train = int(length * .8)
+        xs_train = xs[:size_train]
+        labels_train = labels[:size_train]
+        xs_val = xs[size_train:]
+        labels_val = labels[size_train:]
+        
+        max_words = self.length
+
+        tokenizer = Tokenizer(num_words=max_words)
+        x_train = tokenizer.sequences_to_matrix(xs_train, mode='binary')
+        x_test = tokenizer.sequences_to_matrix(xs_val, mode='binary')
+
+        y_train = keras.utils.to_categorical(labels_train, self.no_of_classes)
+        y_test = keras.utils.to_categorical(labels_val, self.no_of_classes)
+
+        return x_train, y_train, x_test, y_test
+    
+    def fill_to_length_input(self,s):
+        max_length = min(len(s), self.length)
+        str2idx = np.zeros(self.length, dtype='int64')
+        for i in range(1, max_length + 1):
+            c = s[-i]
+            if c in self.dict:
+                str2idx[i - 1] = self.dict[c]
+        return str2idx
 
     def str_to_indexes(self, s):
         """

@@ -1,10 +1,10 @@
+  
 # pylint: disable=C0321,C0103,C0301,E1305,E1121,C0302,C0330,C0111,W0613,W0611,R1705
 # -*- coding: utf-8 -*-
 
 """
 Generic template for new model.
 Check parameters template in models_config.json
-
 boosting_type (string, optional (default='gbdt')) – ‘gbdt’, traditional Gradient Boosting Decision Tree. ‘dart’, Dropouts meet Multiple Additive Regression Trees. ‘goss’, Gradient-based One-Side Sampling. ‘rf’, Random Forest.
 num_leaves (int, optional (default=31)) – Maximum tree leaves for base learners.
 max_depth (int, optional (default=-1)) – Maximum tree depth for base learners, <=0 means no limit.
@@ -27,33 +27,23 @@ silent (bool, optional (default=True)) – Whether to print messages while runni
 importance_type (string, optional (default='split')) – The type of feature importance to be filled into feature_importances_. If ‘split’, result contains numbers of times the feature is used in a model. If ‘gain’, result contains total gains of splits which use the feature.
 **kwargs –
 Other parameters for the model. Check http://lightgbm.readthedocs.io/en/latest/Parameters.html for more parameters.
-
 https://github.com/optuna/optuna/blob/master/examples/lightgbm_tuner_simple.py#L22
-
-
-
-
 Optuna example that optimizes a classifier configuration for cancer dataset using LightGBM tuner.
 In this example, we optimize the validation log loss of cancer detection.
 You can execute this code directly.
     $ python lightgbm_tuner_simple.py
-
-
 if __name__ == '__main__':
     data, target = sklearn.datasets.load_breast_cancer(return_X_y=True)
     train_x, val_x, train_y, val_y = train_test_split(data, target, test_size=0.25)
     dtrain = lgb.Dataset(train_x, label=train_y)
     dval = lgb.Dataset(val_x, label=val_y)
-
     params = {
         'objective': 'binary',
         'metric': 'binary_logloss',
         'verbosity': -1,
         'boosting_type': 'gbdt',
     }
-
     best_params, tuning_history = dict(), list()
-
     model = lgb.train(params,
                       dtrain,
                       valid_sets=[dtrain, dval],
@@ -62,40 +52,20 @@ if __name__ == '__main__':
                       verbose_eval=100,
                       early_stopping_rounds=100,
                       )
-
     prediction = np.rint(model.predict(val_x, num_iteration=model.best_iteration))
     accuracy = accuracy_score(val_y, prediction)
-
     print('Number of finished trials: {}'.format(len(tuning_history)))
     print('Best params:', best_params)
     print('  Accuracy = {}'.format(accuracy))
     print('  Params: ')
     for key, value in best_params.items():
         print('    {}: {}'.format(key, value))
-
-
-
 """
-import inspect
 import os
-import sys
-from datetime import datetime, timedelta
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
-
-
-import sklearn.datasets
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
-
-
-
-# import optuna.integration.lightgbm as lgb
 from lightgbm import LGBMModel
-
-
 
 VERBOSE = False
 MODEL_URI = Path(os.path.abspath(__file__)).parent.name + "." + os.path.basename(__file__).replace(".py", "")
@@ -103,7 +73,7 @@ MODEL_URI = Path(os.path.abspath(__file__)).parent.name + "." + os.path.basename
 
 ####################################################################################################
 ######## Logs, root path
-from mlmodels.util import os_package_root_path, log, path_norm
+from mlmodels.util import log, path_norm
 
 
 
@@ -123,8 +93,6 @@ class Model(object):
     def __init__(self, model_pars=None, data_pars=None, compute_pars=None):
         """
          lightgbm.LGBMModel(boosting_type='gbdt', num_leaves=31, max_depth=-1, learning_rate=0.1, n_estimators=100, subsample_for_bin=200000, objective=None, class_weight=None, min_split_gain=0.0, min_child_weight=0.001, min_child_samples=20, subsample=1.0, subsample_freq=0, colsample_bytree=1.0, reg_alpha=0.0, reg_lambda=0.0, random_state=None, n_jobs=-1, silent=True, importance_type='split', **kwargs)
-
-
         """
         self.model_pars, self.compute_pars = model_pars, compute_pars
 
@@ -161,7 +129,7 @@ Requires at least one evaluation data. If True, the eval metric on the eval set 
     Xtrain, ytrain, Xtest,  ytest = get_dataset(data_pars)
 
     compute_pars_light = compute_pars["lightgbm_pars"]
-    model.model.fit(Xtrain, ytrain, **compute_pars_lightgbm)
+    model.model.fit(Xtrain, ytrain, **compute_pars_light)
     return model, sess
 
 
@@ -170,9 +138,31 @@ def fit_metrics(model, data_pars=None, compute_pars=None, out_pars=None, **kw):
     """
        Return metrics of the model when fitted.
     """
-    ddict = { "feature_importance": model.model.feature_importances_ }
+    data_pars['train'] = True
+    _, _, Xval, yval = get_dataset(data_pars)
+    #### Do prediction
+    ypred = model.model.predict(Xval)
+    ddict = {}
+    metric_score_name = compute_pars.get('metric_score') 
+    if metric_score_name is None :
+        return {}
+    
+    from sklearn.metrics import roc_auc_score,mean_squared_error,accuracy_score
+    if metric_score_name == "roc_auc_score" :
+        score = roc_auc_score(yval, ypred)
+        ddict[metric_score_name] = score
 
+    if metric_score_name == "mean_squared_error" :
+        score = mean_squared_error(yval, ypred)
+        ddict[metric_score_name] = score
+        
+    if metric_score_name == "accuracy_score":
+        ypred = ypred.argmax(axis=1)
+        score = accuracy_score(yval, ypred)
+   
+        ddict[metric_score_name] = score
     return ddict
+
 
 
 def predict(model, sess=None, data_pars=None, compute_pars=None, out_pars=None, **kw):
@@ -233,9 +223,9 @@ def get_dataset(data_pars=None, **kw):
         return Xtrain,  ytrain, Xtest, ytest
 
 
-    if data_pars['train']:
+    if data_pars['mode'] == 'train':
         from sklearn.model_selection import train_test_split
-        df = pd.read_csv(data_pars['path'] )
+        df = pd.read_csv(data_pars['path'])
         dfX = df[data_pars['colX']]
         dfy = df[data_pars['coly']]
         Xtrain, Xtest, ytrain, ytest =  train_test_split(dfX.values, dfy.values)
@@ -329,8 +319,8 @@ if __name__ == '__main__':
     ####    test_module(model_uri="model_xxxx/yyyy.py", param_pars=None)
     from mlmodels.models import test_module
 
-    #param_pars = {'choice': "test01", 'config_mode': 'test', 'data_path': '/dataset/'}
-    #test_module(module_uri=MODEL_URI, param_pars=param_pars)
+    param_pars = {'choice': "test01", 'config_mode': 'test', 'data_path': '/dataset/'}
+    test_module(model_uri=MODEL_URI, param_pars=param_pars)
 
     ##### get of get_params
     # choice      = pp['choice']
@@ -341,8 +331,5 @@ if __name__ == '__main__':
     from mlmodels.models import test_api
 
     param_pars = {'choice': "test01", 'config_mode': 'test', 'data_path': '/dataset/'}
-    #test_api(module_uri=MODEL_URI, param_pars=param_pars)
-
-
-
+    test_api(model_uri=MODEL_URI, param_pars=param_pars)
 

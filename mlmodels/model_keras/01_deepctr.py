@@ -33,11 +33,34 @@ along with lots of core components layers which can be used to easily build cust
 |                FiBiNET                 | [RecSys 2019][FiBiNET: Combining Feature Importance and Bilinear feature Interaction for Click-Through Rate Prediction](https://arxiv.org/pdf/1905.09433.pdf)   |
 
 
+Names"
+
+model_list = ["AFM",
+"AUTOINT",
+"CCPM",
+"DCN",
+"DeepFM",
+"DIEN",
+"DIN",
+"DSIN",
+"FGCNN",
+"FIBINET",
+"FLEN",
+"FNN",
+"MLR",
+"NFM",
+"ONN",
+"PNN",
+"WDL",
+"XDEEPFM", ]
+
 
 """
 import json
 import os
 from pathlib import Path
+import importlib
+
 
 import numpy as np
 import pandas as pd
@@ -55,7 +78,8 @@ from deepctr.models import DeepFM
 
 ####################################################################################################
 # Helper functions
-from mlmodels.util import os_package_root_path, log
+from mlmodels.util import os_package_root_path, log, path_norm
+from mlmodels.util import save_keras, load_keras
 
 
 
@@ -63,13 +87,32 @@ from mlmodels.util import os_package_root_path, log
 ####################################################################################################
 class Model:
     def __init__(self, model_pars=None, data_pars=None, compute_pars=None, **kwargs):
+        from importlib import import_module
+        
+        if model_pars is None :
+          return self
+       
+        model_name = model_pars.get("model_name", "DeepFM")   
+        model_list = ["AFM", "AUTOINT", "CCPM", "DCN", "DeepFM", "DIEN", "DIN", "DSIN", "FGCNN", "FIBINET",
+                      "FLEN", "FNN", "MLR", "NFM", "ONN", "PNN", "WDL", "XDeepFM", ]
+        
+        if not model_name in model_list :
+          raise ValueError('Not existing model', model_name)
+          return self
+        
+        modeli = getattr(importlib.import_module("deepctr.models"), model_name)
+        
+        
         # 4.Define Model
-        linear_cols, dnn_cols = kwargs.get('dataset')[1:3]
-        self.model = DeepFM(linear_cols, dnn_cols, model_pars['task'])
+        linear_cols, dnn_cols = get_dataset(data_pars)[1:3]
+        # self.model = DeepFM(linear_cols, dnn_cols, model_pars['task'])
+        self.model = modeli(linear_cols, dnn_cols, model_pars['task'])
+        
+        metrics = compute_pars.get("metrics",  ['binary_crossentropy'])
+        self.model.compile(model_pars['optimization'], model_pars['cost'], metrics= metrics, )
+        self.model.summary()
 
-        self.model.compile(model_pars['optimization'], model_pars['cost'], metrics=['binary_crossentropy'], )
-
-
+        
 ##################################################################################################
 def _preprocess_criteo(df, **kw):
     hash_feature = kw.get('hash_feature')
@@ -198,12 +241,45 @@ def _preprocess_movielens(df, **kw):
     return df, linear_cols, dnn_cols, train, test, target, ytrue
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def get_dataset(data_pars=None, **kw):
     ##check whether dataset is of kind train or test
     data_path = data_pars['train_data_path']
     data_type = data_pars['dataset_type']
     test_size = data_pars['test_size']
 
+
+    #### To test all models
+    if data_type == "synthetic" is None :
+      from mlmodels.preprocess.keras_deepctr_tabular  import get_test_data
+      # model_name = "AFM"
+      use_attention, sparse_feature_num, dense_feature_num = True,3,0
+      sample_size = 10
+      x, y, feature_columns = get_test_data(sample_size, sparse_feature_num=sparse_feature_num,
+                                            dense_feature_num=dense_feature_num)
+
+
+      ##TODO : train split
+      return x, y, feature_columns
+      # model = AFM(feature_columns, feature_columns, use_attention=use_attention, afm_dropout=0.5)
+
+
+
+  
     #### read from csv file
     if data_pars.get("uri_type") == "pickle":
         df = pd.read_pickle(data_path)
@@ -218,12 +294,13 @@ def get_dataset(data_pars=None, **kw):
 
     else:  ## Already define
         linear_cols = data_pars['linear_cols']
-        dnn_cols = data_pars['dnn_cols']
+        dnn_cols    = data_pars['dnn_cols']
         train, test = train_test_split(df, test_size=data_pars['test_size'])
-        target = data_pars['target_col']
-        ytrue = data_pars['target_col']
+        target      = data_pars['target_col']
+        ytrue       = data_pars['target_col']
 
     return df, linear_cols, dnn_cols, train, test, target, ytrue
+
 
 
 def fit(model, session=None, compute_pars=None, data_pars=None, out_pars=None,
@@ -330,7 +407,8 @@ def get_params(choice="", data_path="dataset/", config_mode="test", **kw):
 
     if choice == 0:
         log("#### Path params   ###################################################")
-        data_path, out_path = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        data_path, _ = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        out_path = path_norm("ztest/model_keras/deepctr/model.h5")
 
         train_data_path = data_path + "recommender/criteo_sample.txt"
         data_pars = {"train_data_path": train_data_path, "dataset_type": "criteo", "test_size": 0.2}
@@ -343,7 +421,8 @@ def get_params(choice="", data_path="dataset/", config_mode="test", **kw):
 
     elif choice == 1:
         log("#### Path params   ##################################################")
-        data_path, out_path = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        data_path, _ = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        out_path = path_norm("ztest/model_keras/deepctr/model.h5")
 
         train_data_path = data_path + "recommender/criteo_sample.txt"
         data_pars = {"train_data_path": train_data_path, "hash_feature": True,
@@ -357,7 +436,8 @@ def get_params(choice="", data_path="dataset/", config_mode="test", **kw):
 
     elif choice == 2:
         log("#### Path params   ################################################")
-        data_path, out_path = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        data_path, _ = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        out_path = path_norm("ztest/model_keras/deepctr/model.h5")
 
         train_data_path = data_path + "/recommender/movielens_sample.txt"
         data_pars = {"train_data_path": train_data_path, "dataset_type": "movie_len",
@@ -372,7 +452,8 @@ def get_params(choice="", data_path="dataset/", config_mode="test", **kw):
 
     elif choice == 3:
         log("#### Path params   ##################################################")
-        data_path, out_path = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        data_path, _ = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        out_path = path_norm("ztest/model_keras/deepctr/model.h5")
 
         train_data_path = data_path + "/recommender/movielens_sample.txt"
         data_pars = {"train_data_path": train_data_path, "multiple_value": True,
@@ -387,7 +468,8 @@ def get_params(choice="", data_path="dataset/", config_mode="test", **kw):
 
     elif choice == 4:
         log("#### Path params   #################################################")
-        data_path, out_path = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        data_path, _ = path_setup(out_folder="/deepctr_test/", data_path=data_path)
+        out_path = path_norm("ztest/model_keras/deepctr/model.h5")
 
         train_data_path = data_path + "/recommender/movielens_sample.txt"
         data_pars = {"train_data_path": train_data_path, "multiple_value": True,
@@ -417,7 +499,7 @@ def test(data_path="dataset/", pars_choice=0):
 
     log("#### Model init, fit   #############################################")
     from mlmodels.models import module_load_full, fit, predict
-    module, model = module_load_full("model_keras.01_deepctr", model_pars, data_pars, compute_pars, dataset=dataset)
+    module, model = module_load_full("model_keras.01_deepctr", model_pars, data_pars, compute_pars)
     model = fit(module, model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
     log("#### Predict   ####################################################")
@@ -431,9 +513,10 @@ def test(data_path="dataset/", pars_choice=0):
     log("#### Plot   #######################################################")
 
     log("#### Save/Load   ##################################################")
-    # save(model, out_pars['path'] + f"/model_{pars_choice}.h5")
-    # model2 = load(out_pars['path'] + f"/model_{pars_choice}.h5")
-    # print(model2)
+    save_keras(model, save_pars=out_pars)
+    # TODO: load model now is hang forever => need check more
+    # model2 = load_keras(out_pars)
+    # model2.model.summary()
 
 
 if __name__ == '__main__':

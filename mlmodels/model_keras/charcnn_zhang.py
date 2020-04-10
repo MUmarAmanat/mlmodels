@@ -17,7 +17,7 @@ from keras.callbacks import EarlyStopping
 
 
 ######## Logs
-from mlmodels.util import os_package_root_path, log
+from mlmodels.util import os_package_root_path, log, get_model_uri
 
 
 
@@ -34,8 +34,7 @@ print( path_norm("dataset") )
 
 VERBOSE = False
 
-MODEL_URI = os.path.dirname(os.path.abspath(__file__)).split("\\")[-1] + "." + os.path.basename(__file__).replace(".py",
-                                                                                                                  "")
+MODEL_URI = get_model_uri(__file__)
 
 
 ####################################################################################################
@@ -110,7 +109,7 @@ def reset_model():
 def save(model=None, session=None, save_pars={}):
     from mlmodels.util import save_keras
     print(save_pars)
-    save_keras(session, save_pars)
+    save_keras(model, session, save_pars)
 
 
 def load(load_pars={}):
@@ -276,10 +275,10 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
 if __name__ == '__main__':
     VERBOSE = True
     test_path = os.getcwd() + "/mytest/"
-    root_path = os_package_root_path(__file__,1)
+    root_path = os_package_root_path()
 
     ### Local fixed params
-    test(pars_choice="test01")
+    # test(pars_choice="test01")
 
     ### Local json file
     test(pars_choice="json", data_path= f"{root_path}/model_keras/charcnn_zhang.json")

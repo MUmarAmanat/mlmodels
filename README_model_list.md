@@ -79,8 +79,6 @@ ypred        = predict(model, module, sess,  data_pars, compute_pars, out_pars)
 
 
 
-
-
 mlmodels.model_gluon.gluon_automl.py
 mlmodels.model_gluon.gluon_deepar.py
 mlmodels.model_gluon.gluon_ffn.py
@@ -92,7 +90,9 @@ mlmodels.model_keras.02_cnn.py
 mlmodels.model_keras.armdn.py
 mlmodels.model_keras.charcnn.py
 mlmodels.model_keras.charcnn_zhang.py
+mlmodels.model_keras.keras_gan.py
 mlmodels.model_keras.namentity_crm_bilstm.py
+mlmodels.model_keras.nbeats.py
 mlmodels.model_keras.textcnn.py
 mlmodels.model_keras.textvae.py
 
@@ -104,12 +104,12 @@ mlmodels.model_sklearn.model_sklearn.py
 
 
 mlmodels.model_tch.02_mlp.py
-mlmodels.model_tch.03_nbeats.py
+mlmodels.model_tch.matchzoo_models.py
+mlmodels.model_tch.nbeats.py
 mlmodels.model_tch.pplm.py
 mlmodels.model_tch.textcnn.py
 mlmodels.model_tch.torchhub.py
 mlmodels.model_tch.transformer_classifier.py
-mlmodels.model_tch.transformer_classifier2.py
 mlmodels.model_tch.transformer_sentence.py
 
 

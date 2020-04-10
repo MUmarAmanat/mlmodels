@@ -1,7 +1,12 @@
+
+
+
 # coding: utf-8
+"""
 
-from __future__ import absolute_import, division, print_function
 
+
+"""
 import glob
 import json
 import logging
@@ -10,14 +15,18 @@ import os
 import random
 
 import numpy as np
-import torch
+
+from tqdm import tqdm, tqdm_notebook, trange
 from scipy.stats import pearsonr
 from sklearn.metrics import (confusion_matrix, matthews_corrcoef,
                              mean_squared_error)
+
+
+import torch
+
 from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
                               SubsetRandomSampler, TensorDataset)
 from torch.utils.data.distributed import DistributedSampler
-from tqdm import tqdm, tqdm_notebook, trange
 
 from pytorch_transformers import (
     WEIGHTS_NAME, AdamW, BertConfig, BertForSequenceClassification,
@@ -25,20 +34,21 @@ from pytorch_transformers import (
     RobertaTokenizer, WarmupLinearSchedule, XLMConfig,
     XLMForSequenceClassification, XLMTokenizer, XLNetConfig,
     XLNetForSequenceClassification, XLNetTokenizer)
+
 from tensorboardX import SummaryWriter
 from util_transformer import (convert_examples_to_features, output_modes,
                               processors)
+
+####################################################################################################
+from mlmodels.util import os_package_root_path, log, path_norm, get_model_uri
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-####################################################################################################
-
-######## Logs
-# from mlmodels.util import os_package_root_path, log, path_norm
 
 
 
 VERBOSE = False
-
+MODEL_URI = get_model_uri(__file__)
 
 
 MODEL_CLASSES = {
@@ -53,12 +63,7 @@ MODEL_CLASSES = {
 
 ####################################################################################################
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
-
-
-from mlmodels.util import os_package_root_path, log, path_norm
 
 
 
@@ -72,8 +77,8 @@ class Model:
         self.config = config_class.from_pretrained(model_pars['model_name'], num_labels=2, 
                                                    finetuning_task=model_pars['task_name'])
         self.tokenizer = tokenizer_class.from_pretrained(model_pars['model_name'])
-
-        self.model = model_class.from_pretrained(model_pars['model_name'])
+        # downloads the pretrained model and stores it in the cache directory
+        self.model = model_class.from_pretrained(model_pars['model_name'],cache_dir=model_pars["cache_dir"] )
         self.model.to(device)
  
 
@@ -89,11 +94,11 @@ def load_and_cache_examples(task, tokenizer, evaluate=False):
     cached_features_file = os.path.join(data_pars['data_dir'], f"cached_{mode}_{model_pars['model_name']}_{model_pars['max_seq_length']}_{task}")
     
     if os.path.exists(cached_features_file) and not args['reprocess_input_data']:
-        logger.info("Loading features from cached file %s", cached_features_file)
+        log("Loading features from cached file %s", cached_features_file)
         features = torch.load(cached_features_file)
                
     else:
-        logger.info("Creating features from dataset file at %s", data_pars['data_dir'])
+        log("Creating features from dataset file at %s", data_pars['data_dir'])
         label_list = processor.get_labels()
         examples = processor.get_dev_examples(data_pars['data_dir']) if evaluate else processor.get_train_examples(data_pars['data_dir'])
         
@@ -108,7 +113,7 @@ def load_and_cache_examples(task, tokenizer, evaluate=False):
             pad_token=tokenizer.convert_tokens_to_ids([tokenizer.pad_token])[0],
             pad_token_segment_id=4 if model_pars['model_type'] in ['xlnet'] else 0)
         
-        logger.info("Saving features into cached file %s", cached_features_file)
+        log("Saving features into cached file %s", cached_features_file)
         torch.save(features, cached_features_file)
         
     all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
@@ -129,11 +134,11 @@ def get_dataset(task, tokenizer, evaluate=False):
     cached_features_file = os.path.join(data_pars['data_dir'], f"cached_{mode}_{model_pars['model_name']}_{model_pars['max_seq_length']}_{task}")
     
     if os.path.exists(cached_features_file) and not compute_pars['reprocess_input_data']:
-        logger.info("Loading features from cached file %s", cached_features_file)
+        log("Loading features from cached file %s", cached_features_file)
         features = torch.load(cached_features_file)
                
     else:
-        logger.info("Creating features from dataset file at %s", data_pars['data_dir'])
+        log("Creating features from dataset file at %s", data_pars['data_dir'])
         label_list = processor.get_labels()
         examples = processor.get_dev_examples(data_pars['data_dir']) if evaluate else processor.get_train_examples(data_pars['data_dir'])
         
@@ -148,7 +153,7 @@ def get_dataset(task, tokenizer, evaluate=False):
             pad_token=tokenizer.convert_tokens_to_ids([tokenizer.pad_token])[0],
             pad_token_segment_id=4 if model_pars['model_type'] in ['xlnet'] else 0)
         
-        logger.info("Saving features into cached file %s", cached_features_file)
+        log("Saving features into cached file %s", cached_features_file)
         torch.save(features, cached_features_file)
         
     all_input_ids    = torch.tensor([f.input_ids for f in features], dtype=torch.long)
@@ -193,12 +198,12 @@ def fit(train_dataset, model, tokenizer):
             raise ImportError("Please install apex from https://www.github.com/nvidia/apex to use fp16 training.")
         model, optimizer = amp.initialize(model, optimizer, opt_level=model_pars['fp16_opt_level'])
         
-    logger.info("***** Running training *****")
-    logger.info("  Num examples = %d", len(train_dataset))
-    logger.info("  Num Epochs = %d", compute_pars['num_train_epochs'])
-    logger.info("  Total train batch size  = %d", compute_pars['train_batch_size'])
-    logger.info("  Gradient Accumulation steps = %d", compute_pars['gradient_accumulation_steps'])
-    logger.info("  Total optimization steps = %d", t_total)
+    log("***** Running training *****")
+    log("  Num examples = %d", len(train_dataset))
+    log("  Num Epochs = %d", compute_pars['num_train_epochs'])
+    log("  Total train batch size  = %d", compute_pars['train_batch_size'])
+    log("  Gradient Accumulation steps = %d", compute_pars['gradient_accumulation_steps'])
+    log("  Total optimization steps = %d", t_total)
 
     global_step = 0
     tr_loss, logging_loss = 0.0, 0.0
@@ -256,7 +261,7 @@ def fit(train_dataset, model, tokenizer):
                         os.makedirs(output_dir)
                     model_to_save = model.module if hasattr(model, 'module') else model  # Take care of distributed/parallel training
                     model_to_save.save_pretrained(output_dir)
-                    logger.info("Saving model checkpoint to %s", output_dir)
+                    log("Saving model checkpoint to %s", output_dir)
                     
                 
 
@@ -305,9 +310,9 @@ def fit_metrics(model, tokenizer, model_pars,data_pars, out_pars, compute_pars, 
     eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args['eval_batch_size'])
 
     # Eval!
-    logger.info("***** Running evaluation {} *****".format(prefix))
-    logger.info("  Num examples = %d", len(eval_dataset))
-    logger.info("  Batch size = %d", compute_pars['eval_batch_size'])
+    log("***** Running evaluation {} *****".format(prefix))
+    log("  Num examples = %d", len(eval_dataset))
+    log("  Batch size = %d", compute_pars['eval_batch_size'])
     eval_loss = 0.0
     nb_eval_steps = 0
     preds = None
@@ -345,9 +350,9 @@ def fit_metrics(model, tokenizer, model_pars,data_pars, out_pars, compute_pars, 
 
     output_eval_file = os.path.join(eval_output_dir, "eval_results.txt")
     with open(output_eval_file, "w") as writer:
-        logger.info("***** Eval results {} *****".format(prefix))
+        log("***** Eval results {} *****".format(prefix))
         for key in sorted(result.keys()):
-            logger.info("  %s = %s", key, str(result[key]))
+            log("  %s = %s", key, str(result[key]))
             writer.write("%s = %s\n" % (key, str(result[key])))
 
     return results, wrong
@@ -416,9 +421,9 @@ def get_params(param_pars={}, **kw):
 
 
     if choice == "test01":
-        logger.info("#### Path params   ##########################################")
+        log("#### Path params   ##########################################")
         data_path  = path_norm( "dataset/text/imdb.csv"  )   
-        out_path   = path_norm( "/ztest/model_keras/textcnn/" )   
+        out_path   = path_norm( "/ztest/model_tch/transformer_classifier/" )
         model_path = os.path.join(out_path , "model")
 
 
@@ -442,13 +447,10 @@ def get_params(param_pars={}, **kw):
 
 
 
-################################################################################################
-########## Tests are  ##########################################################################
-########################################################################################################################
 ########################################################################################################################
 def test(data_path,model_pars, data_pars, compute_pars, out_pars, pars_choice=0):
     ### Local test
-    logger.info("#### Loading params   ##############################################")
+    log("#### Loading params   ##############################################")
     task = model_pars['task_name']
 
     if task in processors.keys() and task in output_modes.keys():
@@ -461,24 +463,24 @@ def test(data_path,model_pars, data_pars, compute_pars, out_pars, pars_choice=0)
     
 
     
-    logger.info("#### Model init, fit   #############################################")
+    log("#### Model init, fit   #############################################")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = Model(model_pars, data_pars, compute_pars)
 
-    logger.info("#### Loading dataset   #############################################")
+    log("#### Loading dataset   #############################################")
     if model_pars['do_train']:
         train_dataset = get_dataset(task, model.tokenizer)
         global_step, tr_loss = fit(train_dataset, model.model, model.tokenizer)
-        logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
+        log(" global_step = %s, average loss = %s", global_step, tr_loss)
        
 
-    # logger.info("#### Predict   ####################################################")
+    # log("#### Predict   ####################################################")
     # ypred = predict(model, data_pars, compute_pars, out_pars)
-    logger.info("#### Save/Load   ##################################################")
+    log("#### Save/Load   ##################################################")
     if model_pars['do_train']:
         if not os.path.exists(out_pars['output_dir']):
                 os.makedirs(out_pars['output_dir'])
-        logger.info("Saving model checkpoint to %s", out_pars['output_dir'])
+        log("Saving model checkpoint to %s", out_pars['output_dir'])
         
         model_to_save = model.model.module if hasattr(model.model, 'module') else model.model  # Take care of distributed/parallel training
         model_to_save.save_pretrained(out_pars['output_dir'])
@@ -486,7 +488,7 @@ def test(data_path,model_pars, data_pars, compute_pars, out_pars, pars_choice=0)
         torch.save(out_pars, os.path.join(out_pars['output_dir'], 'training_args.bin')) 
 
 
-    logger.info("#### metrics   ####################################################")
+    log("#### metrics   ####################################################")
     results = {}
     if model_pars['do_eval']:
         checkpoints = [out_pars['output_dir']]
@@ -494,12 +496,12 @@ def test(data_path,model_pars, data_pars, compute_pars, out_pars, pars_choice=0)
             checkpoints = list(os.path.dirname(c) for c in sorted(glob.glob(out_pars['output_dir'] + '/**/' + WEIGHTS_NAME, recursive=True)))
             logging.getLogger("pytorch_transformers.modeling_utils").setLevel(logging.WARN)  # Reduce logging
 
-        logger.info("Evaluate the following checkpoints: %s", checkpoints)
+        log("Evaluate the following checkpoints: %s", checkpoints)
         for checkpoint in checkpoints:
             global_step = checkpoint.split('-')[-1] if len(checkpoints) > 1 else ""
-            model = model.model.from_pretrained(checkpoint)
-            model.to(device)
-            result, wrong_preds = fit_metrics(model, model.tokenizer,model_pars, data_pars, compute_pars, out_pars, prefix=global_step)
+            model_eval = model.model.from_pretrained(checkpoint)
+            model_eval.to(device)
+            result, wrong_preds = fit_metrics(model_eval, model.tokenizer,model_pars, data_pars, compute_pars, out_pars, prefix=global_step)
             result = dict((k + '_{}'.format(global_step), v) for k, v in result.items())
             results.update(result)
     print(results)
@@ -516,7 +518,7 @@ if __name__ == '__main__':
     VERBOSE = True
 
     # Constants 
-    param_pars = {'choice': "json", 'config_mode' : 'test', 'data_path' : './transformer_classifier.json' }
+    param_pars = {'choice': "json", 'config_mode' : 'test', 'data_path' : 'model_tch/transformer_classifier.json' }
     model_pars, data_pars, compute_pars, out_pars = get_params(param_pars)
     if os.path.exists(out_pars['output_dir']) and os.listdir(out_pars['output_dir']) and model_pars['do_train'] and not compute_pars['overwrite_output_dir']:
       raise ValueError("Output directory ({}) already exists and is not empty. Use --overwrite_output_dir to overcome.".format(out_pars['output_dir']))
@@ -526,3 +528,8 @@ if __name__ == '__main__':
     # test(pars_choice=0)
     print("Config loaded")
     test("./data/",model_pars, data_pars, compute_pars, out_pars)
+
+
+
+
+

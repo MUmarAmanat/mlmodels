@@ -6,6 +6,10 @@ zsublime*
 ztest/
 mlmodels/ztest/*
 .idea/*
+zwork/*
+!zwork/*.ipny
+!zwork/*.py
+
 
 
 # C extensions

@@ -2,7 +2,59 @@
     <html>
     <body>
 
-    [mlmodels\data.py
+    [mlmodels\benchmark.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[benchmark_run( bench_pars=None, args=None, config_mode="test",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[cli_load_arguments( config_file=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[config_model_list( folder=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[get_all_json_path(json_path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[main(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[metric_eval( actual=None, pred=None, metric_name="mean_absolute_error",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[preprocess_timeseries_m5( data_path=None, dataset_name=None, pred_length=10, item_id=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//benchmark.py
+)
+
+[mlmodels\data.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//data.py
 )
 
@@ -50,6 +102,178 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//data.py
 )
 
+[mlmodels\dataloader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader.__init__(self, input_pars, loader, preprocessor, output,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._image_directory_load(self, directory, generator,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._interpret_input_pars(self, input_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._interpret_output(self, output,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._interpret_processor(self, preprocessor, data,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._load_data(self, loader,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader._preprocessor(self, data, pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[AbstractDataLoader.preprocess_new_data(self, data,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[EncoderMissingEncoderError.__init__(self, encoder_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[EncoderMissingIndexError.__init__(self, encoder_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[GluonTSDataLoader.__init__(self,   *args, **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[InvalidDataLoaderFunctionError.__init__(self, loader,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[InvalidDataPreprocessorError.__init__(self, preprocessor,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[InvalidDataPreprocessorParameterError.__init__(self, parameter,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[InvalidEncoderError.__init__(self, preprocessor,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[InvalidEncoderParameterError.__init__(self, parameter,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[KerasDataLoader.__init__(self,   *args, **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[MissingDataPreprocessorError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[MissingLocationKeyError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[NonCallableDataPreprocessorError.__init__(self, preprocessor,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[NonCallableEncoderError.__init__(self, preprocessor,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[NonIntegerBatchSizeError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[NonfileURLError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[NumpyGeneratorError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[OutputShapeError.__init__(self, specified, actual,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.__getitem__(self, key,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.__init__(self,   *args, **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.__repr__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.__setitem__(self, key, value,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.__str__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PreprocssingOutputDict.values(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[PyTorchDataLoader.__init__(self,   *args, **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[TensorflowDataLoader.__init__(self,   *args, **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[UndeterminableDataLoaderError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[UndeterminableLocationTypeError.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[UnknownLocationTypeError.__init__(self, location_type,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[load_function(f,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//dataloader.py
+)
+
 [mlmodels\distri_torch.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//distri_torch.py
 )
@@ -88,6 +312,42 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//distri_torch.py
+)
+
+[mlmodels\metrics.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[log( n=0, m=1,  *s)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[metrics_eval( metric_list=["mean_squared_error"], ytrue=None, ypred=None, ypred_proba=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[test(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//metrics.py
 )
 
 [mlmodels\models.py
@@ -154,7 +414,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//models.py
 )
 
-[module_env_build( model_uri="", verbose=0, env_build=0,  )
+[module_env_build( model_uri="", verbose=0, do_env_build=0,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//models.py
 )
 
@@ -234,11 +494,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//optim.py
 )
 
-[optim_optuna( model_uri="model_tf.1_lstm.py", hypermodel_pars={"engine" :{},  )
+[optim_optuna( model_uri="model_tf.1_lstm.py", hypermodel_pars={"engine_pars": {},  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//optim.py
 )
 
-[post_process_best(model, model_uri, model_pars_update, data_pars, compute_pars, out_pars,   )
+[post_process_best(model, module, model_uri, model_pars_update, data_pars, compute_pars, out_pars,   )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//optim.py
 )
 
@@ -260,6 +520,38 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//optim.py
+)
+
+[mlmodels\parse.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[cli_load_arguments( config_file=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[extract_args(txt, outfile,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//parse.py
 )
 
 [mlmodels\pipeline.py
@@ -454,7 +746,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
-[load_keras(load_pars,   )
+[load_keras(load_pars,  custom_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
@@ -475,6 +767,10 @@
 )
 
 [log( n=0, m=1,  *s)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
+)
+
+[metrics_eval( metric_list=["mean_squared_error"], ytrue=None, ypred=None, ypred_proba=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
@@ -526,7 +822,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
-[save_pkl( model=None, save_pars=None,  )
+[save_pkl( model=None, session=None, save_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
@@ -562,6 +858,74 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util.py
 )
 
+[mlmodels\util_log.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[to_name.__init__(self, adict,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[create_appid(filename,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[create_logfilename(filename,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[create_uniqueid(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[load_arguments( config_file=None, arg_list=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[logger_handler_console( formatter=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[logger_handler_file( isrotate=False, rotate_time="midnight", formatter=None, log_file_used=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[logger_setup( logger_name=None, log_file=None, formatter=FORMATTER_1, isrotate=False, isconsole_output=True, logging_level=logging.DEBUG,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[logger_setup2( name=__name__, level=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[printlog( s="", s1="", s2="", s3="", s4="", s5="", s6="", s7="", s8="", s9="", s10="", app_id="", logfile=None, iswritelog=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[writelog( m="", f=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//util_log.py
+)
+
 [mlmodels\ztest.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
 )
@@ -590,7 +954,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
 )
 
-[test_all(  )
+[test_all( arg=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
+)
+
+[test_all( arg=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
 )
 
@@ -598,7 +966,15 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
 )
 
-[test_import(  )
+[test_import(arg,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
+)
+
+[test_json(arg,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
+)
+
+[test_jupyter( arg=None, config_mode="test_all",  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//ztest.py
 )
 
@@ -698,124 +1074,28 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//__init__.py
 )
 
-[mlmodels\model_chatbot\__init__.py
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
+[mlmodels\config\json\model_tch\raw\vae_pretraining_encoder\text_beta.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [----------------methods----------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [---------------functions---------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//__init__.py
-)
-
-[mlmodels\model_chatbot\diag_gpt\Chatbot_run.py
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[----------------methods----------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[---------------functions---------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[generate(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[get_bot_response(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[home(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[recalc( p=None,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[reinput(user_msg,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[top_p_filtering(logits,  top_p=0.9, filter_value=-float('Inf'),  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//Chatbot_run.py
-)
-
-[mlmodels\model_chatbot\diag_gpt\myChatbot.py
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[----------------methods----------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[---------------functions---------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[generate(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[get_bot_response(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[home(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[recalc( p=None,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[reinput(user_msg,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[top_p_filtering(logits,  top_p=0.9, filter_value=-float('Inf'),  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_chatbot//diag_gpt//myChatbot.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//config//json//model_tch//raw//vae_pretraining_encoder//text_beta.py
 )
 
 [mlmodels\model_dev\__init__.py
@@ -3622,7 +3902,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
-[get_dataset(data_params,   **kw)
+[get_dataset(data_pars,   **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
@@ -3630,11 +3910,15 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
+[load( load_pars={},  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
+)
+
 [log( n=0, m=1,  *s)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
-[metrics(ypred, data_pars,  compute_pars=None, out_pars=None,  **kwargs)
+[metrics(ypred, model,  session=None, model_pars=None, data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
@@ -3642,7 +3926,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
-[predict(model, data_pars,  compute_pars=None, out_pars=None,  **kwargs)
+[predict(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
+)
+
+[save( model=None, session=None, save_pars={},  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//02_cnn.py
 )
 
@@ -3686,7 +3974,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[get_dataset( data_pars=None,  **kw)
+[fit_metrics(model,  data_pars=None, compute_pars=None, out_pars=None, model_pars=None,  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
@@ -3694,23 +3982,23 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[get_params( choice=0, data_path="dataset/",  **kw)
+[get_params( param_pars={},  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[load( load_pars={},  )
+[load( load_pars={},  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[log( n=0, m=1,  *s)
+[metrics_plot(metrics_params,   )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[os_package_root_path(filepath,  sublevel=0, path_add="",  )
+[predict( model=None, model_pars=None, sess=None, data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[predict( model=None, model_pars=None, data_pars=None,  **kwargs)
+[reset_model(  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
@@ -3718,7 +4006,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
-[test( data_path="dataset/",  )
+[test( data_path="dataset/", pars_choice="test0", config_mode="test",  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//armdn.py
 )
 
@@ -3766,11 +4054,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn.py
 )
 
-[load( load_pars={},  )
+[load( load_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn.py
 )
 
-[predict(model,  sess=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
+[predict(model,  session=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn.py
 )
 
@@ -3778,7 +4066,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn.py
 )
 
-[save( model=None, session=None, save_pars={},  )
+[save( model=None, save_pars=None, session=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn.py
 )
 
@@ -3858,6 +4146,70 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//charcnn_zhang.py
 )
 
+[mlmodels\model_keras\keras_gan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[Model.__init__(self,  model_pars=None, data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[fit(model,  data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[fit_metrics(model,  data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[get_config_file(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[get_dataset( data_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[get_params( param_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[load(load_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[predict(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[save(model,  session=None, save_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[test( data_path="dataset/", pars_choice="json", config_mode="test",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//keras_gan.py
+)
+
 [mlmodels\model_keras\namentity_crm_bilstm.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//namentity_crm_bilstm.py
 )
@@ -3924,6 +4276,74 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//namentity_crm_bilstm.py
+)
+
+[mlmodels\model_keras\nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[Model.__init__(self,  model_pars=None, data_pars=None, compute_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[fit(model,  data_pars=None, compute_pars=None, out_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[fit_metrics(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[get_dataset( data_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[get_params( param_pars={},  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[load( load_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[main(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[predict(model,  session=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[reset_model(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[save( model=None, save_pars=None, session=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[test( data_path="dataset/", pars_choice="json", config_mode="test",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//nbeats.py
 )
 
 [mlmodels\model_keras\preprocess.py
@@ -4314,7 +4734,15 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//char_cnn//data_utils.py
 )
 
+[Data.fill_to_length_input(self, s,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//char_cnn//data_utils.py
+)
+
 [Data.get_all_data(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//char_cnn//data_utils.py
+)
+
+[Data.get_all_data_npz(self,   )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//char_cnn//data_utils.py
 )
 
@@ -5380,6 +5808,1350 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//HAN//main.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//__init__.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\aae\aae.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.build_decoder(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.build_encoder(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.save_model(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[AdversarialAutoencoder.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//aae//aae.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\acgan\acgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.save_model(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[ACGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//acgan//acgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\bgan\bgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.boundary_loss(self, y_true, y_pred,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[BGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bgan//bgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\bigan\bigan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.build_encoder(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.sample_interval(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[BIGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//bigan//bigan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\ccgan\ccgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.mask_randomly(self, imgs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.sample_images(self, epoch, imgs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.save_model(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[CCGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//ccgan//ccgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\cgan\cgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[CGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[CGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[CGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[CGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[CGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cgan//cgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\cogan\cogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[COGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[COGAN.build_discriminators(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[COGAN.build_generators(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[COGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[COGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cogan//cogan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\context_encoder\context_encoder.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.mask_randomly(self, imgs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.sample_images(self, epoch, imgs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.save_model(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[ContextEncoder.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//context_encoder//context_encoder.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\cyclegan\cyclegan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[CycleGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[CycleGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[CycleGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[CycleGAN.sample_images(self, epoch, batch_i,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[CycleGAN.train(self, epochs,  batch_size=1, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//cyclegan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\cyclegan\data_loader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[DataLoader.__init__(self, dataset_name,  img_res=(128, 128),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[DataLoader.imread(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[DataLoader.load_batch(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[DataLoader.load_data(self, domain,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[DataLoader.load_img(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//cyclegan//data_loader.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\dcgan\dcgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[DCGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[DCGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[DCGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[DCGAN.save_imgs(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[DCGAN.train(self, epochs,  batch_size=128, save_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dcgan//dcgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\discogan\data_loader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[DataLoader.__init__(self, dataset_name,  img_res=(128, 128),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[DataLoader.imread(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[DataLoader.load_batch(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[DataLoader.load_data(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[DataLoader.load_img(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//data_loader.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\discogan\discogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[DiscoGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[DiscoGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[DiscoGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[DiscoGAN.sample_images(self, epoch, batch_i,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[DiscoGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//discogan//discogan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\dualgan\dualgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.sample_generator_input(self, X, batch_size,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.save_imgs(self, epoch, X_A, X_B,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[DUALGAN.wasserstein_loss(self, y_true, y_pred,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//dualgan//dualgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\gan\gan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[GAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[GAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[GAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[GAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[GAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//gan//gan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\infogan\infogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.build_disk_and_q_net(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.mutual_info_loss(self, c, c_given_x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.sample_generator_input(self, batch_size,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.save_model(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[INFOGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//infogan//infogan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\lsgan\lsgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[LSGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[LSGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[LSGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[LSGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[LSGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//lsgan//lsgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\pix2pix\data_loader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[DataLoader.__init__(self, dataset_name,  img_res=(128, 128),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[DataLoader.imread(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[DataLoader.load_batch(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[DataLoader.load_data(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//data_loader.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\pix2pix\pix2pix.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[Pix2Pix.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[Pix2Pix.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[Pix2Pix.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[Pix2Pix.sample_images(self, epoch, batch_i,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[Pix2Pix.train(self, epochs,  batch_size=1, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pix2pix//pix2pix.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\pixelda\data_loader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[DataLoader.__init__(self,  img_res=(128, 128),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[DataLoader.load_data(self, domain,  batch_size=1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[DataLoader.normalize(self, images,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[DataLoader.setup_mnist(self, img_res,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[DataLoader.setup_mnistm(self, img_res,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//data_loader.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\pixelda\pixelda.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.build_classifier(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[PixelDA.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//pixelda.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\pixelda\test.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//pixelda//test.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\sgan\sgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[SGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[SGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[SGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[SGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//sgan//sgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\srgan\data_loader.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[DataLoader.__init__(self, dataset_name,  img_res=(128, 128),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[DataLoader.imread(self, path,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[DataLoader.load_data(self,  batch_size=1, is_testing=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//data_loader.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\srgan\srgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.build_discriminator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.build_vgg(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[SRGAN.train(self, epochs,  batch_size=1, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//srgan//srgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\wgan\wgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.build_critic(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.train(self, epochs,  batch_size=128, sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[WGAN.wasserstein_loss(self, y_true, y_pred,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan//wgan.py
+)
+
+[mlmodels\model_keras\raw\keras_gan\wgan_gp\wgan_gp.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[RandomWeightedAverage._merge_function(self, inputs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.build_critic(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.build_generator(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.gradient_penalty_loss(self, y_true, y_pred, averaged_samples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.sample_images(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.train(self, epochs, batch_size,  sample_interval=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[WGANGP.wasserstein_loss(self, y_true, y_pred,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//keras_gan//wgan_gp//wgan_gp.py
+)
+
+[mlmodels\model_keras\raw\nbeats_keras\model.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.__getattr__(self, name,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.__init__(self,  input_dim=1, exo_dim=0, backcast_length=10, forecast_length=2, stack_types=(TREND_BLOCK, SEASONALITY_BLOCK), nb_blocks_per_stack=3, thetas_dim=(4, 8), share_weights_in_stack=False, hidden_layer_units=256, nb_harmonics=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet._r(self, layer_with_weights, stack_id,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.compile_model(self, loss, learning_rate,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.create_block(self, x, e, stack_id, block_id, stack_type, nb_poly,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.has_exog(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[NBeatsNet.load(filepath,  custom_objects=None, compile=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[linear_space(backcast_length, forecast_length,  fwd_looking=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[seasonality_model(thetas, backcast_length, forecast_length, is_forecast,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[trend_model(thetas, backcast_length, forecast_length, is_forecast,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//model.py
+)
+
+[mlmodels\model_keras\raw\nbeats_keras\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_keras//raw//nbeats_keras//__init__.py
 )
 
 [mlmodels\model_keras\raw\RCNN\main.py
@@ -8658,84 +10430,152 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//02_mlp.py
 )
 
-[mlmodels\model_tch\03_nbeats.py
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[mlmodels\model_tch\matchzoo_models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
 [----------------methods----------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[Model.__init__(self,  model_pars=None, data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
 [---------------functions---------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
-[data_generator(x_full, y_full, bs,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[fit(model,  data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
-[fit(model,  data_pars=None, compute_pars=None, out_pars=None,  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[fit_metrics(model,  data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
-[fit_simple(net, optimiser, data_generator, on_save_callback, device, data_pars, out_pars,  max_grad_steps=500,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[get_config_file(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
-[get_dataset(  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[get_dataset( data_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
-[get_params(param_pars,   **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+[get_dataset_wikiqa(data_pars, model,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[get_params( param_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
 )
 
 [load(load_pars,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[predict(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[save(model,  session=None, save_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[test( data_path="dataset/", pars_choice="json", config_mode="test",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//matchzoo_models.py
+)
+
+[mlmodels\model_tch\nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[data_generator(x_full, y_full, bs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[fit(model,  data_pars=None, compute_pars=None, out_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[fit_simple(net, optimiser, data_generator, on_save_callback, device, data_pars, out_pars,  max_grad_steps=500,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[get_dataset(  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[get_params(param_pars,   **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
+)
+
+[load(load_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [load_checkpoint(model, optimiser,  CHECKPOINT_NAME='nbeats-fiting-checkpoint.th',  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [plot(net, x, target, backcast_length, forecast_length, grad_step,  out_path="./",  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [plot_model(net, x, target, grad_step, data_pars,  disable_plot=False,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [plot_predict(x_test, y_test, p, data_pars, compute_pars, out_pars,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [predict(model,  data_pars=None, compute_pars=None, out_pars=None,  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [save(model, session, save_pars,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [save_checkpoint(model, optimiser, grad_step,  CHECKPOINT_NAME="mycheckpoint",  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [test( data_path="dataset/milk.csv",  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//03_nbeats.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//nbeats.py
 )
 
 [mlmodels\model_tch\pplm.py
@@ -8794,7 +10634,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
-[TextCNN.__init__(self,  model_pars=None,  **kwargs)
+[Model.__init__(self,  model_pars=None, data_pars=None, compute_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
+)
+
+[TextCNN.__init__(self,  model_pars=None, data_pars=None, compute_pars=None,  **kwargs)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
@@ -8846,6 +10690,10 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
+[fit_metrics(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
+)
+
 [get_config_file(  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
@@ -8862,19 +10710,15 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
-[load(path,   )
+[load( load_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
-[metric(model,  data_pars=None, out_pars=None,  **kwargs)
+[predict(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
-[predict(model,  data_pars=None, compute_pars=None, out_pars=None,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
-)
-
-[save(model, path,   )
+[save(model,  session=None, save_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
@@ -8882,7 +10726,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
-[test(  )
+[test( data_path="dataset/", pars_choice="json", config_mode="test",  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//textcnn.py
 )
 
@@ -8958,7 +10802,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//torchhub.py
 )
 
-[save(model, session, save_pars,   )
+[save(model,  session=None, save_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//torchhub.py
 )
 
@@ -9054,94 +10898,6 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier.py
 )
 
-[mlmodels\model_tch\transformer_classifier2.py
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[----------------methods----------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[Model_empty.__init__(self,  model_pars=None, compute_pars=None,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[---------------functions---------------
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[_preprocess_XXXX(df,   **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[evaluate(model, tokenizer,  prefix="",  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[fit(model,  data_pars=None, model_pars={}, compute_pars=None, out_pars=None,  *args, **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[get_dataset( data_pars=None,  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[get_eval_report(labels, preds,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[get_mismatched(labels, preds,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[get_params( choice=0, data_path="dataset/",  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[load( out_pars=None,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[metrics(task_name, preds, labels,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[metrics_evaluate(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[path_setup( out_folder="", sublevel=0, data_path="dataset/",  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[predict(model,  sess=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[reset_model(  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[save(model, out_pars,   )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[test( data_path="dataset/", pars_choice=0,  )
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
-[
-](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_classifier2.py
-)
-
 [mlmodels\model_tch\transformer_sentence.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
@@ -9158,11 +10914,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
-[fit(model,  data_pars=None, model_pars={}, compute_pars=None, out_pars=None,  *args, **kw)
+[fit(model,  data_pars=None, model_pars=None, compute_pars=None, out_pars=None,  *args, **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
-[fit_metrics(model,   **kw)
+[fit_metrics(model,  session=None, data_pars=None, compute_pars=None, out_pars=None,  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
@@ -9174,11 +10930,11 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
-[load( out_pars=None,  )
+[load( load_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
-[predict(model,  sess=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
+[predict(model,  session=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
@@ -9186,7 +10942,7 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
-[save(model, out_pars,   )
+[save(model,  session=None, save_pars=None,  )
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//transformer_sentence.py
 )
 
@@ -9324,6 +11080,126 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//__init__.py
+)
+
+[mlmodels\model_tch\model_chatbot\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//__init__.py
+)
+
+[mlmodels\model_tch\model_chatbot\diag_gpt\Chatbot_run.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[generate(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[get_bot_response(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[home(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[recalc( p=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[reinput(user_msg,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[top_p_filtering(logits,  top_p=0.9, filter_value=-float('Inf'),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//Chatbot_run.py
+)
+
+[mlmodels\model_tch\model_chatbot\diag_gpt\myChatbot.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[generate(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[get_bot_response(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[home(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[recalc( p=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[reinput(user_msg,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[top_p_filtering(logits,  top_p=0.9, filter_value=-float('Inf'),  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//model_chatbot//diag_gpt//myChatbot.py
 )
 
 [mlmodels\model_tch\raw\01_cnn_classifier.py
@@ -12162,6 +14038,2794 @@
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pplm//pplm_transformer//__init__.py
 )
 
+[mlmodels\model_tch\raw\pytorch_gan\models\aae\aae.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Decoder.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Decoder.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Discriminator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Encoder.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[Encoder.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[reparameterization(mu, logvar,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[sample_image(n_row, batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//aae//aae.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\acgan\acgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[Generator.forward(self, noise, labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[sample_image(n_row, batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//acgan//acgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\began\began.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[Generator.forward(self, noise,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//began//began.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\bgan\bgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[boundary_seeking_loss(y_pred, y_true,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bgan//bgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\bicyclegan\bicyclegan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[reparameterization(mu, logvar,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//bicyclegan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\bicyclegan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[ImageDataset.__init__(self, root, input_shape,  mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\bicyclegan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[Encoder.__init__(self, latent_dim, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[Encoder.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[Generator.__init__(self, latent_dim, img_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[Generator.forward(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[MultiDiscriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[MultiDiscriminator.compute_loss(self, x, gt,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[MultiDiscriminator.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[UNetDown.__init__(self, in_size, out_size,  normalize=True, dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[UNetDown.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[UNetUp.__init__(self, in_size, out_size,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[UNetUp.forward(self, x, skip_input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//bicyclegan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\ccgan\ccgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[apply_random_mask(imgs,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[save_sample(saved_samples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//ccgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\ccgan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_x=None, transforms_lr=None, mode='train',  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\ccgan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[Generator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[Generator.forward(self, x, x_lr,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[UNetDown.__init__(self, in_size, out_size,  normalize=True, dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[UNetDown.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[UNetUp.__init__(self, in_size, out_size,  dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[UNetUp.forward(self, x, skip_input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ccgan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cgan\cgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[Discriminator.forward(self, img, labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[Generator.forward(self, noise, labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[sample_image(n_row, batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cgan//cgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cluster_gan\clustergan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[Discriminator_CNN.__init__(self, latent_dim, n_c, x_shape,  verbose=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[Discriminator_CNN.forward(self, zn, zc,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[Encoder_CNN.__init__(self,  shape=[],  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[Encoder_CNN.extra_repr(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[Encoder_CNN.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[calc_gradient_penalty(netD, real_data, generated_data,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[initialize_weights(net,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[sample_z( shape=64, latent_dim=10, n_c=10, fix_class=-1, req_grad=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[softmax(x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cluster_gan//clustergan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cogan\cogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[CoupledDiscriminators.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[CoupledDiscriminators.forward(self, img1, img2,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[CoupledGenerators.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[CoupledGenerators.forward(self, noise,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//cogan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cogan\mnistm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[MNISTM.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[MNISTM.__init__(self, root,  mnist_root="data", train=True, transform=None, target_transform=None, download=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[MNISTM.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[MNISTM._check_exists(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[MNISTM.download(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cogan//mnistm.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\context_encoder\context_encoder.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[save_sample(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//context_encoder.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\context_encoder\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, img_size=128, mask_size=64, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[ImageDataset.apply_center_mask(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[ImageDataset.apply_random_mask(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\context_encoder\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[Discriminator.__init__(self,  channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[Generator.__init__(self,  channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[Generator.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//context_encoder//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cyclegan\cyclegan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//cyclegan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cyclegan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, unaligned=False, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[to_rgb(image,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cyclegan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[GeneratorResNet.__init__(self, input_shape, num_residual_blocks,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[GeneratorResNet.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[ResidualBlock.__init__(self, in_features,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\cyclegan\utils.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[LambdaLR.__init__(self, n_epochs, offset, decay_start_epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[LambdaLR.step(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[ReplayBuffer.__init__(self,  max_size=50,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[ReplayBuffer.push_and_pop(self, data,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//cyclegan//utils.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\dcgan\dcgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dcgan//dcgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\discogan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, mode='train',  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\discogan\discogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//discogan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\discogan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[GeneratorUNet.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[GeneratorUNet.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[UNetDown.__init__(self, in_size, out_size,  normalize=True, dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[UNetDown.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[UNetUp.__init__(self, in_size, out_size,  dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[UNetUp.forward(self, x, skip_input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//discogan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\dragan\dragan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[Generator.forward(self, noise,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[compute_gradient_penalty(D, X,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dragan//dragan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\dualgan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\dualgan\dualgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[compute_gradient_penalty(D, real_samples, fake_samples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//dualgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\dualgan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[Discriminator.__init__(self,  in_channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[Generator.__init__(self,  channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[Generator.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[UNetDown.__init__(self, in_size, out_size,  normalize=True, dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[UNetDown.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[UNetUp.__init__(self, in_size, out_size,  dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[UNetUp.forward(self, x, skip_input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//dualgan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\ebgan\ebgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[Generator.forward(self, noise,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[pullaway_loss(embeddings,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//ebgan//ebgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\esrgan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[ImageDataset.__init__(self, root, hr_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[denormalize(tensors,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\esrgan\esrgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//esrgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\esrgan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[DenseResidualBlock.__init__(self, filters,  res_scale=0.2,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[DenseResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[FeatureExtractor.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[FeatureExtractor.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[GeneratorRRDB.__init__(self, channels,  filters=64, num_res_blocks=16, num_upsample=2,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[GeneratorRRDB.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[ResidualInResidualDenseBlock.__init__(self, filters,  res_scale=0.2,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[ResidualInResidualDenseBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\esrgan\test_on_image.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//esrgan//test_on_image.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\gan\gan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//gan//gan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\infogan\infogan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[Generator.forward(self, noise, labels, code,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[sample_image(n_row, batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[to_categorical(y, num_columns,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//infogan//infogan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\lsgan\lsgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//lsgan//lsgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\munit\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\munit\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[AdaptiveInstanceNorm2d.__init__(self, num_features,  eps=1e-5, momentum=0.1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[AdaptiveInstanceNorm2d.__repr__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[AdaptiveInstanceNorm2d.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[ContentEncoder.__init__(self,  in_channels=3, dim=64, n_residual=3, n_downsample=2,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[ContentEncoder.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Decoder.__init__(self,  out_channels=3, dim=64, n_residual=3, n_upsample=2, style_dim=8,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Decoder.assign_adain_params(self, adain_params,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Decoder.forward(self, content_code, style_code,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Decoder.get_num_adain_params(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Encoder.__init__(self,  in_channels=3, dim=64, n_residual=3, n_downsample=2, style_dim=8,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[Encoder.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[LambdaLR.__init__(self, n_epochs, offset, decay_start_epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[LambdaLR.step(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[LayerNorm.__init__(self, num_features,  eps=1e-5, affine=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[LayerNorm.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[MLP.__init__(self, input_dim, output_dim,  dim=256, n_blk=3, activ="relu",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[MLP.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[MultiDiscriminator.__init__(self,  in_channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[MultiDiscriminator.compute_loss(self, x, gt,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[MultiDiscriminator.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[ResidualBlock.__init__(self, features,  norm="in",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[StyleEncoder.__init__(self,  in_channels=3, dim=64, n_downsample=2, style_dim=8,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[StyleEncoder.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\munit\munit.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//munit//munit.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\pix2pix\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\pix2pix\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[Discriminator.__init__(self,  in_channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[Discriminator.forward(self, img_A, img_B,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[GeneratorUNet.__init__(self,  in_channels=3, out_channels=3,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[GeneratorUNet.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[UNetDown.__init__(self, in_size, out_size,  normalize=True, dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[UNetDown.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[UNetUp.__init__(self, in_size, out_size,  dropout=0.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[UNetUp.forward(self, x, skip_input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\pix2pix\pix2pix.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pix2pix//pix2pix.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\pixelda\mnistm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[MNISTM.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[MNISTM.__init__(self, root,  mnist_root="data", train=True, transform=None, target_transform=None, download=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[MNISTM.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[MNISTM._check_exists(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[MNISTM.download(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//mnistm.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\pixelda\pixelda.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Classifier.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Classifier.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[Generator.forward(self, img, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[ResidualBlock.__init__(self,  in_features=64, out_features=64,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//pixelda//pixelda.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\relativistic_gan\relativistic_gan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//relativistic_gan//relativistic_gan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\sgan\sgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[Generator.forward(self, noise,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//sgan//sgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\softmax_gan\softmax_gan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[log(x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//softmax_gan//softmax_gan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\srgan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[ImageDataset.__init__(self, root, hr_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\srgan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[FeatureExtractor.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[FeatureExtractor.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[GeneratorResNet.__init__(self,  in_channels=3, out_channels=3, n_residual_blocks=16,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[GeneratorResNet.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[ResidualBlock.__init__(self, in_features,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\srgan\srgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//srgan//srgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\stargan\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[CelebADataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[CelebADataset.__init__(self, root,  transforms_=None, mode="train", attributes=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[CelebADataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[CelebADataset.get_annotations(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\stargan\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[Discriminator.__init__(self,  img_shape=(3, 128, 128), c_dim=5, n_strided=6,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[GeneratorResNet.__init__(self,  img_shape=(3, 128, 128), res_blocks=9, c_dim=5,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[GeneratorResNet.forward(self, x, c,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[ResidualBlock.__init__(self, in_features,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\stargan\stargan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[compute_gradient_penalty(D, real_samples, fake_samples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[criterion_cls(logit, target,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//stargan//stargan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\unit\datasets.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[ImageDataset.__getitem__(self, index,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[ImageDataset.__init__(self, root,  transforms_=None, unaligned=False, mode="train",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[ImageDataset.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//datasets.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\unit\models.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Discriminator.__init__(self, input_shape,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Encoder.__init__(self,  in_channels=3, dim=64, n_downsample=2, shared_block=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Encoder.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Encoder.reparameterization(self, mu,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Generator.__init__(self,  out_channels=3, dim=64, n_upsample=2, shared_block=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[Generator.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[LambdaLR.__init__(self, n_epochs, offset, decay_start_epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[LambdaLR.step(self, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[ResidualBlock.__init__(self, features,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[ResidualBlock.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[weights_init_normal(m,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//models.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\unit\unit.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[compute_kl(mu,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[sample_images(batches_done,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//unit//unit.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\wgan\wgan.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan//wgan.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\wgan_div\wgan_div.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_div//wgan_div.py
+)
+
+[mlmodels\model_tch\raw\pytorch_gan\models\wgan_gp\wgan_gp.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[Discriminator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[Discriminator.forward(self, img,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[Generator.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[Generator.forward(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[compute_gradient_penalty(D, real_samples, fake_samples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//pytorch_gan//models//wgan_gp//wgan_gp.py
+)
+
+[mlmodels\model_tch\raw\textcnn\dataset.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[clean_str(string,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[create_data_iterator(tr_batch_size, val_batch_size, tabular_train, tabular_valid, d,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[create_tabular_dataset(path_train, path_valid,  lang='en', pretrained_emb='glove.6B.300d',  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[split_train_valid(path_data, path_train, path_valid,  frac=0.7,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//dataset.py
+)
+
+[mlmodels\model_tch\raw\textcnn\main.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[main(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//main.py
+)
+
+[mlmodels\model_tch\raw\textcnn\model.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[textCNN.__init__(self, vocab_built, dim_channel, kernel_wins, dropout_rate, num_class,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[textCNN.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//model.py
+)
+
+[mlmodels\model_tch\raw\textcnn\training.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[train(m, device, train_itr, optimizer, epoch, max_epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[valid(m, device, test_itr,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//textcnn//training.py
+)
+
 [mlmodels\model_tch\raw\vae\cli_generate_data.py
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae//cli_generate_data.py
 )
@@ -13072,6 +17736,1378 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae//models//Beta_VAE_fft//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\exp_utils.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[create_exp_dir(dir_path,  scripts_to_save=None, debug=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[get_logger(log_path,   **kwargs)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[logging(s, log_path,  print_=True, log_=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[save_checkpoint(model, optimizer, path, epoch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//exp_utils.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\lm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[init_config(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[main(args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[test(model, test_data_batch, args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//lm.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\prepare_data.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[download_file_from_google_drive(id, destination,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[get_confirm_token(response,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[save_response_content(response, destination,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//prepare_data.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\text_anneal_fb.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[init_config(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[main(args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[test(model, test_data_batch, mode, args,  verbose=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_anneal_fb.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\text_beta.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[init_config(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[main(args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[test(model, test_data_batch, mode, args,  verbose=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_beta.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\text_get_mean.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[init_config(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[main(args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[save_latents(args, vae, test_data_batch, test_label_batch, str_,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[test(model, test_data_batch, mode, args,  verbose=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_get_mean.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\text_ss_ft.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[init_config(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[main(args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[test(model, test_data_batch, test_labels_batch, mode, args,  verbose=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//text_ss_ft.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\utils.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[xavier_normal_initializer.__call__(self, tensor,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[calc_au(model, test_data_batch,  delta=0.01,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[calc_iwnll(model, test_data_batch, args,  ns=100,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[calc_mi(model, test_data_batch,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[call_multi_bleu_perl(fname_bleu_script, fname_hyp, fname_ref,  verbose=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[reconstruct(model, test_data_batch, vocab, strategy, fname,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[sample_sentences(vae, vocab, device, num_sentences,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[visualize_latent(args, epoch, vae, device, test_data,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//utils.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\config\config_ptb.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_ptb.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\config\config_short_yelp.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_short_yelp.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\config\config_snli.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_snli.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\config\config_yahoo.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\config\config_yahoo_label.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//config//config_yahoo_label.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\data\text_data.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.__init__(self, fname,  label=False, max_length=None, vocab=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData._read_corpus(self, fname, label, max_length, vocab,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData._to_tensor(self, batch_data, batch_first, device,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.create_data_batch(self, batch_size, device,  batch_first=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.create_data_batch_labels(self, batch_size, device,  batch_first=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.data_iter(self, batch_size, device,  batch_first=False, shuffle=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[MonoTextData.data_sample(self, nsample, device,  batch_first=False, shuffle=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.__contains__(self, word,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.__getitem__(self, word,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.__init__(self,  word2id=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.__len__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.add(self, word,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.decode_sentence(self, sentence,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.from_corpus(fname,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[VocabEntry.id2word(self, wid,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//text_data.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\data\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//data//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\utils.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[generate_grid(zmin, zmax, dz, device,  ndim=2,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[log_sum_exp(value,  dim=None, keepdim=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[safe_log(z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//utils.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\vae.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.KL(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.__init__(self, encoder, decoder, args,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.calc_infer_mean(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.calc_mi_q(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.calc_model_posterior_mean(self, x, grid_z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.decode(self, z, strategy,  K=10,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.encode(self, x,  nsamples=1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.encode_stats(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.eval_complete_ll(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.eval_cond_ll(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.eval_inference_dist(self, x, z,  param=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.eval_log_model_posterior(self, x, grid_z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.eval_prior_dist(self, zrange,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.loss(self, x, kl_weight,  nsamples=1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.loss_iw(self, x, kl_weight,  nsamples=50, ns=10,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.nll_iw(self, x, nsamples,  ns=100,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.reconstruct(self, x,  decoding_strategy="greedy", K=5,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.sample_from_inference(self, x,  nsamples=1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[VAE.sample_from_posterior(self, x, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//vae.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\decoders\decoder.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.beam_search_decode(self, z, K,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.decode(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.freeze(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.greedy_decode(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.log_probability(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.reconstruct_error(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[DecoderBase.sample_decode(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\decoders\decoder_help.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[BeamSearchNode.__init__(self, hiddenstate, previousNode, wordId, logProb, length,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[BeamSearchNode.eval(self,  alpha=1.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_help.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\decoders\decoder_helper.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[BeamSearchNode.__init__(self, hiddenstate, previousNode, wordId, logProb, length,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[BeamSearchNode.eval(self,  alpha=1.0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//decoder_helper.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\decoders\dec_lstm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.__init__(self, args, vocab, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.beam_search_decode(self, z,  K=5,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.decode(self, input, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.greedy_decode(self, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.log_probability(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.reconstruct_error(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.reset_parameters(self, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.sample_decode(self, z,  greedy=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[LSTMDecoder.sample_text(self, input, z, EOS, device,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[VarLSTMDecoder.__init__(self, args, vocab, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[VarLSTMDecoder.decode(self, input, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[VarLSTMDecoder.reconstruct_error(self, x, z,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//dec_lstm.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\decoders\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//decoders//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\discriminators\discriminator_linear.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[LinearDiscriminator.__init__(self, args, encoder,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[LinearDiscriminator.get_performance(self, batch_data, batch_labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[MLPDiscriminator.__init__(self, args, encoder,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[MLPDiscriminator.get_performance(self, batch_data, batch_labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//discriminator_linear.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\discriminators\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//discriminators//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\encoders\encoder.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.calc_mi(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.encode(self, input, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.eval_inference_dist(self, x, z,  param=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[EncoderBase.sample(self, input, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//encoder.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\encoders\enc_lstm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[GaussianLSTMEncoder.__init__(self, args, vocab_size, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[GaussianLSTMEncoder.forward(self, input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[GaussianLSTMEncoder.reset_parameters(self, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[VarLSTMEncoder.__init__(self, args, vocab_size, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[VarLSTMEncoder.encode(self, input, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[VarLSTMEncoder.forward(self, input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//enc_lstm.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\encoders\gaussian_encoder.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.__init__(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.calc_mi(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.encode(self, input, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.encode_stats(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.eval_inference_dist(self, x, z,  param=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.forward(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.freeze(self,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.reparameterize(self, mu, logvar,  nsamples=1,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[GaussianEncoderBase.sample(self, input, nsamples,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//gaussian_encoder.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\encoders\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//encoders//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\lm\lm_lstm.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[LSTM_LM.__init__(self, args, vocab, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[LSTM_LM.decode(self, input,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[LSTM_LM.log_probability(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[LSTM_LM.reconstruct_error(self, x,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[LSTM_LM.reset_parameters(self, model_init, emb_init,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//lm_lstm.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\modules\lm\__init__.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//modules//lm//__init__.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\scripts\sampling_training_labels.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//sampling_training_labels.py
+)
+
+[mlmodels\model_tch\raw\vae_pretraining_encoder\scripts\unsupervised_cluster.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//raw//vae_pretraining_encoder//scripts//unsupervised_cluster.py
+)
+
+[mlmodels\model_tch\zdocs\transformer_classifier2.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[Model_empty.__init__(self,  model_pars=None, compute_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[_preprocess_XXXX(df,   **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[evaluate(model, tokenizer,  prefix="",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[fit(model,  data_pars=None, model_pars={}, compute_pars=None, out_pars=None,  *args, **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[get_dataset( data_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[get_eval_report(labels, preds,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[get_mismatched(labels, preds,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[get_params( choice=0, data_path="dataset/",  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[load( out_pars=None,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[metrics(task_name, preds, labels,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[metrics_evaluate(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[path_setup( out_folder="", sublevel=0, data_path="dataset/",  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[predict(model,  sess=None, data_pars=None, out_pars=None, compute_pars=None,  **kw)
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[reset_model(  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[save(model, out_pars,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[test( data_path="dataset/", pars_choice=0,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tch//zdocs//transformer_classifier2.py
 )
 
 [mlmodels\model_tf\1_lstm.py
@@ -42712,6 +48748,50 @@
 
 [
 ](https://github.com/arita37/mlmodels/tree/dev/mlmodels//model_tf//rl//__init__.py
+)
+
+[mlmodels\preprocess\keras_deepctr_tabular.py
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[----------------methods----------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[---------------functions---------------
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[check_model(model, model_name, x, y,  check_model_io=True,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[gen_sequence(dim, max_len, sample_size,   )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[get_test_data( sample_size=1000, embedding_size=4, sparse_feature_num=1, dense_feature_num=1, sequence_feature=['sum', 'mean', 'max', 'weight'], classification=True, include_length=False, hash_flag=False, prefix='', use_group=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[has_arg(fn, name,  accept_all=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[layer_test(layer_cls,  kwargs={}, input_shape=None, input_dtype=None, input_data=None, expected_output=None, expected_output_dtype=None, fixed_batch_size=False, supports_masking=False,  )
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
+)
+
+[
+](https://github.com/arita37/mlmodels/tree/dev/mlmodels//preprocess//keras_deepctr_tabular.py
 )
 
 [mlmodels\preprocess\__init__.py

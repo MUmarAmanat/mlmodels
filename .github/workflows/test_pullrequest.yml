@@ -3,8 +3,15 @@ name:  test_pullrequest
 on:
   pull_request:
     branches:
-      - dev
+
  
+
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    ### Every 12 hours
+    - cron:  '0 */3 * * *' 
+
+
 jobs:
   build:
 
@@ -52,7 +59,7 @@ jobs:
 
 
     - name: repo path
-      run: python -c "import mlmodels,os ; print(mlmodels); print(os)"
+      run: python run_basic_check.py
 
 
     ########  Test running 
@@ -68,7 +75,7 @@ jobs:
 
 
     ##### Please change BELOW to your model name  
-    - name: ml_test
-      run: ml_test  --do model_tch/torchhub.py
+    - name: ml_test Pull Request models
+      run: ml_test --do test_json --config_file pullrequest.json
       
          

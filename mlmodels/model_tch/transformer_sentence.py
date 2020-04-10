@@ -54,17 +54,6 @@ distilbert-base-nli-stsb-mean-tokens: Performance: STSbenchmark: 84.38
 
 
 
-Generic template for new model.
-Check parameters template in models_config.json
-
-"model_pars":   { "learning_rate": 0.001, "num_layers": 1, "size": 6, "size_layer": 128, "output_size": 6, "timestep": 4, "epoch": 2 },
-"data_pars":    { "data_path": "dataset/GOOG-year.csv", "data_type": "pandas", "size": [0, 0, 6], "output_size": [0, 6] },
-"compute_pars": { "distributed": "mpi", "epoch": 10 },
-"out_pars":     { "out_path": "dataset/", "data_type": "pandas", "size": [0, 0, 6], "output_size": [0, 6] }
-
-
-
-
 
 
 """
@@ -81,6 +70,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from tqdm import tqdm_notebook, trange
+
+
+
 import torch
 from scipy.stats import pearsonr
 from sklearn.metrics import (confusion_matrix, matthews_corrcoef,
@@ -88,7 +81,6 @@ from sklearn.metrics import (confusion_matrix, matthews_corrcoef,
 from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
                               TensorDataset)
 from torch.utils.data.distributed import DistributedSampler
-from tqdm import tqdm_notebook, trange
 
 
 
@@ -100,31 +92,17 @@ from sentence_transformers.evaluation import EmbeddingSimilarityEvaluator
 from sentence_transformers.readers import *
 import sentence_transformers as K
 from sentence_transformers import models
-#####################################################################################################
-
-VERBOSE = False
-MODEL_URI = os.path.dirname(os.path.abspath(__file__)).split("\\")[-1] + "." + os.path.basename(__file__).replace(".py",  "")
-
-
-
-
-from mlmodels.util import os_package_root_path, log, path_norm, to_namespace
 
 
 ####################################################################################################
-"""
-def os_module_path():
-    current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-    parent_dir = os.path.dirname(current_dir)
-    # sys.path.insert(0, parent_dir)
-    return parent_dir
+from mlmodels.util import os_package_root_path, log, path_norm, get_model_uri
+
+VERBOSE = False
+MODEL_URI = get_model_uri(__file__)
 
 
-def os_file_path(data_path):
-    from pathlib import Path
-    data_path = os.path.join(Path(__file__).parent.parent.absolute(), data_path)
-    return data_path
-"""
+
+
 
 
 ####################################################################################################
@@ -147,15 +125,8 @@ class Model:
             self.fit_metrics = {"train": {}, "test": {}}    #### metrics during training
 
 
-def fit(model, data_pars=None, model_pars={}, compute_pars=None, out_pars=None, *args, **kw):
+def fit(model, data_pars=None, model_pars=None, compute_pars=None, out_pars=None, *args, **kw):
     """
-
-  :param model:    Class model
-  :param data_pars:  dict of
-  :param out_pars:
-  :param compute_pars:
-  :param kwargs:
-  :return:
     """
     train_pars              = data_pars.copy()
     train_pars.update(train = 1)
@@ -187,12 +158,12 @@ def fit(model, data_pars=None, model_pars={}, compute_pars=None, out_pars=None, 
                         epochs           = compute_pars["num_epochs"],
                         evaluation_steps = compute_pars["evaluation_steps"],
                         warmup_steps     = compute_pars["warmup_steps"],
-                        output_path      = out_pars["model_save_path"]
+                        output_path      = out_pars["model_path"]
                         )
     return model, None
 
 
-def fit_metrics(model, **kw):
+def fit_metrics(model, session=None, data_pars=None, compute_pars=None, out_pars=None, **kw):
     """
        Return metrics of the model when fitted.
     """
@@ -200,7 +171,7 @@ def fit_metrics(model, **kw):
     return ddict
 
 
-def predict(model, sess=None, data_pars=None, out_pars=None, compute_pars=None, **kw):
+def predict(model, session=None, data_pars=None, out_pars=None, compute_pars=None, **kw):
     ##### Get Data ###############################################
     reader = get_dataset(data_pars)
     train_fname = 'train.gz' if data_pars["train_type"].lower() == 'nli' else 'sts-train.csv'
@@ -220,13 +191,13 @@ def reset_model():
     pass
 
 
-def save(model, out_pars):
-    return torch.save(model.model, out_pars['modelpath'])
+def save(model, session=None, save_pars=None):
+    return torch.save(model.modl, save_pars['path'])
 
 
-def load(out_pars=None):
+def load(load_pars=None):
     model = Model(skip_create=True)
-    model.model = torch.load(out_pars['modelpath'])
+    model.model = torch.load(load_pars['path'])
     return model   
 
 
@@ -297,7 +268,8 @@ def get_params(param_pars, **kw):
         }
 
         out_pars = {
-            "model_save_path": model_path
+            "model_path": model_path,
+            "path": out_path
         }
 
     return model_pars, data_pars, compute_pars, out_pars
@@ -307,6 +279,8 @@ def get_params(param_pars, **kw):
 ##################################################################################################
 def test(data_path="dataset/", pars_choice="test01"):
     ### Local test
+    from mlmodels.util import path_norm
+    data_path = path_norm(data_path)
 
     log("#### Loading params   ##############################################") 
     param_pars = { "choice": pars_choice, "data_path": '', "config_mode" : "test" }
@@ -319,15 +293,11 @@ def test(data_path="dataset/", pars_choice="test01"):
 
     log("#### Model init, fit   #############################################")
     model = Model(model_pars, compute_pars)
-    model = fit(model, data_pars, model_pars, compute_pars, out_pars)
-
-
-    log("#### save the trained model  #######################################")
-    save(model, out_pars["modelpath"])
+    model, session = fit(model, data_pars, model_pars, compute_pars, out_pars)
 
 
     log("#### Predict   #####################################################")
-    ypred = predict(model, data_pars, compute_pars, out_pars)
+    ypred = predict(model, session, data_pars, compute_pars, out_pars)
 
 
     log("#### metrics   #####################################################")
@@ -335,12 +305,18 @@ def test(data_path="dataset/", pars_choice="test01"):
     print(metrics_val)
 
 
+    log("#### Plot   ########################################################")
+
+
+
     log("#### Save/Load   ###################################################")
-    save(model, out_pars['modelpath'])
-    model2 = load(out_pars['modelpath'])
-    #     ypred = predict(model2, data_pars, compute_pars, out_pars)
-    #     metrics_val = metrics(model2, ypred, data_pars, compute_pars, out_pars)
-    print(model2)
+    save_pars = {"path": out_pars['path']}
+    save(model, session, save_pars=save_pars)
+    model2, session2 = load(save_pars)
+
+    log("#### Save/Load - Predict   #########################################")
+    print(model2, session2)
+    ypred = predict(model2, session2, data_pars, compute_pars, out_pars)
 
 
 
