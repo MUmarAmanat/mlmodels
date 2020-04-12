@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-
-
 https://colab.research.google.com/github/pytorch/pytorch.github.io/blob/master/assets/hub/facebookresearch_pytorch-gan-zoo_pgan.ipynb
 
 https://github.com/pytorch/pytorch/blob/98362d11ffe81ca48748f6b0e1e417cb81ba5998/torch/hub.py#L330
@@ -14,9 +12,22 @@ https://github.com/pytorch/pytorch/blob/98362d11ffe81ca48748f6b0e1e417cb81ba5998
         googlenet, shufflenet_v2_x0_5, shufflenet_v2_x1_0, mobilenet_v2"
 
 
+        assert _model in ['alexnet', 'densenet121', 'densenet169', 'densenet201', 'densenet161', 
+        'inception_v3', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 
+        'resnext50_32x4d', 'resnext101_32x8d', 'wide_resnet50_2', 'wide_resnet101_2',
+        'squeezenet1_0', 'squeezenet1_1', 'vgg11', 'vgg13', 'vgg16', 'vgg19', 'vgg11_bn',
+        'vgg13_bn', 'vgg16_bn', 'vgg19_bn', 'googlenet', 'shufflenet_v2_x0_5', 
+        'shufflenet_v2_x1_0', 'mobilenet_v2'],\
+        "Pretrained models are available for \
+        the following models only: alexnet, densenet121, densenet169, densenet201,\
+        densenet161, inception_v3, resnet18, resnet34, resnet50, resnet101, resnet152,\
+        resnext50_32x4d, resnext101_32x8d, wide_resnet50_2, wide_resnet101_2, squeezenet1_0,\
+        squeezenet1_1, vgg11, vgg13, vgg16, vgg19, vgg11_bn, vgg13_bn, vgg16_bn, vgg19_bn,\
+        googlenet, shufflenet_v2_x0_5, shufflenet_v2_x1_0, mobilenet_v2"
 
 """
 import os, json
+import copy
 
 
 import torch
@@ -92,9 +103,7 @@ def _get_device():
     return device
 
 def get_config_file():
-    return os.path.join(
-        os_package_root_path(__file__, 1),
-        'config', 'model_tch', 'Imagecnn.json')
+    return path_norm('config/model_tch/Imagecnn.json')
 
 
 def get_dataset_mnist_torch(data_pars):
@@ -116,40 +125,42 @@ def get_dataset_mnist_torch(data_pars):
     return train_loader, valid_loader  
 
 
+
 ###########################################################################################################
 ###########################################################################################################
 class Model:
     def __init__(self, model_pars=None, data_pars=None, compute_pars=None, out_pars=None):
+        self.model_pars = copy.deepcopy(model_pars)  
+        m = model_pars 
+
         ### Model Structure        ################################
         if model_pars is None :
             self.model = None
-            return self
+            return None
 
+        #### Progressive GAN
+        if m['repo_uri'] == 'facebookresearch/pytorch_GAN_zoo:hub' :
+           """
+               'DCGAN',
 
-        m = model_pars 
-        _model      = m['model']
+           """ 
+
+           self.model = torch.hub.load(m['repo_uri'],
+                                       m.get('model', 'PGAN'), 
+                                       model_name = m.get('model_name', 'celebAHQ-512'),
+                                       pretrained = bool( m.get('pretrained', True)), 
+                                       useGPU     = compute_pars.get('use_gpu', _get_device()) )
+           return None
+        
+
+        #### Other CNN modles
         num_classes = m['num_classes']
-
-
-        assert _model in ['alexnet', 'densenet121', 'densenet169', 'densenet201', 'densenet161', 
-        'inception_v3', 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 
-        'resnext50_32x4d', 'resnext101_32x8d', 'wide_resnet50_2', 'wide_resnet101_2',
-        'squeezenet1_0', 'squeezenet1_1', 'vgg11', 'vgg13', 'vgg16', 'vgg19', 'vgg11_bn',
-        'vgg13_bn', 'vgg16_bn', 'vgg19_bn', 'googlenet', 'shufflenet_v2_x0_5', 
-        'shufflenet_v2_x1_0', 'mobilenet_v2'],\
-        "Pretrained models are available for \
-        the following models only: alexnet, densenet121, densenet169, densenet201,\
-        densenet161, inception_v3, resnet18, resnet34, resnet50, resnet101, resnet152,\
-        resnext50_32x4d, resnext101_32x8d, wide_resnet50_2, wide_resnet101_2, squeezenet1_0,\
-        squeezenet1_1, vgg11, vgg13, vgg16, vgg19, vgg11_bn, vgg13_bn, vgg16_bn, vgg19_bn,\
-        googlenet, shufflenet_v2_x0_5, shufflenet_v2_x1_0, mobilenet_v2"
-
-
-        self.model = hub.load( m['repo_uri'], _model, 
-                               # model_name = m.get("model_name", m['model']),
-                               pretrained = bool( m.get('pretrained', True)),
-                               # useGPU     = m.get('use_gpu',False)
-                             ) 
+        _model      = m['model']
+        self.model  = hub.load( m['repo_uri'], _model, 
+                                # model_name = m.get("model_name", m['model']),
+                                pretrained = bool( m.get('pretrained', True)),
+                                # useGPU     = m.get('use_gpu',False)
+                              ) 
 
         if num_classes != 1000:
             fc_in_features = self.model.fc.in_features
@@ -242,9 +253,30 @@ def fit(model, data_pars=None, compute_pars=None, out_pars=None, **kwargs):
 
 
 def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=None, imax = 1, return_ytrue=1):
-    # get a batch of data
+    ###### Progressive GAN
+    if model.model_pars['repo_uri'] == 'facebookresearch/pytorch_GAN_zoo:hub' :
+        model0     = model.model     
+        num_images = compute_pars.get('num_images', 4)
+        noise, _   = model0.buildNoiseData(num_images)
+        with torch.no_grad():
+            generated_images = model0.test(noise)
+
+        # let's plot these images using torchvision and matplotlib
+        import matplotlib.pyplot as plt
+        import torchvision
+        grid = torchvision.utils.make_grid(generated_images.clamp(min=-1, max=1), scale_each=True, normalize=True)
+        plt.imshow(grid.permute(1, 2, 0).cpu().numpy())
+        # plt.show()
+
+        os.makedirs(out_pars['path'], exist_ok=True)
+        plt.savefig(out_pars['path'] + "/img_01.png")
+        os.system("ls " + out_pars['path'])
+        return 0
+   
+
+    ######  CNN models
     import numpy as np
-    from metrics import metrics_eval
+    from mlmodels.metrics import metrics_eval
     device = _get_device()
     model = model.model
     _, test_iter = get_dataset(data_pars=data_pars)
@@ -263,10 +295,8 @@ def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=Non
     y_pred = np.vstack(y_pred)[0]
     y_true = np.vstack(y_true)[0]
 
-    if return_ytrue:
-        return y_pred, y_true
-    else:
-        return y_pred
+    return y_pred, y_true  if return_ytrue else y_pred
+
 
 def fit_metrics(model, data_pars=None, compute_pars=None, out_pars=None):
     pass
@@ -324,10 +354,49 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
 
 
 
+def test2(data_path="dataset/", pars_choice="json", config_mode="test"):
+    ### Local test
+
+    log("#### Loading params   ##############################################")
+    param_pars = {"choice":pars_choice,  "data_path":data_path,  "config_mode": config_mode}
+    model_pars, data_pars, compute_pars, out_pars = get_params(param_pars)
+    log(  data_pars, out_pars )
+
+    log("#### Loading dataset   #############################################")
+    #xtuple = get_dataset(data_pars)
+
+
+    log("#### Model init, fit   #############################################")
+    session = None
+    model = Model(model_pars, data_pars, compute_pars)
+    #model, session = fit(model, data_pars, compute_pars, out_pars)
+
+
+    log("#### Predict   #####################################################")
+    predict(model, session, data_pars, compute_pars, out_pars)
+
+
+    log("#### metrics   #####################################################")
+    #metrics_val = fit_metrics(model, data_pars, compute_pars, out_pars)
+    #print(metrics_val)
+
+
+    log("#### Plot   ########################################################")
+
+
+    log("#### Save/Load   ###################################################")
+    save_pars = { "path": out_pars["path"]  }
+    save(model=model, save_pars=save_pars)
+    model2 = load( save_pars )
+    ypred = predict(model2, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+    print(model2)
+
+
 if __name__ == "__main__":
     test(data_path="model_tch/torchhub_cnn.json", pars_choice="json", config_mode="test")
 
 
+    test2(data_path="model_tch/torchhub_pgan.json", pars_choice="json", config_mode="test")
 
 
 
@@ -335,37 +404,3 @@ if __name__ == "__main__":
 
 
 
-
-
-"""
-
-
-import torch
-use_gpu = True if torch.cuda.is_available() else False
-
-# trained on high-quality celebrity faces "celebA" dataset
-# this model outputs 512 x 512 pixel images
-model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
-                       'PGAN', model_name='celebAHQ-512',
-                       pretrained=True, useGPU=use_gpu)
-# this model outputs 256 x 256 pixel images
-# model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
-#                        'PGAN', model_name='celebAHQ-256',
-#                        pretrained=True, useGPU=use_gpu)
-
-
-
-
-num_images = 4
-noise, _ = model.buildNoiseData(num_images)
-with torch.no_grad():
-    generated_images = model.test(noise)
-
-# let's plot these images using torchvision and matplotlib
-import matplotlib.pyplot as plt
-import torchvision
-grid = torchvision.utils.make_grid(generated_images.clamp(min=-1, max=1), scale_each=True, normalize=True)
-plt.imshow(grid.permute(1, 2, 0).cpu().numpy())
-# plt.show()
-
-"""

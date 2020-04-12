@@ -28,6 +28,8 @@ from datetime import datetime
 
 
 
+
+
 ####################################################################################################
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict,  params_json_load
@@ -88,25 +90,28 @@ def benchmark_run(bench_pars=None, args=None, config_mode="test"):
     json_path    = path_norm( args.path_json )
     output_path  = path_norm( args.path_out )
     json_list    = get_all_json_path(json_path)
+
     metric_list  = bench_pars['metric_list']
-    benchmark_df = pd.DataFrame(columns=["date_run", "model_uri", "json",
-                                         "dataset_uri", "metric", "metric_name"])
+    bench_df     = pd.DataFrame(columns=["date_run", "model_uri", "json",
+                                     "dataset_uri", "metric", "metric_name"])
 
     if len(json_list) < 1 :
-        raise Exception("empty json")
+        raise Exception("empty model list json")
     
     log("Model List", json_list)
-    ind = -1
+    ii = -1
     for jsonf in json_list :
         log ( f"### Running {jsonf} #####")
         #### Model URI and Config JSON
         config_path = path_norm(jsonf)
         model_pars, data_pars, compute_pars, out_pars = params_json_load(config_path, config_mode= config_mode)
-
+        model_uri    =  model_pars['model_uri']
+        
+        # if bench_pars.get("data_pars") :
+        
 
         log("#### Setup Model    ")
-        model_uri = model_pars['model_uri']  # "model_tch.torchhub.py"
-        module    = module_load(model_uri)
+        module    = module_load(model_uri)   # "model_tch.torchhub.py"
         model     = module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)
         
         log("#### Fit ")
@@ -125,22 +130,25 @@ def benchmark_run(bench_pars=None, args=None, config_mode="test"):
         ytrue = np.array(ytrue).reshape(-1, 1)
         ypred = np.array(ypred).reshape(-1, 1)
         
-        ### Calculate Metrics
+        log("### Calculate Metrics          ")
         for metric in metric_list:
-            ind = ind + 1
+            ii = ii + 1
             metric_val = metric_eval(actual=ytrue, pred=ypred,  metric_name=metric)
-            benchmark_df.loc[ind, "date_run"]    = str(datetime.now())
-            benchmark_df.loc[ind, "model_uri"]   = model_uri
-            benchmark_df.loc[ind, "json"]        = str([model_pars, data_pars, compute_pars ])
-            benchmark_df.loc[ind, "dataset_uri"] = dataset_uri
-            benchmark_df.loc[ind, "metric_name"] = metric
-            benchmark_df.loc[ind, "metric"]      = metric_val
+            bench_df.loc[ii, "date_run"]    = str(datetime.now())
+            bench_df.loc[ii, "model_uri"]   = model_uri
+            bench_df.loc[ii, "json"]        = str([model_pars, data_pars, compute_pars ])
+            bench_df.loc[ii, "dataset_uri"] = dataset_uri
+            bench_df.loc[ii, "metric_name"] = metric
+            bench_df.loc[ii, "metric"]      = metric_val
+            log( bench_df.loc[ii,:])
 
 
     log( f"benchmark file saved at {output_path}")  
     os.makedirs( output_path, exist_ok=True)
-    benchmark_df.to_csv( f"{output_path}/benchmark.csv", index=False)
-    return benchmark_df
+    bench_df.to_csv( f"{output_path}/benchmark.csv", index=False)
+    return bench_df
+
+
 
 
 
@@ -162,18 +170,22 @@ def cli_load_arguments(config_file=None):
     add("--config_file", default=config_file, help="Params File")
     add("--config_mode", default="test", help="test/ prod /uat")
     add("--log_file",    default="ztest/benchmark/mlmodels_log.log", help="log.log")
-    add("--do",          default="run", help="do ")
 
+
+    add("--do",          default="timeseries", help="do ")
+
+    ### Benchmark config
+    add("--benchmark_json", default="dataset/json/benchmark.json", help=" benchmark config")
+    add("--path_json",      default="dataset/json/benchmark_cnn/", help=" list of json")
+    add("--path_out",       default="example/benchmark/", help=".")
+
+
+    #### Input dataset
     add("--data_path",   default="dataset/timeseries/", help="Dataset path")
     add("--dataset_name",default="sales_train_validation.csv", help="dataset name")   
 
-    add("--path_json",   default="dataset/json/benchmark_cnn/", help="")
 
-    ##### out pars
-    add("--path_out",    default="ztest/benchmark/", help=".")
-
-
-
+    #### Specific to timeseries
     add("--item_id",     default="HOBBIES_1_001_CA_1_validation", help="forecast for which item")
 
     arg = p.parse_args()
@@ -182,27 +194,43 @@ def cli_load_arguments(config_file=None):
 
 
 
+
+
 def main():
     arg = cli_load_arguments()
 
-    if arg.do == "timeseries":
+
+    if arg.do == "preprocess_v1":
+        arg.data_path    = "dataset/timeseries/"
+        arg.dataset_name = "sales_train_validation.csv"
+        preprocess_timeseries_m5(data_path    = arg.data_path, 
+                                 dataset_name = arg.dataset_name, 
+                                 pred_length  = 100, item_id=arg.item_id)   
+
+
+    elif arg.do == "timeseries":
         log("Time series model")
         bench_pars = {"metric_list": ["mean_absolute_error", "mean_squared_error",
-                                      "mean_squared_log_error", "median_absolute_error", 
-                                      "r2_score"], 
-                      "pred_length": 100}
-
+                                       "median_absolute_error",  "r2_score"], 
+                      "pred_length": 100,
                       
-        #### Pre-processing
-        arg.data_path = "dataset/timeseries/"
-        arg.dataset_name = "sales_train_validation.csv"
-        preprocess_timeseries_m5(data_path = arg.data_path, 
-                                 dataset_name = arg.dataset_name, 
-                                 pred_length = bench_pars["pred_length"], item_id=arg.item_id)   
+                      #### Over-ride data
+                      "data_pars" : {
+                         "train_data_path": "dataset/timeseries/stock/qqq_us_train.csv",
+                         "test_data_path": "dataset/timeseries/stock/qqq_us_test.csv",
+                         "col_Xinput": ["Close"],
+                         "col_ytarget": "Close"
+                      }
+                      
+                      
+                      
+                      }
 
-        #### Models
-        arg.path_json = "dataset/json/benchmark_timeseries/"
-        arg.path_out =  "ztest/benchmark_timseries/"
+
+        arg.data_path    = ""
+        arg.dataset_name = ""
+        arg.path_json    = "dataset/json/benchmark_timeseries/"
+        arg.path_out     = "example/benchmark/timeseries/"
 
         benchmark_run(bench_pars, arg) 
 
@@ -211,15 +239,40 @@ def main():
     elif arg.do == "vision_mnist":
         log("Vision models")
 
-        arg.data_path = ""
+        arg.data_path    = ""
         arg.dataset_name = ""
-        arg.path_json = "dataset/json/benchmark_cnn/"
-        arg.path_out =  "ztest/benchmark_cnn/"
+        arg.path_json    = "dataset/json/benchmark_cnn/"
+        arg.path_out     = "example/benchmark/cnn/"
 
         bench_pars = {"metric_list": ["accuracy_score"]}
         benchmark_run(bench_pars=bench_pars, args=arg)
 
 
+
+    elif arg.do == "nlp_reuters":
+        """
+           User Reuters datasts
+           config files in  "dataset/json/benchmark_text/"
+
+
+
+        """
+        log("NLP Reuters")
+        arg.data_path    = ""
+        arg.dataset_name = ""
+        arg.path_json    = "dataset/json/benchmark_text/"
+        arg.path_out     = "example/benchmark/text/"
+
+        bench_pars = {"metric_list": ["accuracy, f1_score"]}
+        benchmark_run(bench_pars=bench_pars, args=arg)
+
+
+
+    elif arg.do == "custom":
+        log("NLP Reuters")
+        bench_pars = json.load(open( arg.benchmark_json, mode='r'))
+        log(bench_pars['metric_list'])
+        benchmark_run(bench_pars=bench_pars, args=arg)
 
 
     else :
@@ -235,57 +288,6 @@ if __name__ == "__main__":
 
 
 
-# Benchmarking for CNN on MNIST #
-def benchmark_run_mnist(bench_pars=None, args=None, config_mode="test"):
-    """
-      Runnner for benchmark computation on MNIST
-      File is alredy saved on disk
-	"""
-    json_path    = path_norm( args.path_json )
-    output_path  = path_norm( args.path_out )
-    json_list    = get_all_json_path(json_path)
-    metric_list  = bench_pars['metric_list']
-    benchmark_df = pd.DataFrame(columns=["date_run", "model_uri", "json",
-                                         "dataset_uri", "metric", "metric_name"])
-
-    print(json_path)
-    # import pdb; pdb.set_trace()
-    for jsonf in json_list :
-        log ( f"### Running {jsonf} #####")
-        config_path = path_norm(jsonf)
-        model_pars, data_pars, compute_pars, out_pars = params_json_load(config_path, config_mode= config_mode)
-
-        log("#### Model init   #############################################")
-        # import pdb; pdb.set_trace()
-        model_uri = model_pars['model_uri']  
-        module    = module_load(model_uri)
-        model     = module.Model(model_pars, data_pars, compute_pars)
 
 
-        log("#### Model fit   #############################################")
-        model, session = module.fit(model, data_pars, compute_pars, out_pars)
-
-        #### Inference Need return ypred, ytrue
-        ypred, ytrue = module.predict(model=model, session=session, 
-                                      data_pars=data_pars, compute_pars=compute_pars, 
-                                      out_pars=out_pars, return_ytrue=1) 
-
-
-        
-        ### Calculate Metrics
-        for ind, metric in enumerate(metric_list):
-            metric_val = metric_eval(actual=ytrue, pred=ypred,  metric_name=metric)
-            benchmark_df.loc[ind, "date_run"]    = str(datetime.now())
-            benchmark_df.loc[ind, "model_uri"]   = model_uri
-            benchmark_df.loc[ind, "json"]        = str([model_pars, data_pars, compute_pars ])
-            # benchmark_df.loc[ind, "dataset_uri"] = dataset_uri
-            benchmark_df.loc[ind, "metric_name"] = metric
-            benchmark_df.loc[ind, "metric"]      = metric_val
-
-        # import pdb; pdb.set_trace()
-
-    log( f"benchmark file saved at {output_path}")  
-    os.makedirs( output_path, exist_ok=True)
-    benchmark_df.to_csv( f"{output_path}/benchmark_MNIST_CNN.csv", index=False)
-    return benchmark_df
 

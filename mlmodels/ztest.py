@@ -126,28 +126,6 @@ def test_benchmark(arg=None):
 
 
 
-def test_all(arg=None):
-    print("os.getcwd", os.getcwd())
-
-    path = mlmodels.__path__[0]
-    print("############Check model ################################")
-    model_list = model_get_list(folder=None, block_list=[])
-    print(model_list)
-
-    ## Block list
-    root = os_package_root_path()
-    cfg = json.load(open( arg.config_file, mode='r'))['test_all']
-    block_list = cfg['model_blocked']
-    model_list = [t for t in model_list if t not in block_list]
-    print("Used", model_list)
-
-    path = path.replace("\\", "//")
-    test_list = [f"python {path}/" + t.replace(".", "//").replace("//py", ".py") for t in model_list]
-
-    for cmd in test_list:
-        print("\n\n\n", flush=True)
-        print(cmd, flush=True)
-        os.system(cmd)
 
 
 def test_all(arg=None):
@@ -173,6 +151,7 @@ def test_all(arg=None):
         print(cmd, flush=True)
         os.system(cmd)
         os.system(log_git_push)
+
 
 
 def test_json(arg):

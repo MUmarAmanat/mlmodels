@@ -14,8 +14,126 @@ from tensorflow.python.keras.models import Model, load_model, save_model
 from deepctr.inputs import SparseFeat, DenseFeat, VarLenSparseFeat,DEFAULT_GROUP_NAME
 from deepctr.layers import custom_objects
 
+
 SAMPLE_SIZE = 8
 VOCABULARY_SIZE = 4
+
+
+def get_xy_fd_din(hash_flag=False):
+
+
+    feature_columns = [SparseFeat('user',3),SparseFeat(
+        'gender', 2), SparseFeat('item', 3 + 1), SparseFeat('item_gender', 2 + 1),DenseFeat('score', 1)]
+    feature_columns += [VarLenSparseFeat(SparseFeat('hist_item', vocabulary_size=3 + 1,embedding_dim=8,embedding_name='item'), maxlen=4),
+                        VarLenSparseFeat(SparseFeat('hist_item_gender', 2 + 1,embedding_dim=4, embedding_name='item_gender'), maxlen=4)]
+
+    behavior_feature_list = ["item", "item_gender"]
+    uid = np.array([0, 1, 2])
+    ugender = np.array([0, 1, 0])
+    iid = np.array([1, 2, 3])  # 0 is mask value
+    igender = np.array([1, 2, 1])  # 0 is mask value
+    score = np.array([0.1, 0.2, 0.3])
+
+    hist_iid = np.array([[1, 2, 3, 0], [1, 2, 3, 0], [1, 2, 0, 0]])
+    hist_igender = np.array([[1, 1, 2, 0], [2, 1, 1, 0], [2, 1, 0, 0]])
+
+    feature_dict = {'user': uid, 'gender': ugender, 'item': iid, 'item_gender': igender,
+                    'hist_item': hist_iid, 'hist_item_gender': hist_igender, 'score': score}
+
+    from deepctr.inputs import get_feature_names
+    feature_names = get_feature_names(feature_columns)
+    x = {name:feature_dict[name] for name in feature_names}
+    y = [1, 0, 1]
+    return x, y, feature_columns, behavior_feature_list
+
+def get_xy_fd_dien(use_neg=False, hash_flag=False):
+
+    feature_columns = [SparseFeat('user', 3,hash_flag),
+                       SparseFeat('gender', 2,hash_flag),
+                       SparseFeat('item', 3+1,hash_flag),
+                       SparseFeat('item_gender', 2+1,hash_flag),
+                       DenseFeat('score', 1)]
+
+    feature_columns += [
+        VarLenSparseFeat(SparseFeat('hist_item', vocabulary_size=3 + 1, embedding_dim=8, embedding_name='item'),
+                         maxlen=4),
+        VarLenSparseFeat(SparseFeat('hist_item_gender', 2 + 1, embedding_dim=4, embedding_name='item_gender'), maxlen=4)]
+
+    behavior_feature_list = ["item","item_gender"]
+    uid = np.array([0, 1, 2])
+    ugender = np.array([0, 1, 0])
+    iid = np.array([1, 2, 3])#0 is mask value
+    igender = np.array([1, 2, 1])# 0 is mask value
+    score = np.array([0.1, 0.2, 0.3])
+
+    hist_iid = np.array([[ 1, 2, 3,0], [ 1, 2, 3,0], [ 1, 2, 0,0]])
+    hist_igender = np.array([[1, 1, 2,0 ], [2, 1, 1, 0], [2, 1, 0, 0]])
+
+    behavior_length = np.array([3,3,2])
+
+    feature_dict = {'user': uid, 'gender': ugender, 'item': iid, 'item_gender': igender,
+                    'hist_item': hist_iid, 'hist_item_gender': hist_igender,
+                    'score': score}
+
+
+    if use_neg:
+        feature_dict['neg_hist_item'] = np.array([[1, 2, 3, 0], [1, 2, 3, 0], [1, 2, 0, 0]])
+        feature_dict['neg_hist_item_gender'] = np.array([[1, 1, 2, 0], [2, 1, 1, 0], [2, 1, 0, 0]])
+        feature_columns += [
+            VarLenSparseFeat(SparseFeat('neg_hist_item', vocabulary_size=3 + 1, embedding_dim=8, embedding_name='item'),
+                             maxlen=4),
+            VarLenSparseFeat(SparseFeat('neg_hist_item_gender', 2 + 1, embedding_dim=4, embedding_name='item_gender'),
+                             maxlen=4)]
+
+    from deepctr.inputs import get_feature_names
+    feature_names = get_feature_names(feature_columns)
+    x = {name:feature_dict[name] for name in feature_names}
+    x["seq_length"] = behavior_length
+    y = [1, 0, 1]
+    return x, y, feature_columns, behavior_feature_list
+
+def get_xy_fd_dsin(hash_flag=False):
+    feature_columns = [SparseFeat('user', 3, use_hash=hash_flag),
+                       SparseFeat('gender', 2, use_hash=hash_flag),
+                       SparseFeat('item', 3 + 1, use_hash=hash_flag),
+                       SparseFeat('item_gender', 2 + 1, use_hash=hash_flag),
+                       DenseFeat('score', 1)]
+    feature_columns += [
+        VarLenSparseFeat(SparseFeat('sess_0_item', 3 + 1, embedding_dim=4, use_hash=hash_flag, embedding_name='item'),
+                         maxlen=4), VarLenSparseFeat(
+            SparseFeat('sess_0_item_gender', 2 + 1, embedding_dim=4, use_hash=hash_flag, embedding_name='item_gender'),
+            maxlen=4)]
+    feature_columns += [
+        VarLenSparseFeat(SparseFeat('sess_1_item', 3 + 1, embedding_dim=4, use_hash=hash_flag, embedding_name='item'),
+                         maxlen=4), VarLenSparseFeat(
+            SparseFeat('sess_1_item_gender', 2 + 1, embedding_dim=4, use_hash=hash_flag, embedding_name='item_gender'),
+            maxlen=4)]
+
+    behavior_feature_list = ["item", "item_gender"]
+    uid = np.array([0, 1, 2])
+    ugender = np.array([0, 1, 0])
+    iid = np.array([1, 2, 3])  # 0 is mask value
+    igender = np.array([1, 2, 1])  # 0 is mask value
+    score = np.array([0.1, 0.2, 0.3])
+
+    sess1_iid = np.array([[1, 2, 3, 0], [1, 2, 3, 0], [0, 0, 0, 0]])
+    sess1_igender = np.array([[1, 1, 2, 0], [2, 1, 1, 0], [0, 0, 0, 0]])
+
+    sess2_iid = np.array([[1, 2, 3, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+    sess2_igender = np.array([[1, 1, 2, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+
+    sess_number = np.array([2, 1, 0])
+
+    feature_dict = {'user': uid, 'gender': ugender, 'item': iid, 'item_gender': igender,
+                    'sess_0_item': sess1_iid, 'sess_0_item_gender': sess1_igender, 'score': score,
+                    'sess_1_item': sess2_iid, 'sess_1_item_gender': sess2_igender, }
+
+    from deepctr.inputs import get_feature_names
+    x = {name: feature_dict[name] for name in get_feature_names(feature_columns)}
+    x["sess_length"] = sess_number
+
+    y = [1, 0, 1]
+    return x, y, feature_columns, behavior_feature_list
 
 
 def gen_sequence(dim, max_len, sample_size):
@@ -24,11 +142,12 @@ def gen_sequence(dim, max_len, sample_size):
 
 
 def get_test_data(sample_size=1000, embedding_size=4, sparse_feature_num=1, dense_feature_num=1,
-                  sequence_feature=['sum', 'mean', 'max', 'weight'], classification=True, include_length=False,
+                  sequence_feature=None, classification=True, include_length=False,
                   hash_flag=False, prefix='', use_group=False):
+    if not sequence_feature:
+        sequence_feature = ['sum', 'mean', 'max', 'weight']
     feature_columns = []
     model_input = {}
-
     if 'weight' in sequence_feature:
         feature_columns.append(
             VarLenSparseFeat(SparseFeat(prefix + "weighted_seq", vocabulary_size=2, embedding_dim=embedding_size),
@@ -252,17 +371,37 @@ def layer_test(layer_cls, kwargs={}, input_shape=None, input_dtype=None,
 
 def has_arg(fn, name, accept_all=False):
     """Checks if a callable accepts a given keyword argument.
+
+
+
     For Python 2, checks if there is an argument with the given name.
+
+
+
     For Python 3, checks if there is an argument with the given name, and
+
     also whether this argument can be called with a keyword (i.e. if it is
+
     not a positional-only argument).
+
+
+
     # Arguments
+
         fn: Callable to inspect.
+
         name: Check if `fn` can be called with `name` as a keyword argument.
+
         accept_all: What to return if there is no parameter called `name`
+
                     but the function accepts a `**kwargs` argument.
+
+
+
     # Returns
+
         bool, whether `fn` accepts a `name` keyword argument.
+
     """
 
     if sys.version_info < (3,):

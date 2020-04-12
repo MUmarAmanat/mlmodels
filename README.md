@@ -1,19 +1,22 @@
-# mlmodels : Model ZOO for Pytorch, Tensorflow, Keras, Gluon, sklearn, LightGBM models...
+# mlmodels : Model ZOO for Pytorch, Tensorflow, Keras, Gluon, LightGBM, Sklearn models...
 
-- Model ZOO with Lightweight Functional interface to wrap access to Recent and State o Art Deep Learning, ML models and Hyper-Parameter Search, cross platforms such as Tensorflow, Pytorch, Gluon, Keras, sklearn, light-GBM,...
+- Model ZOO with Lightweight Functional interface to wrap access to Recent and State of Art Deep Learning, ML models and Hyper-Parameter Search, cross platforms such as Tensorflow, Pytorch, Gluon, Keras, sklearn, light-GBM,...
 
 - Logic follows sklearn : fit, predict, transform, metrics, save, load
 
 - Goal is to transform Script/Research code into Re-usable/batch/ code with minimal code change ...
 
-- Why Functional interface instead of OOP ?
+- Why Functional interface instead of pure OOP ?
   Functional reduces the amount of code needed, focus more on the computing part (vs design part),
   a bit easier maintenability for medium size project, good for scientific computing process.
 
 
-*  Colab demo :
-https://colab.research.google.com/drive/1sYbrXNZh9nTeizS-AuCA8RSu94B_B-RF54d8dce15108f5fe94bf448fceb519dce07a6d2d
+*  Usage, Example :
+https://github.com/arita37/mlmodels/blob/dev/mlmodels/example/README_usage.md
 
+
+*  Colab demo for Install :
+https://colab.research.google.com/drive/1sYbrXNZh9nTeizS-AuCA8RSu94B_B-RF
 
 
 ## Model List :
@@ -44,41 +47,41 @@ TextCNN Keras : 2016, Text CNN Classifier, https://arxiv.org/abs/1801.06287
 charCNN Keras : Text Character Classifier,
 
 
-DRMM: this model is an implementation of A Deep Relevance Matching Model for Ad-hoc Retrieval.
+DRMM:  Deep Relevance Matching Model for Ad-hoc Retrieval.
 
-DRMMTKS: this model is an implementation of A Deep Top-K Relevance Matching Model for Ad-hoc Retrieval.
+DRMMTKS:  Deep Top-K Relevance Matching Model for Ad-hoc Retrieval.
 
-ARC-I: this model is an implementation of Convolutional Neural Network Architectures for Matching Natural Language Sentences
+ARC-I:  Convolutional Neural Network Architectures for Matching Natural Language Sentences
 
-ARC-II: this model is an implementation of Convolutional Neural Network Architectures for Matching Natural Language Sentences
+ARC-II:  Convolutional Neural Network Architectures for Matching Natural Language Sentences
 
-DSSM: this model is an implementation of Learning Deep Structured Semantic Models for Web Search using Clickthrough Data
+DSSM:  Learning Deep Structured Semantic Models for Web Search using Clickthrough Data
 
-CDSSM: this model is an implementation of Learning Semantic Representations Using Convolutional Neural Networks for Web Search
+CDSSM:  Learning Semantic Representations Using Convolutional Neural Networks for Web Search
 
-MatchLSTM:this model is an implementation of Machine Comprehension Using Match-LSTM and Answer Pointer
+MatchLSTM: Machine Comprehension Using Match-LSTM and Answer Pointer
 
-DUET: this model is an implementation of Learning to Match Using Local and Distributed Representations of Text for Web Search
+DUET:  Learning to Match Using Local and Distributed Representations of Text for Web Search
 
-KNRM: this model is an implementation of End-to-End Neural Ad-hoc Ranking with Kernel Pooling
+KNRM:  End-to-End Neural Ad-hoc Ranking with Kernel Pooling
 
-ConvKNRM: this model is an implementation of Convolutional neural networks for soft-matching n-grams in ad-hoc search
+ConvKNRM:  Convolutional neural networks for soft-matching n-grams in ad-hoc search
 
-ESIM: this model is an implementation of Enhanced LSTM for Natural Language Inference
+ESIM:  Enhanced LSTM for Natural Language Inference
 
-BiMPM: this model is an implementation of Bilateral Multi-Perspective Matching for Natural Language Sentences
+BiMPM:  Bilateral Multi-Perspective Matching for Natural Language Sentences
 
-MatchPyramid: this model is an implementation of Text Matching as Image Recognition
+MatchPyramid:  Text Matching as Image Recognition
 
-Match-SRNN: this model is an implementation of Match-SRNN: Modeling the Recursive Matching Structure with Spatial RNN
+Match-SRNN:  Match-SRNN: Modeling the Recursive Matching Structure with Spatial RNN
 
-aNMM: this model is an implementation of aNMM: Ranking Short Answer Texts with Attention-Based Neural Matching Model
+aNMM:  aNMM: Ranking Short Answer Texts with Attention-Based Neural Matching Model
 
-MV-LSTM: this model is an implementation of A Deep Architecture for Semantic Matching with Multiple Positional Sentence Representations
+MV-LSTM:  Deep Architecture for Semantic Matching with Multiple Positional Sentence Representations
 
-DIIN: this model is an implementation of Natural Lanuguage Inference Over Interaction Space
+DIIN:  Natural Lanuguage Inference Over Interaction Space
 
-HBMP: this model is an implementation of Sentence Embeddings in NLI with Iterative Refinement Encoders
+HBMP:  Sentence Embeddings in NLI with Iterative Refinement Encoders
 
 
 
@@ -87,6 +90,9 @@ HBMP: this model is an implementation of Sentence Embeddings in NLI with Iterati
 #### LightGBM
 
 #### AutoML Gluon  :  2020, AutoML in Gluon, MxNet using LightGBM, CatBoost
+
+
+#### Auto-Keras  :  2020, Automatic Keras model selection
 
 
 #### All sklearn models :
@@ -180,23 +186,23 @@ resnext101_32x8d\
 
 wide_resnet50_2\
 wide_resnet101_2\
-squeezenet1_0\
+squeezenet1_0
 
 squeezenet1_1\
 vgg11\
 vgg13\
 vgg16\
 vgg19\
-vgg11_bn\
+vgg11_bn
 
 vgg13_bn\
 vgg16_bn\
-vgg19_bn\
+vgg19_bn
 
 googlenet\
 shufflenet_v2_x0_5\
 shufflenet_v2_x1_0\
-mobilenet_v2\
+mobilenet_v2
 
 A lot more...
 
@@ -212,7 +218,7 @@ https://github.com/arita37/mlmodels/blob/dev/README_model_list.md
 
 Using pre-installed online Setup :
 
-    https://github.com/arita37/mlmodels/issues/101
+https://github.com/arita37/mlmodels/issues/101
 
 
 
@@ -246,11 +252,6 @@ Will copy template, dataset, example to your folder
     ml_models
     
         
-
-#### Dependencies
-
-https://github.com/arita37/mlmodels/blob/dev/requirements.txt
-
 #### Actual test runs
 
 https://github.com/arita37/mlmodels/actions
@@ -273,12 +274,7 @@ https://github.com/arita37/mlmodels/blob/dev/README_usage.md
 
 https://github.com/arita37/mlmodels/blob/dev/README_usage_CLI.md
 
-```
-- ml_models    :  mlmodels/models.py
-- ml_optim     :  mlmodels/optim.py
-- ml_test      :  mlmodels/ztest.py
 
-```
 
 ####################################################################################
 

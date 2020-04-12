@@ -5,7 +5,8 @@ name: test_fast_linux
 on:
   push:
     branches: 
-      - issue_109
+      - dev
+      - mybranch
  
 jobs:
   build:
@@ -39,7 +40,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: /opt/hostedtoolcache/Python/
-        key: ${{ runner.os }}-pipenv-${{ hashFiles('**/requirements.txt') }}
+        key: ${{ runner.os }}-pipenv-${{ hashFiles('**/requirements_fake.txt') }}
 
           
 

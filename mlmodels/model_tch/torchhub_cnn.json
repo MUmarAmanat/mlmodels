@@ -6,8 +6,12 @@
              },
 
             "model_pars": {
-                "repo_uri": "pytorch/vision",
-                "model": "resnet18",
+                "repo_uri": "facebookresearch/pytorch_GAN_zoo:hub",
+                "model": "PGAN",
+                "model_name" : "celebAHQ-512",
+
+
+
                 "num_classes": 1000,
                 "pretrained": 0,  "_comment": "0: False, 1: True",
                 "num_layers": 1,
