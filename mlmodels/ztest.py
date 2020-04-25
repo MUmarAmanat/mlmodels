@@ -24,7 +24,10 @@ from mlmodels.util import get_recursive_files2
 
 
 
-log_git_push = " cd /home/runner/work/mlmodels/mlmodels_store/   && ls &&  git add --all &&  git commit -m 'log'   && git push --all   && cd /home/runner/work/mlmodels/mlmodels/ "
+           
+           
+
+log_git_push = " git config --local user.email 'noelkev0@gmail.com' &&   git config --local user.name 'arita37'  &&  cd /home/runner/work/mlmodels/mlmodels_store/   && ls &&  git add --all &&  git commit -m 'log'   && git push --all   && cd /home/runner/work/mlmodels/mlmodels/ "
 
 
 
@@ -105,6 +108,8 @@ def test_jupyter(arg=None, config_mode="test_all"):
 
 
 
+
+
 def test_benchmark(arg=None):
     print("os.getcwd", os.getcwd())
 
@@ -113,6 +118,10 @@ def test_benchmark(arg=None):
     path = path.replace("\\", "//")
     test_list = [ f"python {path}/benchmark.py --do timeseries "   ,
                   f"python {path}/benchmark.py --do vision_mnist "   ,
+                  f"python {path}/benchmark.py --do fashion_vision_mnist "   ,
+                  f"python {path}/benchmark.py --do text_classification "   ,
+                  f"python {path}/benchmark.py --do nlp_reuters "   ,
+
     ]
 
     for cmd in test_list:

@@ -18,14 +18,14 @@ ml_models --do
     predict     :  predict  using a pre-trained model and some data
     generate_config  :  generate config file from code source
     
-  ## --do fit  
+  ## do fit  
   --model_uri     model_tf.1_lstm
   --save_folder   myfolder/
   --config_file   myfile.json
   --config_mode   "test"
 
 
-  ## --do predict  
+  ## do predict  
   --load_folder   mymodel_folder/
     "testall"     :  test all modules inside model_tf
     "test"        :  test a certain module inside model_tf
@@ -62,7 +62,7 @@ ml_test
     
     
 #### Custom  Models
-    ml_models --do test  --model_uri "D:\_devs\Python01\gitdev\mlmodels\mlmodels\model_tf_lstm.py"
+    ml_models --do test  --model_uri ("D:\_devs\Python01\gitdev\mlmodels\mlmodels\model_tf_lstm.py")
 
 
 
