@@ -1,8 +1,11 @@
-## Usage with Online Editor
-  Pre-Installed setup
+## Usage with Online IDE Editor
 
+####  Pre-Installed setup
 https://github.com/arita37/mlmodels/issues/101
 
+
+#### Install MLMODELS in Colab 
+https://github.com/arita37/mlmodels/issues/275
 
 
 #
@@ -64,6 +67,7 @@ https://github.com/arita37/mlmodels/blob/dev/mlmodels/example/arun_model.py
 
 ## Example of notebooks
 
+https://drive.google.com/open?id=1-oEzbxFyQ3G3x21ZGh6CJbrlIjOLIyaM
 
 
 ### Progressive GAN , Image Generation with mlmodels
@@ -140,14 +144,14 @@ load_pars = { "path" : "ztest_1lstm/model/" }
 #### Load Parameters and Train
 from mlmodels.models import module_load
 
-module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-metrics_val   =  module.fit_metrics( model, sess, data_pars, compute_pars, out_pars) # get stats
-ypred         = module.predict(model, sess,  data_pars, compute_pars, out_pars)     # predict pipeline
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 ```
@@ -192,13 +196,73 @@ out_pars = {
 #### Load Parameters and Train
 from mlmodels.models import module_load
 
-module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, model_pars=model_pars, compute_pars=compute_pars, out_pars=out_pars)      
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model, data_pars, compute_pars, out_pars)     # predict pipeline
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
+
+
+```
+
+---
+
+
+### AutoML example in AutoKeras ([Example script](/mlmodels/model_keras/Autokeras.py))
+```python
+# import library
+import mlmodels
+import autokeras as ak
+
+#### Define model and data definitions
+model_uri = "model_gluon.Autokeras.py"
+data_pars =  {
+            "dataset": "MNIST",
+            "data_path": "dataset/vision/",
+            "validation_split":0.2
+        }
+
+model_pars = {
+            "model_name":"vision",
+             "model_pars":{
+                            "num_classes": null,
+                            "multi_label": false,
+                            "loss":  null,
+                            "metrics": null,
+                            "name":"vision_classifier",
+                            "max_trials":10,
+                            "directory": null,
+                            "objective": "val_loss",
+                            "overwrite":true,
+                            "seed": null
+                            }
+        }
+
+compute_pars = {
+            "epochs":2
+        }
+
+out_pars =  {
+            "checkpointdir": "ztest/model_keras/autokeras/vision_classifier/"
+        
+        }
+
+
+
+#### Load Parameters and Train
+from mlmodels.models import module_load
+
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+
+
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 ```
@@ -225,13 +289,14 @@ out_pars    = {'path' : "../ztest"}
 #### Load Parameters and Train
 from mlmodels.models import module_load
 
-module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
+metrics_val   = smodule.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 ```
 
 
@@ -260,15 +325,14 @@ out_pars     = {"path": "ztest/model_keras/textcnn/"}
 #### Load Parameters and Train
 from mlmodels.models import module_load
 
-module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-data_pars['train'] = 0
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
-```
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 ---
 
@@ -292,12 +356,17 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
     'data_path':'../mlmodels/example/1_lstm.json'
 })
 
-#### Load parameters and train
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+#### Load Parameters and Train
+from mlmodels.models import module_load
 
-#### Check inference
-ypred       = module.predict(model, sess=sess,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+
+
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 ```
@@ -325,14 +394,16 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
 })
 
 #### Load Parameters and Train
+from mlmodels.models import module_load
 
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Check metrics
@@ -359,7 +430,7 @@ from mlmodels.models import module_load
 from mlmodels.util import load_config
 
 model_uri    = "model_sklearn.sklearn.py"
-module        =  module_load( model_uri= model_uri )                           # Load file definition
+
 
 model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
     'choice':'json',
@@ -369,14 +440,16 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
 
 
 #### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+from mlmodels.models import module_load
+
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 #### Check metrics
 import pandas as pd
@@ -401,7 +474,6 @@ from mlmodels.models import module_load
 from mlmodels.util import load_config
 
 model_uri    = "model_gluon.gluon_automl.py"
-module        =  module_load( model_uri= model_uri )                           # Load file definition
 
 model_pars, data_pars, compute_pars, out_pars = module.get_params(
     choice='json',
@@ -411,14 +483,16 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(
 
 
 #### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars, compute_pars=compute_pars)             # Create Model instance
-model   =  module.fit(model, model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
-model.model.fit_summary()
+from mlmodels.models import module_load
+
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
-#### Check inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 #### Check metrics
 model.model.model_performance
 
@@ -470,13 +544,16 @@ model_pars_update = optim(
 
 
 #### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars_update, data_pars=data_pars, compute_pars=compute_pars)y
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+from mlmodels.models import module_load
 
-#### Check inference
-ypred         = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
+
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 #### Check metrics
 import pandas as pd
@@ -500,7 +577,7 @@ roc_auc_score(y, ypred)
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 #### Load model and data definitions from json
 # Model defination
@@ -521,18 +598,20 @@ out_pars        = test['out_pars']
 
 
 #### Load Parameters and Train
-module        =  module_load( model_uri= model_uri)
-model = module.Model(model_pars, data_pars, compute_pars) # create model instance
-model, session = module.fit(model, data_pars, compute_pars, out_pars) # fit model
+from mlmodels.models import module_load
+
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
-#### Check inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # get predictions
-ypred
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Check metrics
-metrics_val = module.fit_metrics(model, data_pars, compute_pars, out_pars)
+metrics_val = module.evaluate(model, data_pars, compute_pars, out_pars)
 metrics_val 
 
 ```
@@ -551,7 +630,7 @@ metrics_val
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -568,14 +647,17 @@ hypermodel_pars, model_pars, data_pars, compute_pars, out_pars = params_json_loa
 print( hypermodel_pars, model_pars, data_pars, compute_pars, out_pars)
 
 
-#### Setup Model 
-module         = module_load( model_uri)
-model          = module.Model(model_pars, data_pars, compute_pars) 
+#### Load Parameters and Train
+from mlmodels.models import module_load
 
-#### Fit
-model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
-print(metrics_val)
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+
+
+#### Inference
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Inference
@@ -599,7 +681,7 @@ print(ypred)
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -615,19 +697,17 @@ hypermodel_pars, model_pars, data_pars, compute_pars, out_pars = params_json_loa
 print( hypermodel_pars, model_pars, data_pars, compute_pars, out_pars)
 
 
-#### Setup Model 
-module         = module_load( model_uri)
-model          = module.Model(model_pars, data_pars, compute_pars) 
+#### Load Parameters and Train
+from mlmodels.models import module_load
 
-#### Fit
-model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
-print(metrics_val)
+module  =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred          = module.predict(model, session, data_pars, compute_pars, out_pars)   
-print(ypred)
+metrics_val   =  module.fit_metrics( data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 

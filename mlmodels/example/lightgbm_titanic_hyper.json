@@ -7,7 +7,7 @@
 
         },
         "data_pars": {"mode": "train",
-                      "path": "../dataset/tabular/titanic_train_preprocessed.csv", 
+                      "path": "dataset/tabular/titanic_train_preprocessed.csv", 
                       "data_type" : "pandas",
                       "colX":["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked_Q", "Embarked_S", "Title"],
                       "coly": "Survived"
@@ -17,7 +17,7 @@
                        "random_state":2
                     },
 
-        "compute_pars": {  "lightgbm_pars" :{
+        "compute_pars": {  "compute_pars" :{
                        }
          },
 

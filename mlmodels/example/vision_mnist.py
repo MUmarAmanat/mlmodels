@@ -22,8 +22,8 @@ cd mlmodels/
 
 !pip install  git+https://github.com/arita37/mlmodels.git
 
-!wget https://raw.githubusercontent.com/arita37/mlmodels/dev/requirements_fake.txt
-!pip install -r requirements_fake.txt
+!wget https://raw.githubusercontent.com/arita37/mlmodels/dev/install/requirements_fake.txt
+!pip install -r install/requirements_fake.txt
 
 !ls
 
@@ -38,7 +38,7 @@ import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
 from mlmodels.metrics import metrics_eval
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -60,7 +60,7 @@ model          = module.Model(model_pars, data_pars, compute_pars)
 
 #### Fit
 model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
+metrics_val    = module.evaluate(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
 print(metrics_val)
 
 
@@ -81,7 +81,7 @@ model2 = module.load(load_pars ={ 'path': out_pars['path'] +"/model/"})
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -101,7 +101,7 @@ model          = module.Model(model_pars, data_pars, compute_pars)
 
 #### Fit
 model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
+metrics_val    = module.evaluate(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
 print(metrics_val)
 
 
@@ -122,7 +122,7 @@ model2 = module.load(load_pars ={ 'path': out_pars['path'] +"/model/"})
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -142,7 +142,7 @@ model          = module.Model(model_pars, data_pars, compute_pars)
 
 #### Fit
 model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
+metrics_val    = module.evaluate(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
 print(metrics_val)
 
 
@@ -164,7 +164,7 @@ import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
 from mlmodels.metrics import metrics_eval
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -226,7 +226,7 @@ for model_name in valid_models:
 
     #### Fit
     model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-    metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
+    metrics_val    = module.evaluate(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
     print(metrics_val)
 
 

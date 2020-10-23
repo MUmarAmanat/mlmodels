@@ -164,20 +164,44 @@ def get_params(param_pars=None, **kw):
 
 
 
+# def get_dataset(data_pars=None, **kw):
+
+#     #if data_pars['dataset'] == 'MNIST':
+#     #    train_loader, valid_loader  = get_dataset_mnist_torch(data_pars)
+#     #    return train_loader, valid_loader  
+#     from mlmodels.preprocess.generic import get_dataset_torch
+
+#     if data_pars['dataset'] :
+#         train_loader, valid_loader  = get_dataset_torch(data_pars)
+#         return train_loader, valid_loader  
+
+#     else:
+#         raise Exception("dataset not provided ")
+#         return 0
+
+
 def get_dataset(data_pars=None, **kw):
 
     #if data_pars['dataset'] == 'MNIST':
     #    train_loader, valid_loader  = get_dataset_mnist_torch(data_pars)
     #    return train_loader, valid_loader  
-    from mlmodels.preprocess.generic import get_dataset_torch
+    from mlmodels.dataloader import DataLoader
 
-    if data_pars['dataset'] :
-        train_loader, valid_loader  = get_dataset_torch(data_pars)
+    loader = DataLoader(data_pars)
+
+    if data_pars['data_info']['dataset'] :
+        loader.compute()
+        try:
+            (train_loader, valid_loader), internal_states  = loader.get_data()
+        except:
+            raise Exception("the last Preprocessor have to return (train_loader, valid_loader), internal_states.")
+            
         return train_loader, valid_loader  
 
     else:
         raise Exception("dataset not provided ")
         return 0
+
 
 
 
@@ -193,7 +217,7 @@ def fit(model, data_pars=None, compute_pars=None, out_pars=None, **kwargs):
     test_loss     = []
     test_acc      = []
     best_test_acc = -1
-
+    
     optimizer     = optim.Adam(model0.parameters(), lr=lr)
     train_iter, valid_iter = get_dataset(data_pars)
 
@@ -272,7 +296,7 @@ def predict(model, session=None, data_pars=None, compute_pars=None, out_pars=Non
     return y_pred, y_true  if return_ytrue else y_pred
 
 
-def fit_metrics(model, data_pars=None, compute_pars=None, out_pars=None):
+def evaluate(model, data_pars=None, compute_pars=None, out_pars=None):
     pass
 
 
@@ -343,7 +367,7 @@ def test(data_path="dataset/", pars_choice="json", config_mode="test"):
 
 
     log("#### metrics   #####################################################")
-    metrics_val = fit_metrics(model, data_pars, compute_pars, out_pars)
+    metrics_val = evaluate(model, data_pars, compute_pars, out_pars)
     print(metrics_val)
 
 
@@ -385,7 +409,7 @@ def test2(data_path="dataset/", pars_choice="json", config_mode="test"):
 
 
     log("#### metrics   #####################################################")
-    #metrics_val = fit_metrics(model, data_pars, compute_pars, out_pars)
+    #metrics_val = evaluate(model, data_pars, compute_pars, out_pars)
     #print(metrics_val)
 
 
@@ -401,10 +425,16 @@ def test2(data_path="dataset/", pars_choice="json", config_mode="test"):
 
 
 if __name__ == "__main__":
-    test(data_path="model_tch/torchhub_cnn.json", pars_choice="json", config_mode="test")
+
+    #### CNN Type
+    # test(data_path="model_tch/torchhub_cnn_list.json", pars_choice="json", config_mode="resnet18")
+    test(data_path="dataset/json/refactor/resnet18_benchmark_mnist.json", pars_choice="json", config_mode="test")
 
 
-    #test2(data_path="model_tch/torchhub_pgan.json", pars_choice="json", config_mode="test")
+
+    #### GAN Type
+    # test2(data_path="model_tch/torchhub_gan_list.json", pars_choice="json", config_mode="PGAN")
+    test2(data_path="dataset/json/refactor/torchhub_cnn_dataloader.json", pars_choice="json", config_mode="test")
 
 
 

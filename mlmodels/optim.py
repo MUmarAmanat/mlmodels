@@ -21,17 +21,16 @@ python optim.py --model_uri model_tf.1_lstm.py  --do search
 
 """
 import argparse
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 import os
 import copy
-
 # import pandas as pd
 
 
 ####################################################################################################
 # from mlmodels import models
 from mlmodels.models import model_create, module_load
-from mlmodels.util import log, os_package_root_path, path_norm, tf_deprecation
+from mlmodels.util import log, path_norm, tf_deprecation, path_norm_dict
 
 ####################################################################################################
 tf_deprecation()
@@ -40,7 +39,7 @@ VERBOSE = False
 
 
 ####################################################################################################
-def optim(model_uri="model_tf.1_lstm.py",
+def optim(model_uri="model_tf.1_lstm",
           hypermodel_pars={},
           model_pars={},
           data_pars={},
@@ -57,20 +56,20 @@ def optim(model_uri="model_tf.1_lstm.py",
                             model_pars, data_pars, compute_pars,
                             out_pars)
 
-    if hypermodel_pars["engine_pars"]['engine'] == "skopt":
-        return optim_skopt(model_uri, hypermodel_pars,
-                           model_pars, data_pars, compute_pars,
-                           out_pars)
+    # if hypermodel_pars["engine_pars"]['engine'] == "skopt":
+    #    return optim_skopt(model_uri, hypermodel_pars,
+    #                       model_pars, data_pars, compute_pars,
+    #                       out_pars)
 
     return None
 
 
 def optim_optuna(model_uri="model_tf.1_lstm.py",
-                 hypermodel_pars={"engine_pars": {}},
-                 model_pars={},
-                 data_pars={},
-                 compute_pars={},  # only Model pars
-                 out_pars={}):
+                 hypermodel_pars = {"engine_pars": {}},
+                 model_pars      = {},
+                 data_pars       = {},
+                 compute_pars    = {},  # only Model pars
+                 out_pars        = {}):
     """
     ### Distributed
     https://optuna.readthedocs.io/en/latest/tutorial/distributed.html
@@ -100,13 +99,16 @@ def optim_optuna(model_uri="model_tf.1_lstm.py",
     
     """
     import optuna
-
+    # these parameters should be inside the key "engine_pars" which should be inside "hypermodel_pars" of the config json
     engine_pars   = hypermodel_pars['engine_pars']
     ntrials       = engine_pars['ntrials']
+    # metric target should be a value that is available in the model.stats of the model we are optimizing it can simply be called "loss" or 
+    # specific like "roc_auc_score" 
     metric_target = engine_pars["metric_target"]
 
-    save_path     = out_pars['save_path']
-    log_path      = out_pars['log_path']
+    save_path     = out_pars['path']
+    # log_path      = out_pars['log_path']
+    os.makedirs(save_path, exist_ok=True)    
 
     model_name    = model_pars.get("model_name")  #### Only for sklearn model
     # model_type    = model_pars['model_type']
@@ -116,7 +118,7 @@ def optim_optuna(model_uri="model_tf.1_lstm.py",
     log(module)
 
     def objective(trial):
-        log("check", module, data_pars)
+        # log("check", module, data_pars)
         for t, p in hypermodel_pars.items():
 
             if t == 'engine_pars': continue  ##Skip
@@ -138,14 +140,12 @@ def optim_optuna(model_uri="model_tf.1_lstm.py",
 
             model_pars[t] = pres
 
-        model = model_create(module, model_pars, data_pars, compute_pars)  # module.Model(**param_dict)
+        module = model_create(module, model_pars, data_pars, compute_pars)  # module.Model(**param_dict)
         if VERBOSE: log(model)
 
-        model, sess = module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
-        metrics = module.fit_metrics(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+        module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+        metrics = module.evaluate(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
         mtarget = metrics[metric_target]
-
-        del sess, model
         try:
             module.reset_model()  # Reset Graph for TF
         except Exception as e:
@@ -173,8 +173,7 @@ def optim_optuna(model_uri="model_tf.1_lstm.py",
     # param_dict.update(module.config_get_pars(choice="test", )
 
 
-    log("### Save Stats   ##########################################################")
-    os.makedirs(save_path, exist_ok=True)              
+    log("### Save Stats   ##########################################################")          
     study_trials = study.trials_dataframe()  
     study_trials.to_csv(f"{save_path}/{model_uri}_study.csv")
     param_dict_best["best_value"] = study.best_value
@@ -186,14 +185,14 @@ def optim_optuna(model_uri="model_tf.1_lstm.py",
     model_pars_update.update(param_dict_best)
     model_pars_update["model_name"] = model_name  ###SKLearn model
 
-    model = model_create(module, model_pars_update, data_pars, compute_pars)
-    model, sess = module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+    module = model_create(module, model_pars_update, data_pars, compute_pars)
+    module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
     log("#### Saving     ###########################################################")
     model_uri = model_uri.replace(".", "-")
     save_pars = {'path': save_path, 'model_type': model_uri.split("-")[0], 'model_uri': model_uri}
-    module.save(model=model, session=sess, save_pars=save_pars)
+    module.save(save_pars=save_pars)
 
     #log( os.stats(save_path))
     ## model_pars_update["model_name"] = model_name
@@ -214,37 +213,202 @@ def post_process_best(model, module, model_uri, model_pars_update, data_pars, co
 
     return model_pars_update
 
-
-
 ####################################################################################################
 def test_json(path_json="", config_mode="test"):
-    cf = json.load(open(path_json, mode='rb', encoding='utf-8'))
+    cf = json.load(open( path_norm(path_json), mode='r', encoding='utf-8'))
     cf = cf[config_mode]
 
     model_uri = cf['model_pars']['model_uri']  # 'model_tf.1_lstm'
+    data_pars = path_norm_dict( cf['data_pars'] )
+    out_pars  = path_norm_dict( cf['out_pars'] )
 
     res = optim(model_uri,
-                hypermodel_pars=cf['hypermodel_pars'],
-                model_pars=cf['model_pars'],
-                data_pars=cf['data_pars'],
-                compute_pars=cf['compute_pars'],
-                out_pars=cf['out_pars']
+                hypermodel_pars = cf['hypermodel_pars'],
+                model_pars      = cf['model_pars'],
+                data_pars       = data_pars,
+                compute_pars    = cf['compute_pars'],
+                out_pars        = out_pars
                 )
-
     return res
 
 
-def test_fast(ntrials=2):
-    path_curr = os.getcwd()
 
+def test_all():
+    return 1
+
+
+
+def optim_cli(arg):
+    # model_pars, data_pars, compute_pars = config_get_pars(arg)
+    config_file = "template/optim_config.json" if arg.config_file is None else arg.config_file
+    config_file =  path_norm( config_file )
+
+    js = json.load(open(config_file, mode='r'))  # Config
+    js = js[arg.config_mode]  # test /uat /prod
+    data_pars = path_norm_dict( js['data_pars'] )
+    out_pars  = path_norm_dict( js['out_pars'] )
+
+
+    # log(model_pars, data_pars, compute_pars)
+    log("############# OPTIMIZATION Start  ###############")
+    res = optim(js["model_pars"]["model_uri"],
+                hypermodel_pars = js["hypermodel_pars"],
+                model_pars      = js["model_pars"],
+                compute_pars    = js["compute_pars"],
+                data_pars       = data_pars,
+                out_pars        = out_pars )
+
+    log("#############  OPTIMIZATION End ###############")
+    log(res)
+
+
+####################################################################################################
+####################################################################################################
+def cli():
+    """
+    add("--log_file", help="File to save the logging")
+    add("--model_uri", default="model_tf.1_lstm.py",
+        help="name of the model to be tuned this name will be used to save the model")
+    add("--data_path", default="dataset/GOOG-year_small.csv", help="path of the training file")
+    add('--optim_engine', default='optuna', help='Optimization engine')
+    add('--optim_method', default='normal/prune', help='Optimization method')
+    add('--save_path', default='ztest/search_save/', help='folder that will contain saved version of best model')
+    """
+    cli = argparse.ArgumentParser()
+    subparsers = cli.add_subparsers(dest="subcommand")
+
+    def argument(*names_or_flags, **kwargs):
+        return names_or_flags, kwargs
+    
+    def subcommand(*subparser_args, parent=subparsers):
+        def decorator(func):
+            parser = parent.add_parser(func.__name__, description=func.__doc__)
+            for args, kwargs in subparser_args:
+                parser.add_argument(*args, **kwargs)
+            parser.set_defaults(func=func)
+        return decorator
+    
+    
+    #########  Test  #########################################################
+    @subcommand(
+        argument("-ntrials", help="No. of trials", default=2),
+        argument("model_uri", help="Model Name", default='model_tf.1_lstm')
+    )
+    def test(args):
+        test_json( path_json="template/optim_config_prune.json", config_mode= args.config_mode )
+        #    test_fast(ntrials=args.ntrials, model_uri=args.model_uri)
+    
+
+
+    @subcommand()
+    def test_all(args):
+        test_all()
+    
+
+
+    @subcommand(
+        argument("--config_file", help="Path to config file", default=None),
+        argument("--config_mode", help="test/ prod /uat", default="test")
+    )
+    def search(args):
+        if args.config_file is None:
+            args.config_file = path_norm("template/optim_config.json")
+        js = json.load(open(args.config_file, mode='rb'))  # Config
+        js = js[args.config_mode]  # test /uat /prod
+
+        # log(model_pars, data_pars, compute_pars)
+        log("############# OPTIMIZATION Start  ###############")
+        res = optim(js["model_pars"]["model_uri"],
+                    hypermodel_pars = js["hypermodel_pars"],
+                    model_pars      = js["model_pars"],
+                    compute_pars    = js["compute_pars"],
+                    data_pars       = js["data_pars"],
+                    out_pars        = js["out_pars"])
+
+        log("#############  OPTIMIZATION End ###############")
+        log(res)
+
+
+"""
+def main():
+    cli()
+"""
+
+
+####################################################################################################
+####################################################################################################
+def cli_load_arguments(config_file=None):
+    """
+        Load CLI input, load config.toml , overwrite config.toml by CLI Input
+    """
+    p = argparse.ArgumentParser()
+    def add(*k, **kw):
+        p.add_argument(*k, **kw)
+
+    add("--config_file" , default=None                     , help="Params File")
+    add("--config_mode" , default="test"                   , help="test/ prod /uat")
+    add("--log_file"    , help="File to save the logging")
+
+    add("--do"          , default="test"                   , help="what to do test or search")
+
+    ###### model_pars
+    add("--model_uri", default="model_tf.1_lstm.py", help="name of the model for --do test")
+
+    ###### data_pars
+    # add("--data_path", default="dataset/GOOG-year_small.csv", help="path of the training file")
+
+
+    ###### compute params
+    add("--ntrials", default=1, help='number of trials during the hyperparameters tuning')
+    # add('--optim_engine', default='optuna', help='Optimization engine')
+    # add('--optim_method', default='normal/prune', help='Optimization method')
+
+
+    ###### out params
+    # add('--save_path', default='ztest/search_save/', help='folder that will contain saved version of best model')
+
+    args = p.parse_args()
+    # args = load_config(args, args.config_file, args.config_mode, verbose=0)
+    return args
+
+
+
+####################################################################################################
+def main():
+    arg = cli_load_arguments()
+
+    if arg.do == "test":
+        #test_fast(ntrials= arg.ntrials, model_uri= arg.model_uri)
+        test_json( path_json="template/optim_config_prune.json", config_mode= arg.config_mode )
+
+    if arg.do == "test_all":
+        test_all()
+
+    if arg.do == "search":
+       optim_cli(arg)
+
+
+####################################################################################################
+if __name__ == "__main__":
+    VERBOSE = True
+    main()
+
+
+
+
+
+
+
+
+"""
+def test_fast(ntrials, model_uri):
+    # path_curr = os.getcwd()
     data_path = path_norm('dataset/timeseries/GOOG-year_small.csv')
-    path_save = f"{path_curr}/ztest/optuna_1lstm/"
+    log(data_path)
 
-    os.makedirs(path_save, exist_ok=True)
-    log("path_save", path_save, data_path)
-
-    ############ Params setup   #########################################################
-    model_uri = 'model_tf.1_lstm'
+    #path_save = f"{path_curr}/ztest/optuna_1lstm/"
+    #os.makedirs(path_save, exist_ok=True)
+    # log("path_save", path_save, data_path)
 
     hypermodel_pars = {
         "engine_pars": {"engine": "optuna", "method": "normal", 'ntrials': 2, "metric_target": "loss"},
@@ -260,16 +424,13 @@ def test_fast(ntrials=2):
     }
     log("model details", model_uri, hypermodel_pars)
 
-    #    model_pars   = {"model_uri" :"model_tf.1_lstm",  "model_type": "model_tf",
-    #                    "learning_rate": 0.001, "num_layers": 1, "size": None,
-    #                    "size_layer": 128, "output_size": None, "timestep": 4, "epoch": 2, }
-    model_pars = {"model_uri": "model_tf.1_lstm",
+    model_pars   = {"model_uri": "model_tf.1_lstm",
                   "learning_rate": 0.001, "num_layers": 1, "size": None,
                   "size_layer": 128, "output_size": None, "timestep": 4, "epoch": 2, }
 
-    data_pars = {"data_path": data_path, "data_type": "pandas"}
+    data_pars    = {"data_path": data_path, "data_type": "pandas"}
     compute_pars = {}
-    out_pars = {"save_path": "ztest/optuna_1lstm/", "log_path": "ztest/optuna_1lstm/"}
+    out_pars     = {"path": "ztest/optuna_1lstm/", "log_path": "ztest/optuna_1lstm/"}
 
     res = optim(model_uri,
                 hypermodel_pars=hypermodel_pars,
@@ -280,86 +441,7 @@ def test_fast(ntrials=2):
                 )
 
     log("Finished OPTIMIZATION", n=30)
-    print(res)
+    log(res)
+"""
 
 
-def test_all():
-    return 1
-
-
-####################################################################################################
-####################################################################################################
-def cli_load_arguments(config_file=None):
-    """
-        Load CLI input, load config.toml , overwrite config.toml by CLI Input
-    """
-    if config_file is None:
-        cur_path = os.path.dirname(os.path.realpath(__file__))
-        config_file = os.path.join(cur_path, "template/optim_config.json")
-    # print(config_file)
-
-    p = argparse.ArgumentParser()
-
-    def add(*k, **kw):
-        p.add_argument(*k, **kw)
-
-    add("--config_file", default=config_file, help="Params File")
-    add("--config_mode", default="test", help="test/ prod /uat")
-    add("--log_file", help="File to save the logging")
-
-    add("--do", default="test", help="what to do test or search")
-
-    ###### model_pars
-    add("--model_uri", default="model_tf.1_lstm.py",
-        help="name of the model to be tuned this name will be used to save the model")
-
-    ###### data_pars
-    add("--data_path", default="dataset/GOOG-year_small.csv", help="path of the training file")
-
-
-    ###### compute params
-    add("--ntrials", default=100, help='number of trials during the hyperparameters tuning')
-    add('--optim_engine', default='optuna', help='Optimization engine')
-    add('--optim_method', default='normal/prune', help='Optimization method')
-
-
-    ###### out params
-    add('--save_path', default='ztest/search_save/', help='folder that will contain saved version of best model')
-
-    args = p.parse_args()
-    # args = load_config(args, args.config_file, args.config_mode, verbose=0)
-    return args
-
-
-####################################################################################################
-####################################################################################################
-def main():
-    arg = cli_load_arguments()
-
-    if arg.do == "test":
-        test_fast()
-
-    if arg.do == "test_all":
-        test_all()
-
-    if arg.do == "search":
-        # model_pars, data_pars, compute_pars = config_get_pars(arg)
-        js = json.load(open(arg.config_file, mode='rb'))  # Config
-        js = js[arg.config_mode]  # test /uat /prod
-
-        # log(model_pars, data_pars, compute_pars)
-        log("############# OPTIMIZATION Start  ###############")
-        res = optim(js["model_pars"]["modeluri"],
-                    hypermodel_pars = js["hypermodel_pars"],
-                    model_pars      = js["model_pars"],
-                    compute_pars    = js["compute_pars"],
-                    data_pars       = js["data_pars"],
-                    out_pars        = js["out_pars"])
-
-        log("#############  OPTIMIZATION End ###############")
-        log(res)
-
-
-if __name__ == "__main__":
-    VERBOSE = True
-    main()

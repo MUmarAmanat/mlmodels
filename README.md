@@ -1,57 +1,72 @@
-# mlmodels 
+# mlmodels : Model ZOO
 
 
 This repository is the ***Model ZOO for Pytorch, Tensorflow, Keras, Gluon, LightGBM, Keras, Sklearn models etc*** with Lightweight Functional interface to wrap access to Recent and State of Art Deep Learning, ML models and Hyper-Parameter Search, cross platforms that follows the logic of sklearn, such as fit, predict, transform, metrics, save, load etc. 
 Now, more than **60 recent models** (> 2018) are available in those domains : 
-* Time Series, 
-* Text classification, 
-* Vision, 
-* Image Generation,Text generation, 
-* Gradient Boosting, Automatic Machine Learning tuning, 
-* Hyper-parameter search.
 
-With the goal to transform Script/Research code into re-usable batch/code with minimal code change, we used functional interface instead of pure OOP. This is because functional reduces the amount of code needed which is good to scientific computing. Thus, we can focus on the computing part than design. Also, it is easy to maintain for medium size project. 
+* [Time Series](#Time-series), 
+* [Text classification](#Text_classification), 
+* [Vision](#Vision), 
+* [Image Generation](#Image_Generation),[Text generation](#Text_generation), 
+* [Gradient Boosting](#Gradient_Boosting), [Automatic Machine Learning tuning](#Automatic_Machine_Learning_tuning), 
+* [Hyper-parameter search](#Hyper-parameter_search).
 
-A collection of Deep Learning and Machine Learning research papers is available in this repository.
+Main characteristics :
 
-
-![alt text](docs/mxnetf.png) ![alt text](docs/pytorch.PNG) ![alt text](docs/tenserflow.PNG)
-
-## Benefits :
-
-Having a standard framework for both machine learning models and deep learning models, 
-allows a step towards automatic Machine Learning. The collection of models, model zoo in Pytorch, Tensorflow, Keras
-allows removing dependency on one specific framework, and enable richer possibilities in model benchmarking and re-usage.
-Unique and simple interface, zero boilerplate code (!), and recent state of art models/frameworks are the main strength 
-of MLMODELS. Emphasis is on traditional machine learning algorithms but recent state of art Deep Learning algorithms. 
-Processing of high-dimensional data is considered very useful using Deep Learning. For different applications, such as computer vision, natural language processing, object detection, facial recognition and speech recognition, deep learning created significant improvements and outstanding results.
+  * Functional type interface : reduce boilerplate code, good for scientific computing.
+  * JSON based input          : reduce boilerplate code, easy for experiment management.
+  * Focus to move research/script code to benchmark batch.
 
 
-Here you can find usages [guide](https://github.com/arita37/mlmodels/blob/dev/mlmodels/example/README_usage.md)
+
+![alt text](docs/imgs/mxnetf.png) ![alt text](docs/imgs/pytorch.PNG) ![alt text](docs/imgs/tenserflow.PNG)
+
+## Benefits of mlmodels repo :
+---
+Having a simple  framework for both machine learning models and deep learning models, **without BOILERPLATE code**.
+
+**Collection of models**, model zoo in Pytorch, Tensorflow, Keras allows richer possibilities in **model re-usage**, **model batching** and **benchmarking**. Unique and simple interface, zero boilerplate code (!), and recent state of art models/frameworks are the main strength 
+of MLMODELS. Different domain fields are available, such as computer vision, NLP, Time Series prediction, tabular data classification.  
+
+
+#### How to Start :
+
+   [guide](https://cutt.ly/4fhyQxB)
+
+
+
+#### If you like the idea, we are Looking for Contributors  :
+
+   [contribution guide](https://cutt.ly/4fhyQxB)
+
+
 
 ## Model List :
-*	[Time Series](#Time-series)
-*	[NLP](#NLP)
-*	[TABULAR](#TABULAR)
-*	[LightGBM](#LightGBM)
-*	[VISION](#VISION)
+---
 
 
+<details>
+<summary>Time Series:</summary>
+<br>
 
-### Time Series:
 
 1. Montreal AI, Nbeats: 2019, Advanced interpretable Time Series Neural Network, [[Link](https://arxiv.org/abs/1905.10437)]
 
-2. Amazon Deep AR: 2019, Multi-variate Time Series NNetwork, [[Link](https://arxiv.org/abs/1905.10437)]
+2. Amazon Deep AR: 2019, Multi-variate Time Series NNetwork, [[Link](https://ieeexplore.ieee.org/abstract/document/487783)]
 
-3. Facebook Prophet 2017, Time Series prediction,
+3. Facebook Prophet 2017, Time Series prediction [[Link]](http://www.macs.hw.ac.uk/~dwcorne/RSR/00279188.pdf)
 
-4. ARMDN, Advanced Multi-variate Time series Prediction : 2019, Associative and Recurrent Mixture Density Networks for time series.
+4. ARMDN, Advanced Multi-variate Time series Prediction : 2019, Associative and Recurrent Mixture Density Networks for time series. [[Link]](https://arxiv.org/pdf/1803.03800)
 
-5. LSTM Neural Network prediction
+5. LSTM Neural Network prediction : Stacked Bidirectional and Unidirectional LSTM Recurrent Neural Network for Network-wide Traffic Speed Prediction [[Link]](https://arxiv.org/ftp/arxiv/papers/1801/1801.02143.pdf)
 
 
-### NLP:
+</details>
+
+
+<details>
+<summary>NLP:</summary>
+<br>
 
 1. Sentence Transformers : 2019, Embedding of full sentences using BERT, [[Link](https://arxiv.org/pdf/1908.10084.pdf)]
 
@@ -113,10 +128,14 @@ Here you can find usages [guide](https://github.com/arita37/mlmodels/blob/dev/ml
 
 22. HBMP:  Sentence Embeddings in NLI with Iterative Refinement Encoders
 [[Link](https://www.cambridge.org/core/journals/natural-language-engineering/article/sentence-embeddings-in-nli-with-iterative-refinement-encoders/AC811644D52446E414333B20FEACE00F)]
+</details>
 
-### TABULAR:
 
-#### LightGBM
+<details>
+<summary>TABULAR:</summary>
+<br>
+
+#### LightGBM  : Light Gradient Boosting
 
 #### AutoML Gluon  :  2020, AutoML in Gluon, MxNet using LightGBM, CatBoost
 
@@ -124,6 +143,10 @@ Here you can find usages [guide](https://github.com/arita37/mlmodels/blob/dev/ml
 
 
 #### All sklearn models :
+
+<details>
+<summary>All sklearn models :</summary>
+<br>
 
 linear_model.ElasticNet\
 linear_model.ElasticNetCV\
@@ -151,8 +174,17 @@ svm.l1_min_c
 neighbors.KNeighborsClassifier\
 neighbors.KNeighborsRegressor\
 neighbors.KNeighborsTransformer
+</details>
+
+
 
 #### Binary Neural Prediction from tabular data:
+
+<details>
+
+<summary>Binary Neural Prediction from tabular data:</summary>
+
+<br>
 
 1. A Convolutional Click Prediction Model]([[Link](http://ir.ia.ac.cn/bitstream/173211/12337/1/A%20Convolutional%20Click%20Prediction%20Model.pdf)             |)]
 
@@ -189,10 +221,16 @@ neighbors.KNeighborsTransformer
 17. FiBiNET: Combining Feature Importance and Bilinear feature Interaction for Click-Through Rate Prediction]([[Link](https://arxiv.org/pdf/1905.09433.pdf)   |)]
 
 
+</details>
+
+</details>
 
 
-### VISION:
 
+
+<details>
+<summary>VISION:</summary>
+<br>
 
 1. Vision Models (pre-trained) :  
 alexnet: SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size
@@ -288,31 +326,46 @@ alexnet: SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB
 29. mobilenet_v2: MobileNetV2: Inverted Residuals and Linear Bottlenecks
 [[Link](http://openaccess.thecvf.com/content_cvpr_2018/papers/Sandler_MobileNetV2_Inverted_Residuals_CVPR_2018_paper.pdf)]
 
-***More resources are available [here](https://github.com/arita37/mlmodels/blob/dev/README_model_list.md)***
+</details>
 
-######################################################################################
+***More resources are available on model list [here](https://github.com/arita37/mlmodels/blob/dev/README_model_list.md)***
 
-### ① Installation Guide:
+## Contribution
+---
+Dev-Documentation [link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3Adev-documentation)
 
-### (A) Using pre-installed Setup (one click) :
+Starting contributing : [link](https://github.com/arita37/mlmodels/issues/307)
 
-[Read-more](https://github.com/arita37/mlmodels/issues/101)
+Colab creation :[link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3AColab)
+
+Model benchmarking : [link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3Adev-documentation)
+
+Add new models : [link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3Adev-documentation)
+
+Core compute : [link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3A%22Core+compute%22)
+
+## User Documentation
+---
+User-Documentation: [link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3Auser-documentation)
 
 
 
-### (B) Manual Install as editable package in Linux
+## Colab
+---
+Colab :[link](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3AColab)
 
-```bash
-conda create -n py36 python=3.6.5 -y
-source activate py36
+## Installation Guide:
+---
+<details>
+<summary>Installation Guide:</summary>
+<br>
 
-cd yourfolder
-git clone https://github.com/arita37/mlmodels.git mlmodels
-cd mlmodels
-git checkout dev
-```
+### (A) Using pre-installed Setup (one click run) :
 
-### (C) Using Colab :
+[Read-more](https://cutt.ly/QyWYknC)
+
+
+### (B) Using Colab :
 [Read-more](https://github.com/arita37/mlmodels/blob/dev/README_usage.md)
 
 
@@ -343,10 +396,6 @@ ml_models
 
 ![test_fast_linux](https://github.com/arita37/mlmodels/workflows/test_fast_linux/badge.svg)
 
-![test_fast_windows](https://github.com/arita37/mlmodels/workflows/test_fast_windows/badge.svg?branch=dev)
-
-![ All model testing (Linux) ](https://github.com/arita37/mlmodels/workflows/code_structure_linux/badge.svg)
-
 _______________________________________________________________________________________
 
 ## Usage in Jupyter/Colab
@@ -358,8 +407,6 @@ ________________________________________________________________________________
 ## Command Line tools:
 
 [Read-more](https://github.com/arita37/mlmodels/blob/dev/README_usage_CLI.md)
-
-
 
 _______________________________________________________________________________________
 
@@ -381,9 +428,60 @@ ________________________________________________________________________________
 
 _______________________________________________________________________________________
 
+## Testing 
 
+[Read-more](https://github.com/arita37/mlmodels/blob/dev/README_testing.md)
+
+Testing : debugging Process
+[Read-more](https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3ATest)
+
+Tutorial : Code Design, Testing
+[Read-more]((https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3ATest))
+
+Tests: github actions to add
+[Read-more]((https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+label%3ATest))
+_______________________________________________________________________________________
+
+
+## Research Papers
+
+[Read-more](https://github.com/arita37/mlmodels/blob/dev/README_research_papers.md)
+
+_______________________________________________________________________________________
+
+## Tutorials
+---
+Tutorial : New contributors 
+[Read-more](https://github.com/arita37/mlmodels/issues/307)
+
+Tutorial : Code Design, Testing 
+[Read-more](https://github.com/arita37/mlmodels/issues/347)
+
+Tutorial : Usage of dataloader 
+[Read-more](https://github.com/arita37/mlmodels/issues/336)
+
+TUTORIAL : Use Colab for Code Development 
+[Read-more](https://github.com/arita37/mlmodels/issues/262)
+
+TUTORIAL : Do a PR or add model in mlmodels 
+[Read-more](https://github.com/arita37/mlmodels/issues/102)
+
+TUTORIAL : Using Online editor for mlmodels 
+[Read-more](https://github.com/arita37/mlmodels/issues/101)
+
+</details>
+
+## Example Notebooks
+---
+<details>
+<summary> Example Notebooks </summary>
+<br>
 
 ### LSTM example in TensorFlow ([Example notebook](mlmodels/example/1_lstm.ipynb))
+
+<details>
+<summary>LSTM example in TensorFlow </summary>
+<br>
 
 #### Define model and data definitions
 ```python
@@ -407,19 +505,23 @@ load_pars = { "path" : "ztest_1lstm/model/" }
 from mlmodels.models import module_load
 
 module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-metrics_val   =  module.fit_metrics( model, sess, data_pars, compute_pars, out_pars) # get stats
-ypred         = module.predict(model, sess,  data_pars, compute_pars, out_pars)     # predict pipeline
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 ```
 
-
+</details>
 ---
 
 ### AutoML example in Gluon ([Example notebook](mlmodels/example/gluon_automl.ipynb))
+<details>
+<summary>AutoML example in Gluon </summary>
+<br>
+
 ```python
 # import library
 import mlmodels
@@ -457,20 +559,24 @@ out_pars = {
 from mlmodels.models import module_load
 
 module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, model_pars=model_pars, compute_pars=compute_pars, out_pars=out_pars)      
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model, data_pars, compute_pars, out_pars)     # predict pipeline
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 ```
-
+</details>
 ---
 
 ### RandomForest example in Scikit-learn ([Example notebook](mlmodels/example/sklearn.ipynb))
-```
+<details>
+<summary>RandomForest example in Scikit-learn </summary>
+<br>
+```python
 # import library
 import mlmodels
 
@@ -490,18 +596,25 @@ out_pars    = {'path' : "../ztest"}
 from mlmodels.models import module_load
 
 module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
+
 ```
 
+</details>
 
 ---
 
 ### TextCNN example in keras ([Example notebook](example/textcnn.ipynb))
+
+<details>
+<summary> TextCNN example in keras </summary>
+<br>
 
 ```python
 # import library
@@ -525,18 +638,23 @@ out_pars     = {"path": "ztest/model_keras/textcnn/"}
 from mlmodels.models import module_load
 
 module        =  module_load( model_uri= model_uri )                           # Load file definition
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
-
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 #### Inference
-data_pars['train'] = 0
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 ```
+
+</details>
 
 ---
 
 ### Using json config file for input ([Example notebook](example/1_lstm_json.ipynb), [JSON file](mlmodels/mlmodels/example/1_lstm.json))
+
+<details>
+<summary> Using json config file for input </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -556,19 +674,27 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
     'data_path':'../mlmodels/example/1_lstm.json'
 })
 
-#### Load parameters and train
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
-#### Check inference
-ypred       = module.predict(model, sess=sess,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
+
+#### Inference
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 ```
 
+</details>
+
 ---
 
 ### Using Scikit-learn's SVM for Titanic Problem from json file ([Example notebook](mlmodels/example/sklearn_titanic_svm.ipynb), [JSON file](mlmodels/example/sklearn_titanic_svm.json))
+
+<details>
+<summary> Using Scikit-learn's SVM for Titanic Problem from json file </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -590,13 +716,14 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
 
 #### Load Parameters and Train
 
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Check metrics
@@ -609,9 +736,15 @@ roc_auc_score(y, ypred)
 
 ```
 
+</details>
+
 ---
 
 ### Using Scikit-learn's Random Forest for Titanic Problem from json file ([Example notebook](mlmodels/example/sklearn_titanic_randomForest.ipynb), [JSON file](mlmodels/example/sklearn_titanic_randomForest.json))
+
+<details>
+<summary> Using Scikit-learn's Random Forest for Titanic Problem from json file </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -632,15 +765,14 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(param_pars={
 })
 
 
-#### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 #### Check metrics
 import pandas as pd
@@ -651,9 +783,15 @@ roc_auc_score(y, ypred)
 
 ```
 
+</details>
+
 ---
 
 ### Using Autogluon for Titanic Problem from json file ([Example notebook](mlmodels/example/gluon_automl_titanic.ipynb), [JSON file](mlmodels/example/gluon_automl.json))
+
+<details>
+<summary> Using Autogluon for Titanic Problem from json file </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -674,17 +812,16 @@ model_pars, data_pars, compute_pars, out_pars = module.get_params(
 )
 
 
-#### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars, compute_pars=compute_pars)             # Create Model instance
-model   =  module.fit(model, model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)          # fit the model
-model.model.fit_summary()
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
-#### Check inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
+#### Inference
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
-#### Check metrics
-model.model.model_performance
+
 
 import pandas as pd
 from sklearn.metrics import roc_auc_score
@@ -694,11 +831,16 @@ roc_auc_score(y, ypred)
 
 
 ```
+</details>
 
 ---
----
+
 
 ### Using hyper-params (optuna) for Titanic Problem from json file ([Example notebook](mlmodels/example/sklearn_titanic_randomForest_example2.ipynb), [JSON file](mlmodels/example/hyper_titanic_randomForest.json))
+
+<details>
+<summary> Using hyper-params (optuna) for Titanic Problem from json file </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -733,13 +875,14 @@ model_pars_update = optim(
 )
 
 
-#### Load Parameters and Train
-model         =  module.Model(model_pars=model_pars_update, data_pars=data_pars, compute_pars=compute_pars)y
-model, sess   =  module.fit(model, data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
-#### Check inference
-ypred         = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # predict pipeline
-ypred
+
+#### Inference
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Check metrics
@@ -750,11 +893,15 @@ y = pd.read_csv( path_norm('dataset/tabular/titanic_train_preprocessed.csv') )
 y = y['Survived'].values
 roc_auc_score(y, ypred)
 ```
-
+</details>
 
 ---
 
 ### Using LightGBM for Titanic Problem from json file ([Example notebook](mlmodels/example/model_lightgbm.ipynb), [JSON file](mlmodels/example/lightgbm_titanic.json))
+
+<details>
+<summary> Using LightGBM for Titanic Problem from json file </summary>
+<br>
 
 #### Import library and functions
 ```python
@@ -762,7 +909,7 @@ roc_auc_score(y, ypred)
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 #### Load model and data definitions from json
 # Model defination
@@ -778,32 +925,38 @@ for key, pdict in  pars.items() :
   globals()[key] = path_norm_dict( pdict   )   ###Normalize path
 
 #### Load Parameters and Train
-model = module.Model(model_pars, data_pars, compute_pars) # create model instance
-model, session = module.fit(model, data_pars, compute_pars, out_pars) # fit model
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
-#### Check inference
-ypred       = module.predict(model,  data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)     # get predictions
-ypred
+#### Inference
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
 
 
 #### Check metrics
-metrics_val = module.fit_metrics(model, data_pars, compute_pars, out_pars)
+metrics_val = module.evaluate(model, data_pars, compute_pars, out_pars)
 metrics_val 
 
 ```
+</details>
 
 ---
 
 
 ### Using Vision CNN RESNET18 for MNIST dataset  ([Example notebook](mlmodels/example/model_restnet18.ipynb), [JSON file](mlmodels/model_tch/torchhub_cnn.json))
 
+<details>
+<summary> Using Vision CNN RESNET18 for MNIST dataset </summary>
+<br>
+
 ```python
 # import library
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -817,36 +970,40 @@ hypermodel_pars, model_pars, data_pars, compute_pars, out_pars = params_json_loa
 print( hypermodel_pars, model_pars, data_pars, compute_pars, out_pars)
 
 
-#### Setup Model 
-module         = module_load( model_uri)
-model          = module.Model(model_pars, data_pars, compute_pars) 
-`
-#### Fit
-model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
-print(metrics_val)
+#### Load Parameters and Train
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred          = module.predict(model, session, data_pars, compute_pars, out_pars)   
-print(ypred)
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
+
+
+#### Check metrics
+metrics_val = module.evaluate(model, data_pars, compute_pars, out_pars)
+metrics_val 
 
 
 
 
 ```
+</details>
 ---
 
 ### Using ARMDN Time Series   ([Example notebook](mlmodels/example/model_timeseries_armdn.ipynb), [JSON file](mlmodels/model_keras/armdn.json))
 
-
+<details>
+<summary> Using ARMDN Time Serie </summary>
+<br>
 
 ```python
 # import library
 import mlmodels
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
-import json
+from jsoncomment import JsonComment ; json = JsonComment()
 
 
 #### Model URI and Config JSON
@@ -862,19 +1019,20 @@ hypermodel_pars, model_pars, data_pars, compute_pars, out_pars = params_json_loa
 print( hypermodel_pars, model_pars, data_pars, compute_pars, out_pars)
 
 
-#### Setup Model 
-module         = module_load( model_uri)
-model          = module.Model(model_pars, data_pars, compute_pars) 
-`
-#### Fit
-model, session = module.fit(model, data_pars, compute_pars, out_pars)           #### fit model
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   #### Check fit metrics
-print(metrics_val)
+#### Load Parameters and Train
+module        =  module_load( model_uri= model_uri )                           # Load file definition
+module.init(model_pars=model_pars, data_pars=data_pars, compute_pars=compute_pars)             # Create Model instance
+module.fit(data_pars=data_pars, compute_pars=compute_pars, out_pars=out_pars)
 
 
 #### Inference
-ypred          = module.predict(model, session, data_pars, compute_pars, out_pars)   
-print(ypred)
+metrics_val   =  module.evaluate(data_pars, compute_pars, out_pars) # get stats
+ypred         = module.predict(data_pars, compute_pars, out_pars)     # predict pipeline
+
+
+#### Check metrics
+metrics_val = module.evaluate(model, data_pars, compute_pars, out_pars)
+metrics_val 
 
 
 
@@ -884,7 +1042,13 @@ module.save(model, save_pars ={ 'path': out_pars['path'] +"/model/"})
 model2 = module.load(load_pars ={ 'path': out_pars['path'] +"/model/"})
 
 ```
----
 
+---
+</details>
+
+</details>
+
+
+![Pytorch](https://cutt.ly/Ayk8hji )
 
 

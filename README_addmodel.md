@@ -14,36 +14,74 @@ Read following instructions before adding a new model.
 - [Source Code Structure As Below](#source-code-structure-as-below)
 - [How to define a custom model](#how-to-define-a-custom-model)
 
-## List of Functions/Methods
-https://github.com/arita37/mlmodels/blob/dev/README_index_doc.py
 
-## Using Online Editor (Gitpod) for mlmodels
-(https://github.com/arita37/mlmodels/issues/101)
+## Get started quickly
+```
+#### Easy path finding
+from mlmodels.util import path_norm 
+  path_withPrefix = path_norm("dataset/timseries/myfile.csv")   ##   site-package/mlmodels/dataset/timseries/myfile.csv
+
+
+
+### Run some model on Command Line for debugging
+cd mlmodels
+python optim.py
+
+python model_tch/textcnn.py
+
+python model_keras/textcnn.py
+
+
+
+```
+
+
+## List of TODO / ISSUES List
+https://github.com/arita37/mlmodels/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc
+
+
+## Index of Functions/Methods
+[Index](https://github.com/arita37/mlmodels/blob/dev/README_index_doc.py)
+
+
+
+## Using Online Editor (pre-installed mlmodels)
+[Gitpod](https://github.com/arita37/mlmodels/issues/101)
+
+[Colab](https://github.com/arita37/mlmodels/issues/102)
+
+
 
 ## Code Style: 
    - You can use to 120 characters per line : Better code readability
-   - Do Not FOLLOW PEP8, make your code EASY TO READ : Align  "=" together, .... 
+   - Do Not FOLLOW strict PEP8, make your code EASY TO READ : Align  "=" together, .... 
    - Do NOT reformat existing files.
 
-## Read The Examples
 
+## Read The Examples
   - [Issue#102](https://github.com/arita37/mlmodels/issues/102)
   - [Issue#100](https://github.com/arita37/mlmodels/pull/100)
+
+<br>  
   
-## Fork 
-Fork from arita37/mlmodels. Create a new branch from DEV branchto work on. Name it as YourName or Specifi Name to identify you.
-Please use same branch for your developpements.
+## 1) Fork 
+Fork from arita37/mlmodels. 
+Please use same branch for your developpements: dev branch
 
-`git checkout -b YourName` or `git checkout -b YourName`
 
-## Configure for Tests  (No Test, No PR Accepted)
+
+## 2) Configure for Tests  (No Tests Success, No PR Accepted)
 Change in these files where needed with your MODEL_NAME and BRANCH NAME :
-- [`test_specific_model`](https://github.com/arita37/mlmodels/blob/dev/.github/workflows/PLEASE_CHANGE_test_specific_model.yml)
-- [`pullrequest.json`](https://github.com/arita37/mlmodels/blob/dev/pullrequest.json)
+- [`Test on YOUR_Branch, at each Commit`](https://github.com/arita37/mlmodels/blob/dev/.github/workflows/a_PLEASE_CHANGE_test_yourmodel.yml)  : At each commit
 
-## Create Python Script For New Model
+- [`Test at by using pullrequest/ youtest.py`](https://github.com/arita37/mlmodels/tree/dev/pullrequest)  : Used at PR Merge
+
+
+
+
+## 3) Create Python Script For New Model
 Create  `mlmodels/model_XXXX/yyyyy.py`. Check [template](https://github.com/arita37/mlmodels/blob/dev/mlmodels/template/model_xxx.py).  
-See examples: [model_keras/textcnn.py](https://github.com/arita37/mlmodels/blob/dev/mlmodels/model_keras/textcnn.py), [transformer_sentence.py](https://github.com/arita37/mlmodels/blob/dev/mlmodels/model_tch/transformer_sentence.py)`
+See examples: [model_keras/textcnn.py](https://github.com/arita37/mlmodels/blob/dev/mlmodels/model_keras/textcnn.py), [transformer_sentence.py](https://github.com/arita37/mlmodels/blob/dev/mlmodels/model_tch/transformer_sentence.py)
 
 Please re-use existing functions in [util.py](https://github.com/arita37/mlmodels/blob/dev/mlmodels/util.py)  
 
@@ -63,23 +101,21 @@ Please re-use existing functions in [util.py](https://github.com/arita37/mlmodel
      data_path = path_norm("ztest/text/myfile.txt")
         --> FULL_ PATH   /home/ubuntu/mlmodels/ztest/text/myfile.txt
 
-## Create JSON For Parameters
+
+## 4) Create JSON For Parameters
 Create  mlmodels/model_XXXX/yyyy.json file following this [template](https://github.com/arita37/mlmodels/blob/dev/mlmodels/template/models_config.json
 ).
   
-## Keep Your Branch Updated 
-Sync your branch with arita37/mlmodels:dev.
 
-     git fetch upstream dev
-     git pull upstream dev
-     git add .
-     git commit -a
-     git puh origin your_branch
+## 5) Keep Your Branch Updated 
+Sync your branch with arita37/mlmodels:dev  to reduce conflicts at final steps.
 
-You need to **merge** recent changes in dev into your branch to reduce conflicts at final steps.
+   Pull Request : arita37/dev --> your Branch
+
+
 
 ## Run Model
-Run/Test newly added model on your local machine or on [Gitpod](https://gitpod.io/).
+Run/Test newly added model on your local machine or on [Gitpod](https://gitpod.io/) or COLAB
 
     source activate py36
     cd mlmodels
@@ -96,24 +132,24 @@ Once you have made the changes issue a PR.
 
 
 
+
+
+
 ___________________________________________________________________________________________
 # Manual Installation
     ### On Linux/MacOS
     pip install numpy<=1.17.0
-    pip install -e .  -r requirements.txt
-    pip install   -r requirements_fake.txt
+    pip install -e .  -r install/requirements.txt
+    pip install   -r install/requirements_fake.txt
 
 
     ### On Windows
-    VC 14   https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2019
+    Use WSL + Linux Installed.
     pip install numpy<=1.17.0
     pip install torch==1..1 -f https://download.pytorch.org/whl/torch_stable.html
     pip install -e .  -r requirements_wi.txt
-    pip install   -r requirements_fake.txt
+    pip install   -r install/requirements_fake.txt
 
-
-    ### No Deps
-    # pip install -e .  --no-deps
 
 ___________________________________________________________________________________________
 ## Source Code Structure As Below
@@ -258,17 +294,10 @@ then for each staging, declare some specific parameters for model, dataset and a
  
 #######################################################################################
 
-## ③ CLI tools: package provide below tools
-https://github.com/arita37/mlmodels/blob/dev/README_usage.md
-
-```
-- ml_models    :  mlmodels/models.py
-- ml_optim     :  mlmodels/optim.py
-- ml_test      :  mlmodels/ztest.py
+## ③ Command Line Input  tools: package provide below tools
+https://github.com/arita37/mlmodels/blob/dev/docs/README_docs/README_usage_CLI.md
 
 
-
-```
 #######################################################################################
 ### ④ Interface
 

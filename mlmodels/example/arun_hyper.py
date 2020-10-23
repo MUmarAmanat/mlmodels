@@ -1,5 +1,5 @@
 # import library
-import json, copy
+from jsoncomment import JsonComment ; json = JsonComment(), copy
 from mlmodels.models import module_load
 from mlmodels.util import path_norm_dict, path_norm, params_json_load
 print(mlmodels)
@@ -53,7 +53,7 @@ model          = module.Model(model_pars, data_pars, compute_pars)
 
 #### Fit
 model, session = module.fit(model, data_pars, compute_pars, out_pars)           
-metrics_val    = module.fit_metrics(model, data_pars, compute_pars, out_pars)   
+metrics_val    = module.evaluate(model, data_pars, compute_pars, out_pars)   
 print(metrics_val)
 
 
